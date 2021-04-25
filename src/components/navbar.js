@@ -4,27 +4,19 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 
-const classes = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  background: {
-    background: '#84A98C',
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
+const useStyles = makeStyles({
+  header: {
+    backgroundColor: "#84A98C",
+    color: "black",
+    boxShadow: "0px 0px 0px 0px"
+  }
+});
 
 class Navbar extends React.Component{
   render() {
     return (  
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.background}>
+    <div className={useStyles.root}>
+      <AppBar position="static" className={useStyles.root}>
         <Toolbar>
           <Button color="inherit">Login</Button>
         </Toolbar>

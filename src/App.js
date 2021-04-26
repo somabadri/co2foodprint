@@ -1,11 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
+import GoogleBtn from './GoogleBtn';
 
 function App() {
   return (
     <Router>
       <div>
+        <GoogleBtn/>
         <ul>
           <li>
             <Link to='/'>Home</Link>

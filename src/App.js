@@ -1,12 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import Navbar from './components/navbar';
+import LoginHooks from './components/LoginHooks';
+import LogoutHooks from './components/LogoutHooks';
 import GoogleBtn from './GoogleBtn';
+
 
 function App() {
   return (
     <Router>
       <div>
+        <Navbar />
+        <LoginHooks />
+        <LogoutHooks />
         <GoogleBtn/>
+
         <ul>
           <li>
             <Link to='/'>Home</Link>

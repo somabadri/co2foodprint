@@ -1,20 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Navbar from './components/navbar';
-import LoginHooks from './components/LoginHooks';
-import LogoutHooks from './components/LogoutHooks';
-import GoogleBtn from './GoogleBtn';
+import Navbar from './components/navbar/navbar';
+import './App.css'
+
 
 
 function App() {
   return (
-    <Router>
+    
       <div>
         <Navbar />
-        <LoginHooks />
-        <LogoutHooks />
-        <GoogleBtn/>
-
+     
+{/*
         <ul>
           <li>
             <Link to='/'>Home</Link>
@@ -34,9 +31,9 @@ function App() {
           <Route path="/about"><About/></Route>
           <Route path="/calculate"><Calculate/></Route>
           <Route path="/userProfile"><UserProfile/></Route>
-        </Switch>
+        </Switch>*/}
       </div>
-    </Router>
+   
   );
 }
 

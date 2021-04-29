@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Navbar from './components/navbar';
-import LoginHooks from './components/LoginHooks';
+import Profile from './Profile';
+{/*import LoginHooks from './components/LoginHooks';
 import LogoutHooks from './components/LogoutHooks';
-import GoogleBtn from './GoogleBtn';
+import GoogleBtn from './GoogleBtn';*/}
 
 
 function App() {
@@ -11,9 +12,9 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <LoginHooks />
-        <LogoutHooks />
-        <GoogleBtn/>
+        {/*<LoginHooks />}
+        //<LogoutHooks />}
+  //<GoogleBtn/>*/}
 
         <ul>
           <li>
@@ -26,14 +27,14 @@ function App() {
             <Link to='/calculate'>Calculate</Link>
           </li>
           <li>
-            <Link to='/userProfile'>UserProfile</Link>
+            <Link to='/Profile'>Profile</Link>
           </li>
         </ul>
         <Switch>
           <Route exact path="/"><Home/></Route>
           <Route path="/about"><About/></Route>
           <Route path="/calculate"><Calculate/></Route>
-          <Route path="/userProfile"><UserProfile/></Route>
+          <Route path="/Profile"><Profile/></Route>
         </Switch>
       </div>
     </Router>
@@ -64,12 +65,6 @@ function Calculate() {
   );
 }
 
-function UserProfile() {
-  return (
-      <div>
-          This is the user profile page
-      </div>
-  );
-}
+
 
 export default App;

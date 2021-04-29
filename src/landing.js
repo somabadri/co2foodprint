@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import './styles/landing.scss';
 import monstera from './assets/monstera.png';
 import Googlebtn from './components/GoogleBtn'
+import Footer from './components/footer'
 
 
 function Landing() {
@@ -28,7 +29,7 @@ function Landing() {
           <img src={monstera} alt='monstera plant'/>
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

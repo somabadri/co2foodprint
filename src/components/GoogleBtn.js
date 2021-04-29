@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import Dashboard from '../dashboard';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter } from 'react-router-dom';
 
 const CLIENT_ID = '3443573685-hqahsb3lo4jaej61su2r44eed7j2oiti.apps.googleusercontent.com';
 
@@ -52,6 +54,7 @@ class GoogleBtn extends Component {
           onLogoutSuccess={ this.logout }
           onFailure={ this.handleLogoutFailure }
         >
+           
         </GoogleLogout>: <GoogleLogin
           clientId={ CLIENT_ID }
           buttonText='Login'
@@ -61,8 +64,8 @@ class GoogleBtn extends Component {
           responseType='code,token'
         />
       }
+      
       { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null }
-
     </div>
     )
   }

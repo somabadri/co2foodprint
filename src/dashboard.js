@@ -1,20 +1,23 @@
 import React, { Component } from "react";
-import '../styles/dashboard.scss'
+import './styles/dashboard.scss'
+import Tracker from './components/tracker'
 
-class Footer extends Component {
+class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard">
           <div className="left-section">
               <div className="tracker">
-
+                <Tracker />
               </div>
               <div className="buttons">
                 
               </div>
           </div>
           <div className="right-section">
-              <div className="post"></div>
+              <div className="posts">
+
+              </div>
           </div>
       </div>
     );
@@ -22,3 +25,7 @@ class Footer extends Component {
 }
 
 export default Dashboard;
+
+{/* <BrowserRouter>
+<Route path='/dashboard' component={Dashboard} />
+</BrowserRouter>  */}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Navbar from './components/navbar';
-import LoginHooks from './components/LoginHooks';
-import LogoutHooks from './components/LogoutHooks';
-import GoogleBtn from './GoogleBtn';
+import GoogleBtn from './components/GoogleBtn';
+import Footer from './components/footer';
+// import Button from './components/button';
 
 
 function App() {
@@ -11,10 +11,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <LoginHooks />
-        <LogoutHooks />
         <GoogleBtn/>
-
         <ul>
           <li>
             <Link to='/'>Home</Link>
@@ -36,7 +33,9 @@ function App() {
           <Route path="/userProfile"><UserProfile/></Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
+    
   );
 }
 

@@ -1,70 +1,99 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Navbar from './components/navbar';
-import Profile from './Profile';
-{/*import LoginHooks from './components/LoginHooks';
-import LogoutHooks from './components/LogoutHooks';
-import GoogleBtn from './GoogleBtn';*/}
+import './style.scss';
 
-
-function App() {
-  return (
-    <Router>
-      <div>
-        <Navbar />
-        {/*<LoginHooks />}
-        //<LogoutHooks />}
-  //<GoogleBtn/>*/}
-
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/calculate'>Calculate</Link>
-          </li>
-          <li>
-            <Link to='/Profile'>Profile</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route exact path="/"><Home/></Route>
-          <Route path="/about"><About/></Route>
-          <Route path="/calculate"><Calculate/></Route>
-          <Route path="/Profile"><Profile/></Route>
-        </Switch>
+  function App() {
+    return <Profile {...profileData} />;
+  }
+  
+  export default App;
+  
+  function Profile(props) {
+    const {
+      pngtreenordicPresentDecorationGreen,
+      dashboard,
+      yourRecipes,
+      yourMetrics,
+      ellipse9,
+      sobadri,
+      text1,
+      rectangle21,
+      line1,
+      line2,
+      line3,
+      line4,
+      friends,
+      ellipse10,
+      ellipse11,
+      ellipse12,
+      ellipse13,
+      carbonCutters2021,
+    } = props;
+  
+    return (
+      <div class="container-center-horizontal">
+        <div className="profile screen">
+          <div className="flex-col-2">
+            <div className="overlap-group1">
+              <img className="pngtreenordic-p-plant3799519-2" src={pngtreenordicPresentDecorationGreen} />
+              <div className="dashboard taviraj-normal-tuna-20px">{dashboard}</div>
+            </div>
+            <div className="flex-row">
+              <h1 className="title lato-bold-black-25px">{yourRecipes}</h1>
+              <div className="your-metrics lato-bold-black-25px">{yourMetrics}</div>
+            </div>
+          </div>
+          <div className="flex-row-2">
+            <div className="flex-row-3">
+              <div className="flex-col">
+                <img className="ellipse-9" src={ellipse9} />
+                <div className="sobadri">{sobadri}</div>
+              </div>
+              <div className="text-1 lato-normal-black-20px">{text1}</div>
+            </div>
+            <div className="flex-col-1">
+              <div className="overlap-group">
+                <img className="rectangle-21" src={rectangle21} />
+                <img className="line-1" src={line1} />
+                <img className="line-2" src={line2} />
+                <img className="line-3" src={line3} />
+                <img className="line-4" src={line4} />
+              </div>
+              <div className="friends lato-bold-black-25px">{friends}</div>
+              <div className="flex-row-1">
+                <img className="ellipse-10" src={ellipse10} />
+                <img className="ellipse-1" src={ellipse11} />
+                <img className="ellipse-1" src={ellipse12} />
+                <img className="ellipse-1" src={ellipse13} />
+              </div>
+            </div>
+          </div>
+          <div className="overlap-group2">
+            <div className="carbon-cutters-2021 taviraj-normal-tuna-20px">{carbonCutters2021}</div>
+          </div>
+        </div>
       </div>
-    </Router>
-  );
-}
-
-function About() {
-  return (
-      <div>
-          This is the about page
-      </div>
-  );
-}
-
-function Home() {
-  return (
-      <div>
-          this is the home page
-      </div>
-  );
-}
-
-function Calculate() {
-  return (
-      <div>
-          This is the Calculate page
-      </div>
-  );
-}
-
-
-
-export default App;
+    );
+  }
+  
+  const profileData = {
+      pngtreenordicPresentDecorationGreen: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/-pngtree-nordic-present-decoration-green-plant-3799519-2@2x.png",
+      dashboard: "Dashboard",
+      yourRecipes: "Your Recipes",
+      yourMetrics: "Your Metrics",
+      ellipse9: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-9@2x.png",
+      sobadri: "sobadri",
+      text1: <>Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5<br />Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5<br />Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5</>,
+      rectangle21: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg",
+      line1: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg",
+      line2: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg",
+      line3: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg",
+      line4: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg",
+      friends: "Friends",
+      ellipse10: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
+      ellipse11: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
+      ellipse12: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
+      ellipse13: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
+      carbonCutters2021: "Carbon Cutters 2021",
+  };
+  
+  

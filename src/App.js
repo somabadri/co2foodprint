@@ -2,6 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import './App.css'
+import About from './pages/About'
+import FoodCalc from './pages/FoodCalc'
+import TransportationCalc from './pages/TransportationCalc'
+import Profile from './pages/Profile'
+
 
 
 
@@ -9,39 +14,20 @@ function App() {
   return (
     
       <div>
-        <Navbar />
-     
-{/*
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/calculate'>Calculate</Link>
-          </li>
-          <li>
-            <Link to='/userProfile'>UserProfile</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route exact path="/"><Home/></Route>
-          <Route path="/about"><About/></Route>
-          <Route path="/calculate"><Calculate/></Route>
-          <Route path="/userProfile"><UserProfile/></Route>
-        </Switch>*/}
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/"><Home/></Route>
+            <Route path="/about"><About/></Route>
+            <Route path="/foodcalc"><FoodCalc/></Route>
+            <Route path="/transportationcalc"><TransportationCalc/></Route>
+            <Route path="/profile"><Profile/></Route>
+          </Switch>
+        
+        
+        </Router>
       </div>
    
-  );
-}
-
-function About() {
-  return (
-      <div>
-          This is the about page
-      </div>
   );
 }
 
@@ -52,6 +38,16 @@ function Home() {
       </div>
   );
 }
+{/*
+function About() {
+  return (
+      <div>
+          This is the about page
+      </div>
+  );
+}
+
+
 
 function Calculate() {
   return (
@@ -68,5 +64,6 @@ function UserProfile() {
       </div>
   );
 }
+*/}
 
 export default App;

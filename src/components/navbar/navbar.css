@@ -21,7 +21,7 @@
 .GoogleBtn{
     justify-content: right;
     align-items: center;
-    margin-left: 2 rem;
+    margin-left: 2rem;
 }
 
 .nav-menu{
@@ -42,7 +42,7 @@
 }
 
 .nav-links:hover{
-    background-color: #405F63;
+    background-color: #94b98f;
     border-radius: 4px;
     transition: all 0.2s ease-out;
 }
@@ -128,7 +128,7 @@
     }
 
     .nav-links-mobile:hover{
-        background-color: white;
+        background-color: #94b98f;
         color: #405F63;
         transition: 200ms;
     }

@@ -1,27 +1,27 @@
 export const NavbarItems = [
     {
         title: 'Home',
-        url: '#',
+        url: '/',
         cName: 'nav-links'
     },
     {
         title: 'Calculate Food',
-        url: '#',
+        url: '/foodcalc',
         cName: 'nav-links'
     },
     {
         title: 'Calculate Transportation',
-        url: '#',
+        url: '/transportationcalc',
         cName: 'nav-links'
     },
     {
         title: 'About',
-        url: '#',
+        url: '/about',
         cName: 'nav-links'
     },
     {
         title: 'Profile',
-        url: '#',
+        url: '/profile',
         cName: 'nav-links-mobile'
     },
 ]

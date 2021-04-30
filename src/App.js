@@ -20,7 +20,7 @@ function transportationButton(){
 function CalculateFood(props) {
   const {
     /*pngtreenordicPresentDecorationGreen, //monstera*/
-    profile, //profile text
+    //profile, //profile text
     text16, //choose entry food text
     baseline_Fastfood_White_48Dp1, //picture of food
     baseline_Directions_Car_White_48Dp1, //picture of transportation
@@ -31,7 +31,7 @@ function CalculateFood(props) {
     text17, //plus text
     submit, //submit text
     cancel, //cancel text
-    overlapGroup4, //green bottom bar
+    //overlapGroup4, //green bottom bar
     /*carbonCutters2021, //about name text*/
   } = props;
 
@@ -45,7 +45,7 @@ function CalculateFood(props) {
         <h1 className="text-1 lato-bold-black-30px">{text16}</h1>
         <div className="flex-row-4">
           <div className="overlap-group">
-          <ButtonBase><img className="baseline" src={baseline_Fastfood_White_48Dp1} onClick={foodButton}/></ButtonBase>
+            <ButtonBase><img className="baseline" src={baseline_Fastfood_White_48Dp1} onClick={foodButton}/></ButtonBase>
           </div>
           <div className="overlap-group3">
             <ButtonBase><img className="baseline" src={baseline_Directions_Car_White_48Dp1} onClick={transportationButton}/></ButtonBase>

@@ -1,32 +1,34 @@
 import React from 'react';
-import './style.scss';
+import './styleProfilePage.scss';
 
   function App() {
     return <Profile {...profileData} />;
   }
   
   export default App;
+
+  document.body.style = 'background: #CAD2C5';
   
   function Profile(props) {
     const {
-      pngtreenordicPresentDecorationGreen,
-      dashboard,
+      //pngtreenordicPresentDecorationGreen,
+      //dashboard,
       yourRecipes,
       yourMetrics,
-      ellipse9,
-      sobadri,
-      text1,
-      rectangle21,
-      line1,
+      ellipse9, //this is profile pic
+      sobadri, //user name
+      text1, //recipe list
+      rectangle21, //graph box
+      line1, //these are graph lines
       line2,
       line3,
       line4,
       friends,
-      ellipse10,
+      ellipse10, //these are friends pictures
       ellipse11,
       ellipse12,
       ellipse13,
-      carbonCutters2021,
+      //carbonCutters2021,
     } = props;
   
     return (
@@ -34,8 +36,8 @@ import './style.scss';
         <div className="profile screen">
           <div className="flex-col-2">
             <div className="overlap-group1">
-              <img className="pngtreenordic-p-plant3799519-2" src={pngtreenordicPresentDecorationGreen} />
-              <div className="dashboard taviraj-normal-tuna-20px">{dashboard}</div>
+              {/*<img className="pngtreenordic-p-plant3799519-2" src={pngtreenordicPresentDecorationGreen} />
+              <div className="dashboard taviraj-normal-tuna-20px">{dashboard}</div>*/}
             </div>
             <div className="flex-row">
               <h1 className="title lato-bold-black-25px">{yourRecipes}</h1>
@@ -68,7 +70,7 @@ import './style.scss';
             </div>
           </div>
           <div className="overlap-group2">
-            <div className="carbon-cutters-2021 taviraj-normal-tuna-20px">{carbonCutters2021}</div>
+            {/*<div className="carbon-cutters-2021 taviraj-normal-tuna-20px">{carbonCutters2021}</div>*/}
           </div>
         </div>
       </div>
@@ -76,8 +78,8 @@ import './style.scss';
   }
   
   const profileData = {
-      pngtreenordicPresentDecorationGreen: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/-pngtree-nordic-present-decoration-green-plant-3799519-2@2x.png",
-      dashboard: "Dashboard",
+      //pngtreenordicPresentDecorationGreen: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/-pngtree-nordic-present-decoration-green-plant-3799519-2@2x.png",
+      //dashboard: "Dashboard",
       yourRecipes: "Your Recipes",
       yourMetrics: "Your Metrics",
       ellipse9: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-9@2x.png",
@@ -93,7 +95,7 @@ import './style.scss';
       ellipse11: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
       ellipse12: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
       ellipse13: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
-      carbonCutters2021: "Carbon Cutters 2021",
+      //carbonCutters2021: "Carbon Cutters 2021",
   };
   
   

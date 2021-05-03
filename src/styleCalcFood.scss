@@ -18,12 +18,21 @@
     letter-spacing: 0;
     min-height: 27px;
     min-width: 158px;
-    //margin-right: 2.0px;
+    margin-left: 600px;
+    margin-right: 200px;
     mix-blend-mode: normal;
     text-align: center;
     width: 158px;
   }
-  
+  .submit {
+    letter-spacing: 0;
+    margin-left: 600px;
+    min-height: 27px;
+    min-width: 158px;
+    mix-blend-mode: normal;
+    text-align: center;
+    width: 158px;
+  }
   .carbon-cutters-2021 {
     letter-spacing: 0;
     min-height: 27px;
@@ -93,7 +102,7 @@
   }
   .item {
     letter-spacing: 0;
-    margin-left: 40px;
+    margin-left: 175px;
     min-height: 44px;
     mix-blend-mode: normal;
     width: 139px;
@@ -189,31 +198,33 @@
   }*/
   .quantity {
     letter-spacing: 0;
-    margin-left: 75px;
+    margin-left: 400px;
     min-height: 44px;
     min-width: 139px;
     mix-blend-mode: normal;
     width: 139px;
   }
   .rectangle-1 { //left side boxes
-    background-color: var(--quill-gray);
-    background-color: #51777b;
+    //background-color: var(--quill-gray);
+    //background-color: #51777b;
     height: 37px;
+    margin-left: 425px;
+    //margin-right: 500px;
     mix-blend-mode: normal;
     width: 118px;
   }
   .rectangle-1-1 { //right side boxes
     align-self: flex-end;
-    background-color: var(--quill-gray);
-    background-color: #51777b;
+    //background-color: var(--quill-gray);
+    //background-color: #51777b;
     height: 37px;
-    margin-left: 60px;
+    margin-left: 200px;
     mix-blend-mode: normal;
     width: 514px;
   }
   .rectangle-19 { //right side last box
-    background-color: var(--quill-gray);
-    background-color: #51777b;
+    //background-color: var(--quill-gray);
+    //background-color: #51777b;
     height: 37px;
     margin-left: 61px;
     mix-blend-mode: normal;
@@ -230,15 +241,7 @@
     top: 8px;
     width: 118px;
   }*/
-  .submit {
-    letter-spacing: 0;
-    margin-left: 100px;
-    min-height: 27px;
-    min-width: 158px;
-    mix-blend-mode: normal;
-    text-align: center;
-    width: 158px;
-  }
+  
   .text-1 {
     text-align: center;
     letter-spacing: 0;

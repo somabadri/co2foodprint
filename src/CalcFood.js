@@ -1,6 +1,8 @@
 import React from 'react';
 import './styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import FilledInput from '@material-ui/core/FilledInput';
+import TextField from '@material-ui/core/TextField';
 //import ReactDOM from 'react-dom';
 
 //class CalcFoodFcn extends React.Component{
@@ -16,6 +18,14 @@ function foodButton() {
   
 function transportationButton(){
     //window.print();
+}
+
+function submitButton() {
+  //window.print();
+}
+
+function cancelButton() {
+  //window.print();
 }
 
 function CalculateFood(props) {
@@ -81,35 +91,45 @@ function CalculateFood(props) {
           <div className="item lato-bold-black-30px">{"Item"}</div>
         </div>
         <div className="flex-row-5">
-          <div className="rectangle-1 border-1px-black"></div>
-          <div className="rectangle-1-1 border-1px-tuna"></div>
+        <form className="rectangle-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Quantity" /> </form>
+          <form className="rectangle-1-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Item" /> </form>
         </div>
         <div className="flex-row-1">
-          <div className="rectangle-1 border-1px-black"></div>
-          <div className="rectangle-1-1 border-1px-tuna"></div>
+        <form className="rectangle-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Quantity" /> </form>
+          <form className="rectangle-1-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Item" /> </form>
         </div>
         <div className="flex-row-1">
-          <div className="rectangle-1 border-1px-tuna"></div>
-          <div className="rectangle-1-1 border-1px-tuna"></div>
+        <form className="rectangle-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Quantity" /> </form>
+          <form className="rectangle-1-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Item" /> </form>
         </div>
         <div className="flex-row-1">
-          <div className="rectangle-1 border-1px-tuna"></div>
-          <div className="rectangle-1-1 border-1px-tuna"></div>
+        <form className="rectangle-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Quantity" /> </form>
+          <form className="rectangle-1-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Item" /> </form>
         </div>
         <div className="flex-row-3">
-          <div className="rectangle-1 border-1px-tuna"></div>
-          <div className="rectangle-19 border-1px-tuna"></div>
+        <form className="rectangle-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Quantity" /> </form>
+          <form className="rectangle-1-1" noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Item" /> </form>
         </div>
         <div className="overlap-group1">
           <div className="rectangle-3"></div>
-          <div className="text-2 taviraj-normal-white-30px">{"+"}</div>
+          <div className="text-2 taviraj-normal-white-30px">{text17}</div>
         </div>
         <div className="flex-row-6">
           <div className="overlap-group5">
-            <ButtonBase><div className="submit lato-bold-white-30px">{"Submit"}</div></ButtonBase> 
+            <ButtonBase className="submit" onClick={submitButton}>Submit</ButtonBase>
           </div>
           <div className="overlap-group6">
-            <ButtonBase><div className="cancel lato-bold-white-30px">{"Cancel"}</div></ButtonBase>
+            <ButtonBase className="cancel" onClick={cancelButton}>Cancel</ButtonBase>
           </div>
         </div>
         {/*<div className="overlap-group4" style={{ backgroundImage: `url(${overlapGroup4})` }}>

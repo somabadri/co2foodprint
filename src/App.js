@@ -1,13 +1,13 @@
 import React from 'react';
 import './styleCalcFood.scss';
-import CalcFoodFcn from './CalcFood.js';
+import CalculateFood from './CalcFood.js';
 //import calculateFoodData from './CalcFood.js';
 //import ButtonBase from '@material-ui/core/ButtonBase';
 
 function App() {
   return (
     <div>
-      <CalcFoodFcn />
+      <CalculateFood />
     </div>
 );
   //return <CalculateFood {...calculateFoodData} />;

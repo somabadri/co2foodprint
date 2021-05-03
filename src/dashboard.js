@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './styles/dashboard.scss'
 import Tracker from './components/tracker'
 import { Button } from "@material-ui/core";
-import Navbar from './components/navbar';
+import Navbar from './components/navbar/navbar';
 import Footer from './components/footer';
 import Post from './components/post'
 

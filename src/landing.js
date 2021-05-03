@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Navbar from './components/navbar';
 import './styles/landing.scss';
@@ -7,7 +7,8 @@ import Googlebtn from './components/GoogleBtn'
 import Footer from './components/footer'
 
 
-function Landing() {
+class Landing extends React.Component {
+  render(){
   return (
     <div>
       <Navbar />
@@ -32,6 +33,7 @@ function Landing() {
       <Footer />
     </div>
   );
+  }
 }
 
 export default Landing;

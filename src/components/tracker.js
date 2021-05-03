@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/tracker.scss'
+import tree from '../assets/tree.png';
 
 class Tracker extends Component {
   render() {
@@ -11,7 +12,9 @@ class Tracker extends Component {
         <div className="subtitle">
             Watch the tree grow as you hit your goals
         </div>
-        <img src='' alt='growing plant' />
+        <div>
+          <img className='tree-picture' src={tree} alt='growing plant' />
+        </div>
       </div>
     );
   }

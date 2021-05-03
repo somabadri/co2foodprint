@@ -43,6 +43,9 @@ class GoogleBtn extends Component {
   }
 
   render() {
+    if(this.state.isLogined){
+      return <Redirect push to="/dashboard" />
+    }
     return (
     <div>
       { this.state.isLogined ?

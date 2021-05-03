@@ -52,7 +52,6 @@ class GoogleBtn extends Component {
           onLogoutSuccess={ this.logout }
           onFailure={ this.handleLogoutFailure }
         >
-           
         </GoogleLogout>: <GoogleLogin
           clientId={ CLIENT_ID }
           buttonText='Login'
@@ -62,7 +61,7 @@ class GoogleBtn extends Component {
           responseType='code,token'
         />
       }
-      
+
       { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null }
     </div>
     )

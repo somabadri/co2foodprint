@@ -1,69 +1,22 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
-import './App.css'
-import About from './pages/About'
-import FoodCalc from './pages/FoodCalc'
-import TransportationCalc from './pages/TransportationCalc'
-import Profile from './pages/Profile'
-
-
-
+import { BrowserRouter as BrowserRouter, Route, Switch, Link, Redirect, withRouter  } from 'react-router-dom';
+import About from './About';
+import Dashboard from './Dashboard';
+import Landing from './Landing';
 
 function App() {
   return (
-    
+    <BrowserRouter>
       <div>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path="/"><Home/></Route>
-            <Route path="/about"><About/></Route>
-            <Route path="/foodcalc"><FoodCalc/></Route>
-            <Route path="/transportationcalc"><TransportationCalc/></Route>
-            <Route path="/profile"><Profile/></Route>
-          </Switch>
-        
-        
-        </Router>
+        <Switch>
+          <Route exact path="/" component={withRouter(Landing)}/>
+          <Route path="/dashboard/" component={withRouter(Dashboard)}/>
+          <Route path="/about/" component={withRouter(About)}/>
+        </Switch>
       </div>
-   
+    </BrowserRouter>
   );
 }
-
-function Home() {
-  return (
-      <div>
-          this is the home page
-      </div>
-  );
-}
-{/*
-function About() {
-  return (
-      <div>
-          This is the about page
-      </div>
-  );
-}
-
-
-
-function Calculate() {
-  return (
-      <div>
-          This is the Calculate page
-      </div>
-  );
-}
-
-function UserProfile() {
-  return (
-      <div>
-          This is the user profile page
-      </div>
-  );
-}
-*/}
 
 export default App;

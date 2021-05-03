@@ -1,0 +1,43 @@
+.container{
+    background-color: #CAD2C5;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100vh;
+    .left-text{
+        padding-left: 82px;
+        padding-top: 102px;
+        height: 400px;
+        .title{
+            width: 661px;
+            height: 77px;
+            font-family: Taviraj;
+            font-weight: bold;
+            font-size: 45px;
+            line-height: 77px;
+            color: #2F3E46;
+        }
+        .subtitle{
+            width: 614px;
+            height: 71px;
+            font-family: Lato;
+            font-weight: 300;
+            font-size: 25px;
+            line-height: 30px;
+            color: #2F3E46;
+        }
+        .description{
+            width: 614px;
+            height: 77px;
+            font-family: Lato;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 24px;
+            color: #2F3E46;
+            padding-bottom: 50px;
+        }
+    }
+    .right-text{
+        height: 400px;
+        width: 533.33px;
+    }
+}

@@ -24,8 +24,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-
-  
-  
-  

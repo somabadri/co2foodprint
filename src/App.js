@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as BrowserRouter, Route, Switch, Link, Redirect, withRouter  } from 'react-router-dom';
-
 import Profile from './Profile'
 import Calculate from './Calculate';
 import PostRecipe from './pages/postRecipe';
@@ -26,4 +25,7 @@ function App() {
   );
 }
 
-export default App;
+
+  
+  
+  

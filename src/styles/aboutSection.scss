@@ -1,0 +1,22 @@
+.about{
+    display: flex;
+    margin-bottom: 60px;
+    margin-left: 106px;
+    .about-text{
+        margin-left: 62px;
+        width: 602px;
+        height: 190px;
+        font-family: Lato;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: #000000;
+    }
+
+    .profile-picture {
+        width: 185px;
+        height: 185px;
+        border: 1px solid #84A98C;
+        border-radius: 50%;
+    }
+}

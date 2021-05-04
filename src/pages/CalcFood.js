@@ -4,6 +4,8 @@ import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import FilledInput from '@material-ui/core/FilledInput';
 import TextField from '@material-ui/core/TextField';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
 //import ReactDOM from 'react-dom';
 
 //class CalcFoodFcn extends React.Component{
@@ -50,6 +52,8 @@ function CalculateFood() {
   }
 
   return (
+    <div>
+      <Navbar />
     <div class="container-center-horizontal">
       <div className="calculate-food screen">
         <div className="overlap-group2">
@@ -102,19 +106,19 @@ function CalculateFood() {
           <form className="rectangle-1-1" noValidate autoComplete="off">
           <TextField id="standard-basic" label="Item" /> </form>
         </div>
-        <div className="overlap-group1">
-          <div className="rectangle-3"></div>
-        </div>
+        
         <div className="flex-row-6">
           <div className="overlap-group5">
-            <ButtonBase className="submit" onClick={submitButton}>Submit</ButtonBase>
+            <ButtonBase style={{color: 'white'}}className="submit" onClick={submitButton}>Submit</ButtonBase>
           </div>
           <div className="overlap-group6">
-            <ButtonBase className="cancel" onClick={cancelButton}>Cancel</ButtonBase>
+            <ButtonBase style={{color: 'white'}}className="cancel" onClick={cancelButton}>Cancel</ButtonBase>
           </div>
         </div>
         
       </div>
+    </div>
+    <Footer />
     </div>
   );
 }

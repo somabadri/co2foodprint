@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Post from '../components/Post';
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect, useHistory, withRouter} from 'react-router-dom';
-import About from './About'
+import About from './About.js'
 
 class Dashboard extends Component {
   render() {

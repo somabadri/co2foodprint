@@ -5,8 +5,6 @@ document.body.style = 'background: #CAD2C5';
   
   function Profile(props) {
     const {
-      //pngtreenordicPresentDecorationGreen,
-      //dashboard,
       yourRecipes,
       yourMetrics,
       ellipse9, //this is profile pic
@@ -22,7 +20,6 @@ document.body.style = 'background: #CAD2C5';
       ellipse11,
       ellipse12,
       ellipse13,
-      //carbonCutters2021,
     } = props;
   
     return (
@@ -30,8 +27,6 @@ document.body.style = 'background: #CAD2C5';
         <div className="profile screen">
           <div className="flex-col-2">
             <div className="overlap-group1">
-              {/*<img className="pngtreenordic-p-plant3799519-2" src={pngtreenordicPresentDecorationGreen} />
-              <div className="dashboard taviraj-normal-tuna-20px">{dashboard}</div>*/}
             </div>
             <div className="flex-row">
               <h1 className="title lato-bold-black-25px">{"Your Recipes"}</h1>
@@ -64,31 +59,10 @@ document.body.style = 'background: #CAD2C5';
             </div>
           </div>
           <div className="overlap-group2">
-            {/*<div className="carbon-cutters-2021 taviraj-normal-tuna-20px">{carbonCutters2021}</div>*/}
           </div>
         </div>
       </div>
     );
   }
   
-  const profileData = {
-      //pngtreenordicPresentDecorationGreen: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/-pngtree-nordic-present-decoration-green-plant-3799519-2@2x.png",
-      //dashboard: "Dashboard",
-      yourRecipes: "Your Recipes",
-      yourMetrics: "Your Metrics",
-      ellipse9: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-9@2x.png",
-      sobadri: "sobadri",
-      text1: <>Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5<br />Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5<br />Recipe 1<br />Recipe 2<br />Recipe 3<br />Recipe 4<br />Recipe 5</>,
-      rectangle21: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg",
-      line1: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg",
-      line2: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg",
-      line3: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg",
-      line4: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg",
-      friends: "Friends",
-      ellipse10: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
-      ellipse11: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
-      ellipse12: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
-      ellipse13: "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png",
-      //carbonCutters2021: "Carbon Cutters 2021",
-  };
   export default Profile;

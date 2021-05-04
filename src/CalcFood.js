@@ -8,7 +8,8 @@ import TextField from '@material-ui/core/TextField';
 
 //class CalcFoodFcn extends React.Component{
 
-
+//method wants to take in list of ingredients & quantity of those ingredients
+// get text input into array
 
 //function CalcFoodFcn(){
 document.body.style = 'background: #CAD2C5';
@@ -16,7 +17,7 @@ document.body.style = 'background: #CAD2C5';
 //const [itemNames, setItemName] = useState([]); //array of items
 //const [quantityNums, setQuantityNum] = useState([]); //array of quantities
 
-/*function quantity1(){
+function quantity1(){
 
 }
 
@@ -38,9 +39,15 @@ function submitButton() {
 
 function cancelButton() {
   //window.print();
-}*/
+}
 
 function CalculateFood() {
+
+  const [test, setTest] = useState("");
+  const handleChange = event => {
+    setTest(event.target.value);
+    alert(event.target.value);
+  }
 
   return (
     <div class="container-center-horizontal">
@@ -66,10 +73,10 @@ function CalculateFood() {
         </div>
         <div className="flex-row-5">
         <form className="rectangle-1" noValidate autoComplete="off">
-          <TextField id="standard-basic" label="Quantity" onChange={quantity1}/> </form>
+          <TextField id="standard-basic" label="Quantity" onChange={handleChange}/> </form>
 
           <form className="rectangle-1-1" noValidate autoComplete="off">
-          <TextField id="standard-basic" label="Item" onChange = {item1}/> </form>
+          <TextField id="standard-basic" label="Item" onChange = {handleChange}/> </form>
         </div>
         <div className="flex-row-1">
         <form className="rectangle-1" noValidate autoComplete="off">

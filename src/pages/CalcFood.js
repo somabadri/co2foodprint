@@ -96,7 +96,7 @@ function CalculateFood() {
           <form className="rectangle-1-1" noValidate autoComplete="off">
           <TextField id="standard-basic" label="Item" /> </form>
         </div>
-        <div className="flex-row-3">
+        <div className="flex-row-1">
         <form className="rectangle-1" noValidate autoComplete="off">
           <TextField id="standard-basic" label="Quantity" /> </form>
           <form className="rectangle-1-1" noValidate autoComplete="off">

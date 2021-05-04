@@ -15,6 +15,7 @@
     width: 1152px;
   }
   .cancel {
+    align-items: center;
     letter-spacing: 0;
     min-height: 27px;
     min-width: 158px;
@@ -25,8 +26,9 @@
     width: 158px;
   }
   .submit {
+    align-items: center;
     letter-spacing: 0;
-    margin-left: 600px;
+    margin-left: 500px;
     min-height: 27px;
     min-width: 158px;
     mix-blend-mode: normal;
@@ -92,8 +94,11 @@
     min-width: 554px;
   }
   .food {
+    font-size: 150%;
     align-self: flex-end;
+    //align-items: center;
     letter-spacing: 0;
+    margin-left: -30px;
     min-height: 44px;
     min-width: 169px;
     mix-blend-mode: normal;
@@ -102,6 +107,7 @@
   }
   .item {
     letter-spacing: 0;
+    font-size: 120%;
     margin-left: 175px;
     min-height: 44px;
     mix-blend-mode: normal;
@@ -114,6 +120,8 @@
     border-radius: 25px;
     display: flex;
     height: 146px;
+    width: 146px;
+    justify-content: flex-end;
     min-width: 146px;
     padding: 0 25px;
   }
@@ -141,6 +149,7 @@
     border-radius: 25px;
     display: flex;
     height: 146px;
+    width: 146px;
     justify-content: flex-end;
     margin-left: 207px;
     min-width: 146px;
@@ -198,6 +207,7 @@
   }*/
   .quantity {
     letter-spacing: 0;
+    font-size: 120%;
     margin-left: 400px;
     min-height: 44px;
     min-width: 139px;
@@ -208,7 +218,7 @@
     //background-color: var(--quill-gray);
     //background-color: #51777b;
     height: 37px;
-    margin-left: 425px;
+    margin-left: 400px;
     //margin-right: 500px;
     mix-blend-mode: normal;
     width: 118px;
@@ -222,14 +232,15 @@
     mix-blend-mode: normal;
     width: 514px;
   }
-  .rectangle-19 { //right side last box
+  /*.rectangle-19 { //right side last box
+    align-self: flex-end;
     //background-color: var(--quill-gray);
     //background-color: #51777b;
     height: 37px;
-    margin-left: 61px;
+    margin-left: 200px;
     mix-blend-mode: normal;
     width: 514px;
-  }
+  }*/
   /*.rectangle-3 {
     background-color: var(--limed-spruce);
     background-color: #51777b;
@@ -244,6 +255,7 @@
   
   .text-1 {
     text-align: center;
+    font-size: 120%;
     letter-spacing: 0;
     margin-left: 2.0px;
     margin-top: 64px;
@@ -265,7 +277,8 @@
     color: var(--black);
     //background-color: var(--celeste);
     font-family: var(--font-family-lato);
-    font-size: var(--font-size-xl);
+    //font-size: var(--font-size-xl);
+    font-size: 150%;
     //font-weight: 700; //bold
     letter-spacing: 0;
     margin-left: 184px;

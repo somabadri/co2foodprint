@@ -37,7 +37,6 @@ class Navbar extends React.Component{
         })}
         
       </ul>
-      <Button>Profile</Button>
       <GoogleBtn />
     </nav>
     );

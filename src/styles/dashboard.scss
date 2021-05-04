@@ -1,4 +1,8 @@
 .dashboard{
+    a {
+        color: #FFFFFF;
+        text-decoration: none; /* no underline */
+    }
     display: flex;
     flex-direction: row;
     .left-section{

@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import './styles/dashboard.scss'
-import Tracker from './components/tracker'
+import '../styles/dashboard.scss'
+import Tracker from '../components/tracker'
 import { Button } from "@material-ui/core";
-import Navbar from './components/navbar/navbar';
-import Footer from './components/footer';
-import Post from './components/post'
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/footer';
+import Post from '../components/post';
+import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect, useHistory, withRouter} from 'react-router-dom';
+import About from './about'
 
 class Dashboard extends Component {
   render() {
     return (
+      <BrowserRouter>
       <div>
         <Navbar />
         <div className="dashboard">
@@ -18,13 +21,14 @@ class Dashboard extends Component {
               </div>
               <div className="buttons">
                 <div className="button">
-                Calculate
+                  <a href="/calculate"> 
+                      Calculate
+                  </a>
                 </div>
                 <div className="button">
-                  Add Recipe
-                </div>
-                <div className="button">
-                  Create Post
+                  <a href="/calculate"> 
+                      Add Recipe
+                  </a>
                 </div>
               </div>
           </div>
@@ -37,7 +41,11 @@ class Dashboard extends Component {
           </div>
         </div>
         <Footer />
+        <Switch>
+          <Route path="/about/" component={withRouter(About)}/>
+        </Switch>
       </div>
+    </BrowserRouter>
     );
   }
 }

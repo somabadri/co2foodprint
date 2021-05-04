@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter as BrowserRouter, Route, Switch, Link, Redirect, withRouter  } from 'react-router-dom';
-import About from './About';
-import Post from './components/post';
+
 import Profile from './Profile'
-import Dashboard from './dashboard';
 import Calculate from './Calculate';
-import Landing from './landing';
 import PostRecipe from './pages/postRecipe';
-
-
-
+import About from './pages/about';
+import Dashboard from './pages/dashboard';
+import Landing from './pages/landing';
 
 function App() {
   return (

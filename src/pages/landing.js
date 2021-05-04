@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
-import './styles/landing.scss';
-import monstera from './assets/monstera.png';
-import Googlebtn from './components/GoogleBtn'
-import Footer from './components/footer'
+import Navbar from '../components/navbar/navbar';
+import '../styles/landing.scss';
+import monstera from '../assets/monstera.png';
+import Googlebtn from '../components/GoogleBtn'
+import Footer from '../components/footer'
 
 
 class Landing extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as BrowserRouter, Route, Switch, Link, Redirect, withRouter  } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter  } from 'react-router-dom';
 import Profile from './pages/Profile'
 import CalculateFood from './pages/CalcFood';
 import PostRecipe from './pages/PostRecipe';

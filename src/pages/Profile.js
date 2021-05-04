@@ -1,5 +1,5 @@
 import React from 'react';
-import './styleProfilePage.scss';
+import '../styles/styleProfilePage.scss';
 
 document.body.style = 'background: #CAD2C5';
   

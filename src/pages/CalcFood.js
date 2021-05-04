@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import './styleCalcFood.scss';
+import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import FilledInput from '@material-ui/core/FilledInput';
 import TextField from '@material-ui/core/TextField';

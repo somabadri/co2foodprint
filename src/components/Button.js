@@ -1,6 +1,6 @@
 import React from 'react'
 import { Children } from 'react'
-import './Button.css'
+import '../styles/button.css'
 
 const STYLES = [
     'button-primary',

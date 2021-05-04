@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import '../styles/dashboard.scss'
-import Tracker from '../components/tracker'
+import Tracker from '../components/Tracker'
 import { Button } from "@material-ui/core";
-import Navbar from '../components/navbar/navbar';
-import Footer from '../components/footer';
-import Post from '../components/post';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Post from '../components/Post';
 import { BrowserRouter as Router, Route, Switch, Link, BrowserRouter, Redirect, useHistory, withRouter} from 'react-router-dom';
-import About from './about'
+import About from './About'
 
 class Dashboard extends Component {
   render() {

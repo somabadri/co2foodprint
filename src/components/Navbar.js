@@ -1,9 +1,8 @@
 import React, { Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavbarItems } from "./NavbarItems"
-import {Button} from "../Button"
-import './navbar.css'
-import GoogleBtn from '../GoogleBtn';
+import '../styles/navbar.css'
+import GoogleBtn from './GoogleBtn';
 
 
 

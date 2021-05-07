@@ -114,7 +114,7 @@ export default function CalculateFood() {
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>
-        <h1 className="text-1 lato-bold-black-30px">{"Choose Entry Type Below"}</h1>
+        <h1 className="text-1">{"Choose Entry Type Below"}</h1>
         <div className="flex-row-4">
           <div className="overlap-group">
             <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
@@ -123,9 +123,21 @@ export default function CalculateFood() {
             <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
           </div>
         </div>
+        
         <div className="flex-row">
-          <div className="food lato-bold-black-25px">{"Food"}</div>
+          <div className="food">{"Food"}</div>
           <div className="transportation">{"Transportation"}</div>
+        </div>
+        <div className="overall-co2">
+            {co2value} kgs of co2 emitted with this recipe</div>
+        <div className="flex-row-6">
+          <div className="overlap-group5">
+            <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
+          </div>
+          <div className="overlap-group6">
+            <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
+          </div>
+          
         </div>
         <div className="flex-row-2">
           <div className="quantity lato-bold-black-30px">{"Quantity"}</div>
@@ -144,15 +156,7 @@ export default function CalculateFood() {
           </div>
         );
       })}
-        <div className="flex-row-6">
-          <div className="overlap-group5">
-            <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
-          </div>
-          <div className="overlap-group6">
-            <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
-          </div>
-          <div>{co2value} kgs of co2 emitted with this recipe</div>
-        </div>
+        
         
       </div>
     </div>

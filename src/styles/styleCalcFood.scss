@@ -9,7 +9,7 @@
     background-color: var(--celeste);
     display: flex;
     flex-direction: column;
-    height: 1075px;
+    height: 1152px;
     mix-blend-mode: normal;
     width: 1152px;
   }
@@ -22,7 +22,7 @@
     min-width: 158px;
     margin-left: 600px;
     margin-right: 200px;
-    //margin-top: 100px;
+    margin-top: 100px;
     mix-blend-mode: normal;
     text-align: center;
     width: 158px;
@@ -34,6 +34,7 @@
     color: white;
     margin-left: 50px;
     margin-right: -200px;
+    margin-top: 100px;
     min-height: 35px;
     min-width: 158px;
     mix-blend-mode: normal;
@@ -57,15 +58,17 @@
     align-items: flex-start;
     display: flex;
     height: 38px;
+    margin-left: -15px;
     margin-right: 2.0px;
     margin-top: 28px;
     min-width: 692px;
   }
   .flex-row-2 {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     height: 44px;
     margin-right: 376.0px;
+    margin-left: 0px;
     margin-top: 71px;
     min-width: 318px;
   }
@@ -95,8 +98,12 @@
     align-items: flex-start;
     display: flex;
     margin-right: 22.0px;
-    margin-top: 93px;
+    margin-left: 200px;
+    margin-top: 50px;
     min-width: 554px;
+  }
+  .overall-co2{
+
   }
   .food {
     font-size: 150%;
@@ -122,6 +129,7 @@
     align-items: center;
     background-color: #51777b;
     //background-color: #CAD2C5;
+    margin-left: 15px;
     border-radius: 25px;
     display: flex;
     height: 146px;
@@ -186,7 +194,7 @@
     text-align: center;
     font-size: 120%;
     letter-spacing: 0;
-    margin-left: 2.0px;
+    margin-left: 0px;
     margin-top: -100px;
     min-height: 44px;
     min-width: 356px;
@@ -205,7 +213,7 @@
   .transportation {
     color: var(--black);
     font-family: var(--font-family-lato);
-    font-size: var(--font-size-xl);
+    font-size: 150%;
     letter-spacing: 0;
     margin-left: 184px;
     min-height: 44px;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import LandingNavbar from '../components/LandingNavbar';
 import '../styles/landing.scss';
 import monstera from '../assets/monstera.png';
 import Googlebtn from '../components/GoogleBtn'
@@ -11,7 +11,7 @@ class Landing extends React.Component {
   render(){
   return (
     <div>
-      <Navbar />
+      <LandingNavbar />
       <div className="container">
         <div className= "left-text">
           <div className= "title">

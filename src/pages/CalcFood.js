@@ -114,7 +114,7 @@ export default function CalculateFood() {
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>
-        <h1 className="text-1">{"Choose Entry Type Below"}</h1>
+        <h1 className="text-1">{"Input Recipe or Choose Entry Type Below"}</h1>
         <div className="flex-row-4">
           <div className="overlap-group">
             <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>

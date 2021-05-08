@@ -123,6 +123,15 @@ export default function CalculateFood() {
             <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
           </div>
         </div>
+        <div className="flex-row-6">
+          <div className="overlap-group5">
+            <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
+          </div>
+          <div className="overlap-group6">
+            <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
+          </div>
+          <div>{co2value} kgs of co2 emitted with this recipe</div>
+        </div>
         <div className="flex-row">
           <div className="food lato-bold-black-25px">{"Food"}</div>
           <div className="transportation">{"Transportation"}</div>
@@ -144,15 +153,7 @@ export default function CalculateFood() {
           </div>
         );
       })}
-        <div className="flex-row-6">
-          <div className="overlap-group5">
-            <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
-          </div>
-          <div className="overlap-group6">
-            <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
-          </div>
-          <div>{co2value} kgs of co2 emitted with this recipe</div>
-        </div>
+        
         
       </div>
     </div>

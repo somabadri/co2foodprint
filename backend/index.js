@@ -2,6 +2,7 @@ import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
 import recipesDAO from "./dao/recipesDAO.js"
+import usersDAO from "./dao/usersDAO.js"
 dotenv.config();
 const MongoClient = mongodb.MongoClient;
 
@@ -18,7 +19,7 @@ MongoClient.connect(
     console.error(err.stack);
     process.exit(1);
 }).then(async client => {
-    await recipesDAO.injectDB(client);
+    await usersDAO.injectDB(client);
     app.listen(port, () => {
         console.log('please visit localhost:'+ port + '/api/v1 to check code');
     })

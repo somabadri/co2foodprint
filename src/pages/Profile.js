@@ -13,7 +13,7 @@ function Profile() {
   const [recipes,setRecipes] = useState([{}]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/recipes', {
+    fetch('http://localhost:5000/api/v1/users/test', {
       "method": "GET",
       "headers": {
         "Content-Type": "application/json"
@@ -24,7 +24,7 @@ function Profile() {
       }
       return response.json();
     }).then((json) => {
-      setRecipes(json.recipes);  
+      setRecipes(json.users[0].recipes);  
     }).catch((error) => {
       throw(error);
     })
@@ -68,7 +68,6 @@ function Profile() {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
       </div>

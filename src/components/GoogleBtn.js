@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-
+import { Redirect } from 'react-router-dom';
 
 const CLIENT_ID = '3443573685-hqahsb3lo4jaej61su2r44eed7j2oiti.apps.googleusercontent.com';
-
-
 class GoogleBtn extends Component {
    constructor(props) {
     super(props);
@@ -45,6 +43,9 @@ class GoogleBtn extends Component {
   }
 
   render() {
+    if(this.state.isLogined){
+      return <Redirect push to="/dashboard" />
+    }
     return (
     <div>
       { this.state.isLogined ?
@@ -63,8 +64,8 @@ class GoogleBtn extends Component {
           responseType='code,token'
         />
       }
-      { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null }
 
+      { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null }
     </div>
     )
   }

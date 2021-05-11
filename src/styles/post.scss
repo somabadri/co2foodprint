@@ -1,0 +1,22 @@
+.post{
+    display: flex;
+    margin-bottom: 44px;
+    margin-left: 51px;
+    margin-top: 59px;
+    .post-text{
+        margin-left: 43px;
+        width: 437px;
+        height: 29px;
+        font-family: Taviraj;
+        font-size: 20px;
+        line-height: 34px;
+        color: #FFFFFF;
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+        border: 1px solid #84A98C;
+        border-radius: 50%;
+    }
+}

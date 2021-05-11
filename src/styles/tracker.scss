@@ -1,0 +1,26 @@
+.tracker-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title{
+        width: 100%;
+        font-family: Taviraj;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 34px;
+        color: #000000;
+        margin-bottom: 28px;
+    }
+    .subtitle{
+        font-family: Lato;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 18px;
+        color: #000000;
+        margin-bottom: 35px;
+    }
+    .tree-picture{
+        width: 50px;
+        height: 90.28px;
+    }
+}

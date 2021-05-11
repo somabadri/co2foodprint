@@ -4,6 +4,7 @@ import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import FilledInput from '@material-ui/core/FilledInput';
 import TextField from '@material-ui/core/TextField';
+import Navbar from '../components/Navbar';
 //import ReactDOM from 'react-dom';
 
 //class CalcFoodFcn extends React.Component{
@@ -50,7 +51,10 @@ function CalculateFood() {
   }
 
   return (
+   <div>
+     <Navbar />
     <div class="container-center-horizontal">
+      
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>
@@ -115,6 +119,7 @@ function CalculateFood() {
         </div>
         
       </div>
+    </div>
     </div>
   );
 }

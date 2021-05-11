@@ -10,8 +10,8 @@ export const NavbarItems = [
         cName: 'nav-links'
     },
     {
-        title: 'Recipe',
-        url: '/postrecipe',
+        title: 'About us',
+        url: '/About',
         cName: 'nav-links'
     },
     {

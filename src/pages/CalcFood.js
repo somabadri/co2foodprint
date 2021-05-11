@@ -143,6 +143,10 @@ export default function CalculateFood() {
       return itemco2;
   }
 
+  function handleTransport(){
+    window.location = '/calculateTransport/'
+  }
+
   return (
     <div>
       <Navbar />
@@ -156,7 +160,7 @@ export default function CalculateFood() {
             <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
           </div>
           <div className="overlap-group3">
-            <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
+            <ButtonBase><img className="baseline" onClick={handleTransport} src={transportImg} alt=""/></ButtonBase>
           </div>
         </div>
         

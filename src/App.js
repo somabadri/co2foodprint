@@ -17,6 +17,7 @@ function App() {
           <Route path="/dashboard/" component={withRouter(Dashboard)}/>
           <Route path="/about/" component={withRouter(About)}/>
           <Route path="/calculate/" component={withRouter(CalculateFood)}/>
+          <Route path="/calculateTransport/" component={withRouter(CalculateTransport)}/>
           <Route path="/postrecipe/" component={withRouter(PostRecipe)}/>
           <Route path="/profile/" component={withRouter(Profile)}/>
         </Switch>

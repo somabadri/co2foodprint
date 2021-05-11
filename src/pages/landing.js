@@ -1,3 +1,6 @@
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import LandingNavbar from '../components/LandingNavbar';
 import React from 'react';
 import Navbar from '../components/Navbar';
 import '../styles/landing.scss';
@@ -10,7 +13,7 @@ class Landing extends React.Component {
   render(){
   return (
     <div>
-      <Navbar />
+      <LandingNavbar />
       <div className="container">
         <div className= "left-text">
           <div className= "title">

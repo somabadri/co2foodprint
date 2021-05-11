@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
 
+
 let foodImg = "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/baseline-fastfood-white-48dp-1@2x.png";
 
 let transportImg = "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/baseline-directions-car-white-48dp-1@2x.png";
@@ -111,6 +112,7 @@ export default function CalculateFood() {
     <div>
       <Navbar />
     <div class="container-center-horizontal">
+      
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>

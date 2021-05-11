@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
+import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 
 document.body.style = 'background: #CAD2C5';

@@ -22,6 +22,22 @@ export default function CalculateFood() {
 
   const [co2value,setCo2Value] = useState(0);
 
+  const [name,setName] = useState("");
+
+  const [description,setDescription] = useState("");
+
+  function handleChangeName(event) {
+    let newName = name;
+    newName = event.target.value;
+    setName(newName);
+  }
+
+  function handleChangeDesc(event) {
+    let newDesc = description;
+    newDesc = event.target.value;
+    setDescription(newDesc);
+  }
+
   function handleAdd() {
     const par = [...params];
     par.push({Item:'',Quantity:'',co2value:0});
@@ -40,6 +56,31 @@ export default function CalculateFood() {
     setParams(par);
   }
 
+  function handlePost() {
+    const data = {
+      "name":name,
+      "ingredients":params,
+      "co2value":co2value,
+      "description":description,
+      "tag":"none"
+    }
+    fetch('http://localhost:5000/api/v1/users/test',{
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": JSON.stringify(data)
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then((json) => {
+      console.log(json);
+    }).catch((error) => {
+      throw(error);
+    });
+  }
   function handleSubmit() {
     let list = [...params];
     let sum = {total:0};
@@ -160,12 +201,12 @@ export default function CalculateFood() {
       <div className="formBlock">
         <div className="nameTitle">Name</div>
         <form className="formStyle">
-          <input className="nameTextbox" type="text" name="name" />
+          <input className="nameTextbox" type="text" name="name" onChange={handleChangeName}/>
         </form>
         <div className="directionTitle">Directions</div>
         <form className="formStyle">
-          <input className="directionTextbox" type="text" name="Directions" />
-          <input className="submitButton" type="submit" value="Post Recipe" />
+          <input className="directionTextbox" type="text" name="Directions" onChange={handleChangeDesc}/>
+          <input className="submitButton" type="submit" value="Post Recipe" onClick={handlePost}/>
         </form>
       </div>
     }

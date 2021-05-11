@@ -105,8 +105,7 @@ export default function CalculateFood() {
   return (
     <div>
       <Navbar />
-    <div class="container-center-horizontal">
-      
+    <div className="container-center-horizontal">
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>
@@ -155,6 +154,21 @@ export default function CalculateFood() {
         
         
       </div>
+    </div>
+    <div className="container-center-horizontal">
+    {co2value > 0 &&
+      <div className="formBlock">
+        <div className="nameTitle">Name</div>
+        <form className="formStyle">
+          <input className="nameTextbox" type="text" name="name" />
+        </form>
+        <div className="directionTitle">Directions</div>
+        <form className="formStyle">
+          <input className="directionTextbox" type="text" name="Directions" />
+          <input className="submitButton" type="submit" value="Post Recipe" />
+        </form>
+      </div>
+    }
     </div>
     <Footer />
     </div>

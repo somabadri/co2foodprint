@@ -222,6 +222,71 @@
     text-align: center;
     width: 169px;
   }
+  .formBlock{
+    // padding-left: 33%;
+    // padding-right: 33%;
+  }
+
+  .formStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .nameTitle{
+    width: 354px;
+    height: 44px;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 24px;
+  }
+  
+  .nameTextbox{
+     width: 692px;
+    height: 46px;
+    background: #D5DBD1;
+    border: 1px solid #2F3E46;
+    box-sizing: border-box;
+    margin-bottom: 39px;
+  }
+
+  .directionTitle{
+    width: 354px;
+    height: 44px;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 24px;
+  }
+
+  .directionTextbox{
+    width: 692px;
+    height: 246px;
+    background: #D5DBD1;
+    border: 1px solid #2F3E46;
+    box-sizing: border-box;
+    margin-bottom: 39px;
+  }
+  
+  .submitButton{
+    width: 200px;
+    height: 60px;
+    background: #354F52;
+    border-radius: 25px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+  }
   
   @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
   @import url("https://fonts.googleapis.com/css?family=Taviraj:400,700|Lato:400,300,700");

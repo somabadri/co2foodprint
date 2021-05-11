@@ -7,7 +7,7 @@ import '../styles/about.scss';
 class About extends Component {
     render() {
         let description= 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam sed sem suscipit mollis mattis eu quam. Morbi luctus massa tellus, quis dignissim lectus condimentum at. Nullam convallis non tellus in gravida. ';
-      return (
+        return (
         <div>
             <Navbar />
             <div className="posts-container">

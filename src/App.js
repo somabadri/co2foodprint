@@ -19,6 +19,7 @@ function App() {
           <Route path="/calculate/" component={withRouter(CalculateFood)}/>
           <Route path="/postrecipe/" component={withRouter(PostRecipe)}/>
           <Route path="/profile/" component={withRouter(Profile)}/>
+          <Route path="/calculateTransport/" component={withRouter(CalculateTransport)}/>
         </Switch>
       </div>
     </BrowserRouter>

@@ -110,6 +110,11 @@ export default function CalculateTransport() {
           }
           return itemco2;
       }
+
+      function handleFood(){
+        window.location = '/calculate/'
+      }
+    
     return (
         <div>
           <Navbar />
@@ -120,7 +125,7 @@ export default function CalculateTransport() {
             <h1 className="text-1">{"Input Transportation or Choose Entry Type Below"}</h1>
             <div className="flex-row-4">
               <div className="overlap-group">
-                <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
+                <ButtonBase><img className="baseline" onClick={handleFood} src={foodImg} alt=""/></ButtonBase>
               </div>
               <div className="overlap-group3">
                 <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>

@@ -1,7 +1,6 @@
 .baseline {
     height: 96px;
     mix-blend-mode: normal;
-    //background-color: #CAD2C5;
     object-fit: cover;
     width: 96px;
   }
@@ -10,24 +9,33 @@
     background-color: var(--celeste);
     display: flex;
     flex-direction: column;
-    height: 1512px;
+    height: 1152px;
     mix-blend-mode: normal;
     width: 1152px;
   }
   .cancel {
+    align-items: center;
     letter-spacing: 0;
-    min-height: 27px;
+    font-size: 150%;
+    color: white;
+    min-height: 35px;
     min-width: 158px;
     margin-left: 600px;
     margin-right: 200px;
+    margin-top: 100px;
     mix-blend-mode: normal;
     text-align: center;
     width: 158px;
   }
   .submit {
+    align-items: center;
     letter-spacing: 0;
-    margin-left: 600px;
-    min-height: 27px;
+    font-size: 150%;
+    color: white;
+    margin-left: 50px;
+    margin-right: -200px;
+    margin-top: 100px;
+    min-height: 35px;
     min-width: 158px;
     mix-blend-mode: normal;
     text-align: center;
@@ -50,15 +58,17 @@
     align-items: flex-start;
     display: flex;
     height: 38px;
+    margin-left: -15px;
     margin-right: 2.0px;
     margin-top: 28px;
     min-width: 692px;
   }
   .flex-row-2 {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     height: 44px;
     margin-right: 376.0px;
+    margin-left: 0px;
     margin-top: 71px;
     min-width: 318px;
   }
@@ -88,12 +98,19 @@
     align-items: flex-start;
     display: flex;
     margin-right: 22.0px;
-    margin-top: 93px;
+    margin-left: 200px;
+    margin-top: 50px;
     min-width: 554px;
   }
+  .overall-co2{
+
+  }
   .food {
+    font-size: 150%;
     align-self: flex-end;
+    //align-items: center;
     letter-spacing: 0;
+    margin-left: -30px;
     min-height: 44px;
     min-width: 169px;
     mix-blend-mode: normal;
@@ -102,6 +119,7 @@
   }
   .item {
     letter-spacing: 0;
+    font-size: 120%;
     margin-left: 175px;
     min-height: 44px;
     mix-blend-mode: normal;
@@ -111,36 +129,23 @@
     align-items: center;
     background-color: #51777b;
     //background-color: #CAD2C5;
+    margin-left: 15px;
     border-radius: 25px;
     display: flex;
     height: 146px;
+    width: 146px;
+    justify-content: flex-end;
     min-width: 146px;
     padding: 0 25px;
   }
-  /*.overlap-group1 {
-    height: 45px;
-    margin-top: 26px;
-    background-color: #51777b;
-    position: relative;
-    width: 118px;
-  }*/
-  /*.overlap-group2 {
-    align-items: flex-start;
-    //background-color: var(--bay-leaf);
-    background-color: #51777b;
-    display: flex;
-    height: 66px;
-    justify-content: flex-end;
-    min-width: 1152px;
-    padding: 10px 26px;
-  }*/
+  
   .overlap-group3 { //this is the transportation button
     align-items: center;
-    //background-color: #405f63;
     background-color: #51777b;
     border-radius: 25px;
     display: flex;
     height: 146px;
+    width: 146px;
     justify-content: flex-end;
     margin-left: 207px;
     min-width: 146px;
@@ -149,7 +154,6 @@
   .overlap-group4 {
     align-items: flex-start;
     background-size: 100% 100%;
-    //background-color: #51777b;
     display: flex;
     height: 66px;
     justify-content: flex-end;
@@ -157,96 +161,41 @@
     min-width: 1152px;
     padding: 19px 474px;
   }
-  /*.overlap-group5 { //background submit
-    align-items: flex-start;
-    //background-color: var(--limed-spruce);
-    border-radius: 25px;
-    background-color: #51777b;
-    display: flex;
-    height: 60px;
-    justify-content: flex-end;
-    min-width: 200px;
-    padding: 8px 20px;
-  }*/
-  /*.overlap-group6 { //background cancel
-    align-items: flex-start;
-    background-color: var(--limed-spruce);
-    background-color: #51777b;
-    border-radius: 25px;
-    display: flex;
-    height: 60px;
-    justify-content: flex-end;
-    margin-left: 154px;
-    min-width: 200px;
-    padding: 8px 20px;
-  }*/
-  /*.pngtreenordic-p-plant3799519-2 {
-    align-self: flex-end;
-    height: 45px;
-    mix-blend-mode: normal;
-    object-fit: cover;
-    width: 45px;
-  }*/
-  /*.profile {
-    letter-spacing: 0;
-    margin-left: 941px;
-    //margin-left: 184px;
-    margin-top: 6px;
-    min-height: 19px;
-    mix-blend-mode: normal;
-    width: 79px;
-  }*/
   .quantity {
     letter-spacing: 0;
+    font-size: 120%;
     margin-left: 400px;
     min-height: 44px;
     min-width: 139px;
     mix-blend-mode: normal;
     width: 139px;
   }
-  .rectangle-1 { //left side boxes
-    //background-color: var(--quill-gray);
-    //background-color: #51777b;
+  .rectangle-1 { 
     height: 37px;
     margin-left: 425px;
-    //margin-right: 500px;
     mix-blend-mode: normal;
     width: 118px;
   }
-  .rectangle-1-1 { //right side boxes
+  .rectangle-1-1 {
     align-self: flex-end;
-    //background-color: var(--quill-gray);
-    //background-color: #51777b;
     height: 37px;
     margin-left: 200px;
     mix-blend-mode: normal;
     width: 514px;
   }
-  .rectangle-19 { //right side last box
-    //background-color: var(--quill-gray);
-    //background-color: #51777b;
+  .rectangle-19 {
     height: 37px;
-    margin-left: 61px;
+    margin-left: 200px;
     mix-blend-mode: normal;
     width: 514px;
   }
-  /*.rectangle-3 {
-    background-color: var(--limed-spruce);
-    background-color: #51777b;
-    border-radius: 25px;
-    height: 37px;
-    left: 0;
-    mix-blend-mode: normal;
-    position: absolute;
-    top: 8px;
-    width: 118px;
-  }*/
   
   .text-1 {
     text-align: center;
+    font-size: 120%;
     letter-spacing: 0;
-    margin-left: 2.0px;
-    margin-top: 64px;
+    margin-left: 0px;
+    margin-top: -100px;
     min-height: 44px;
     min-width: 356px;
     mix-blend-mode: normal;
@@ -263,10 +212,8 @@
   }
   .transportation {
     color: var(--black);
-    //background-color: var(--celeste);
     font-family: var(--font-family-lato);
-    font-size: var(--font-size-xl);
-    //font-weight: 700; //bold
+    font-size: 150%;
     letter-spacing: 0;
     margin-left: 184px;
     min-height: 44px;

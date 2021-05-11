@@ -1,5 +1,4 @@
-import React, { Component} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import { NavbarItems } from "./NavbarItems"
 import '../styles/navbar.css'
 import GoogleBtn from './GoogleBtn';

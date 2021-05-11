@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import LandingNavbar from '../components/LandingNavbar';
-import React from 'react';
 import Navbar from '../components/Navbar';
 import '../styles/landing.scss';
 import monstera from '../assets/monstera.png';

@@ -21,6 +21,6 @@ MongoClient.connect(
 }).then(async client => {
     await usersDAO.injectDB(client);
     app.listen(port, () => {
-        console.log('please visit localhost:'+ port + '/api/v1 to check code');
+        console.log('please visit localhost:'+ port + '/api/v1/users to check code');
     })
 })

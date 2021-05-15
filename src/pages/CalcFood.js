@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import TextField from '@material-ui/core/TextField';
@@ -22,6 +22,38 @@ export default function CalculateFood() {
 
   const [co2value,setCo2Value] = useState(0);
 
+  const [name,setName] = useState("");
+
+  const [description,setDescription] = useState("");
+
+  //const [recipes,setRecipes] = useState([{}]);
+  //const [username,setUserName] = useState('');
+  const [email,setEmail] = useState('');
+  //const [pic,setPic] = useState('');
+
+  useEffect(()=> {
+    const data = {
+      name: localStorage.getItem('current name'),
+      email: localStorage.getItem('current email'),
+      pic: localStorage.getItem('current pic')
+    }
+    //setUserName(data.username);
+    setEmail(data.email);
+    //setPic(data.pic);
+  },[]);
+
+  function handleChangeName(event) {
+    let newName = name;
+    newName = event.target.value;
+    setName(newName);
+  }
+
+  function handleChangeDesc(event) {
+    let newDesc = description;
+    newDesc = event.target.value;
+    setDescription(newDesc);
+  }
+
   function handleAdd() {
     const par = [...params];
     par.push({Item:'',Quantity:'',co2value:0});
@@ -40,6 +72,30 @@ export default function CalculateFood() {
     setParams(par);
   }
 
+  function handlePost() {
+    const data = {
+      "name":name,
+      "ingredients":params,
+      "co2value":co2value,
+      "description":description,
+    }
+    fetch('http://localhost:5000/api/v1/users/'+email,{
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": JSON.stringify(data)
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then((json) => {
+      console.log(json);
+    }).catch((error) => {
+      throw(error);
+    });
+  }
   function handleSubmit() {
     let list = [...params];
     let sum = {total:0};
@@ -48,7 +104,7 @@ export default function CalculateFood() {
 
   function fetchData(list,sum) {
     for(let idx = 0; idx < list.length; ++idx){
-      fetch('https://api.edamam.com/api/nutrition-data?app_id=6ac27589&app_key=36e9480a93670970ec32aa67ce9ee33c&ingr='+list[idx].Quantity+'%20'+list[idx].Item, {
+      fetch('https://api.edamam.com/api/nutrition-data?app_id=753218d9&app_key=72c64d1e28883adcc6cb4147833a4574&ingr='+list[idx].Quantity+'%20'+list[idx].Item, {
         "method": "GET",
         "headers": {
           "Content-Type": "application/json"
@@ -74,6 +130,7 @@ export default function CalculateFood() {
 
   function calculateItem(json){
     let category = 0;
+    //switch statement rather than if/else
       if(!json.healthLabels.includes("RED_MEAT_FREE") && json.healthLabels.includes("PORK_FREE")){
         category = 60;
       } else if (!json.healthLabels.includes("NO_SUGAR_ADDED")){
@@ -102,11 +159,14 @@ export default function CalculateFood() {
       return itemco2;
   }
 
+  function handleTransport(){
+    window.location = '/calculateTransport/'
+  }
+
   return (
     <div>
       <Navbar />
-    <div class="container-center-horizontal">
-      
+    <div className="container-center-horizontal">
       <div className="calculate-food screen">
         <div className="overlap-group2">
         </div>
@@ -116,7 +176,7 @@ export default function CalculateFood() {
             <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
           </div>
           <div className="overlap-group3">
-            <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
+            <ButtonBase><img className="baseline" onClick={handleTransport} src={transportImg} alt=""/></ButtonBase>
           </div>
         </div>
         
@@ -155,6 +215,21 @@ export default function CalculateFood() {
         
         
       </div>
+    </div>
+    <div className="container-center-horizontal">
+    {co2value > 0 &&
+      <div className="formBlock">
+        <div className="nameTitle">Name</div>
+        <form className="formStyle">
+          <input className="nameTextbox" type="text" name="name" onChange={handleChangeName}/>
+        </form>
+        <div className="directionTitle">Directions</div>
+        <form className="formStyle">
+          <input className="directionTextbox" type="text" name="Directions" onChange={handleChangeDesc}/>
+          <input className="submitButton" type="submit" value="Post Recipe" onClick={handlePost}/>
+        </form>
+      </div>
+    }
     </div>
     <Footer />
     </div>

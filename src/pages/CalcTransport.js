@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import '../styles/styleCalcTransport.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -21,14 +21,48 @@ export default function CalculateTransport() {
     const [params,setParams] = useState([{
         Item:'',
         Quantity:'',
-        co2value:0
       }]);
     
       const [co2value,setCo2Value] = useState(0);
     
+      //const [username,setUserName] = useState('');
+      const [email,setEmail] = useState('');
+      //const [pic,setPic] = useState('');
+
+    useEffect(()=> {
+      const data = {
+        name: localStorage.getItem('current name'),
+        email: localStorage.getItem('current email'),
+        pic: localStorage.getItem('current pic')
+      }
+      //setUserName(data.username);
+      setEmail(data.email);
+      //setPic(data.pic);
+    },[]);
+
+      useEffect(()=> {
+        const data = {
+          "user_id":email,
+          "transportation_co2":co2value
+        }
+        fetch('http://localhost:5000/api/v1/users',{
+          "method": "PUT",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": JSON.stringify(data)
+        }).then((response) => {
+          if(!response.ok){
+            return 'error';
+          }
+        }).catch((error) => {
+          throw(error);
+        });
+      },[co2value,email])
+
       function handleAdd() {
         const par = [...params];
-        par.push({Item:'',Quantity:'',co2value:0});
+        par.push({Item:'',Quantity:''});
         setParams(par);
       }
       
@@ -46,70 +80,45 @@ export default function CalculateTransport() {
     
       function handleSubmit() {
         let list = [...params];
-        let total = 0;
-        fetchData(list);
-        console.log(list);
-        setParams(list);
-          total = params.reduce((total, item) => {
-          return total + item.co2value;
-        },0);
-        setCo2Value(total);
+        let sum = {total:0};
+        fetchData(list,sum);
       }
     
-      function fetchData(list) {
+      function fetchData(list,sum) {
         for(let idx = 0; idx < list.length; ++idx){
-          fetch('https://api.edamam.com/api/nutrition-data?app_id=6ac27589&app_key=36e9480a93670970ec32aa67ce9ee33c&ingr='+list[idx].Quantity+'%20'+list[idx].Item, {
-            "method": "GET",
-            "headers": {
-              "Content-Type": "application/json"
-            }
-          }).then((response) => {
-            if(!response.ok){
-              return 'error';
-            }
-            return response.json();
-          })
-            .then((json) => {
-              return calculateItem(json);
-            })
-              .then((itemco2) => {
-                list[idx].co2value = itemco2;
-              })
-              .catch((error) => {
-                throw(error);
-              })
+          sum.total += calculateItem(list[idx]);
         }
+        setCo2Value(sum.total.toFixed(3));
       }
     
-      function calculateItem(json){
+      function calculateItem(entry){
         let category = 0;
-          if(!json.healthLabels.includes("RED_MEAT_FREE") && json.healthLabels.includes("PORK_FREE")){
-            category = 60;
-          } else if (!json.healthLabels.includes("NO_SUGAR_ADDED")){
-            category = 21;
-          } else if (!json.healthLabels.includes("DAIRY_FREE")){
-            category = 19;
-          } else if (!json.healthLabels.includes("SHELLFISH_FREE") || !json.healthLabels.includes("CRUSTACEAN_FREE")){
-            category = 13;
-          } else if (!json.healthLabels.includes("NO_OIL_ADDED")){
-            category = 7;
-          } else if (!json.healthLabels.includes("VEGETARIAN")){
-            category = 5.5;
-          } else if (!json.healthLabels.includes("VEGAN")){
-            category = 2.5;
+        let itemco2 = 0;
+          if(entry.Item === 'Bike'){
+            category = 0.021;
+          } else if(entry.Item === 'Bus') {
+            category = 0.103;
+          } else if(entry.Item === 'Car (Average)') {
+            category = 0.171;
+          } else if(entry.Item === 'Car (electric)') {
+            category = 0.074;
+          } else if(entry.Item === 'Car (High gas consumption)'){
+            category = 0.224;
+          } else if(entry.Item === 'Plane (domestic)'){
+            category = 0.254;
+          } else if(entry.Item === 'Plane (long haul)'){
+            category = 0.195;
           } else {
-            category = 0.4;
+            category=0.55;
           }
-          let kg_weight = 0;
-          if(json.totalWeight !== 0.0){
-            kg_weight = 1000/json.totalWeight;
-          }
-          let itemco2 = 0;
-          if(kg_weight !== 0){
-            itemco2 = category/kg_weight;
-          }
+          itemco2 = category*entry.Quantity;
           return itemco2;
       }
+
+      function handleFood(){
+        window.location = '/calculate/'
+      }
+    
     return (
         <div>
           <Navbar />
@@ -120,7 +129,7 @@ export default function CalculateTransport() {
             <h1 className="text-1">{"Input Transportation or Choose Entry Type Below"}</h1>
             <div className="flex-row-4">
               <div className="overlap-group">
-                <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
+                <ButtonBase><img className="baseline" onClick={handleFood} src={foodImg} alt=""/></ButtonBase>
               </div>
               <div className="overlap-group3">
                 <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
@@ -131,8 +140,8 @@ export default function CalculateTransport() {
               <div className="food">{"Food"}</div>
               <div className="transportation">{"Transportation"}</div>
             </div>
-            {/*<div className="overall-co2">
-                {co2value} kgs of co2 emitted with this recipe</div>*/}
+            {<div className="overall-co2">
+                {co2value} kgs of co2 emitted per year of travel</div>}
             <div className="flex-row-6">
               <div className="overlap-group5">
                 <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
@@ -143,7 +152,7 @@ export default function CalculateTransport() {
               
             </div>
             <div className="flex-row-2">
-              <div className="quantity">{"Distance"}</div>
+              <div className="quantity">{"km/yr"}</div>
               <div className="item">{"Type of Transportation"}</div>
             </div>
             {params.map((param,idx) => {
@@ -155,16 +164,22 @@ export default function CalculateTransport() {
     
                   <form className="rectangle-1-1" noValidate autoComplete="off">
                         <FormControl className={"rectangle-1-1"}>
-                        <InputLabel id="demo-simple-select-label">Type of Transportation</InputLabel>
+                        <InputLabel id="demo-simple-select-label" onChange={updateItem(idx)}>Type of Transportation</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
 
                         >
-                        <MenuItem value={10}>Car</MenuItem>
+                        <MenuItem value={10}>Bike</MenuItem>
                         <MenuItem value={20}>Bus</MenuItem>
-                        <MenuItem value={30}>Bike</MenuItem>
-                        <MenuItem value={40}>Plane</MenuItem>
+                        <MenuItem value={30}>Car (Average)</MenuItem>
+                        <MenuItem value={40}>Car (electric)</MenuItem>
+                        <MenuItem value={50}>Car (High gas consumption)</MenuItem>
+                        <MenuItem value={60}>Plane (domestic)</MenuItem>
+                        <MenuItem value={70}>Plane (long haul)</MenuItem>
+                        <MenuItem value={80}>Train</MenuItem>
+                        
+
                         </Select>
                         </FormControl>
                     </form>

@@ -71,7 +71,7 @@ export default class usersDAO {
         }
     }
 
-    static async addRecipe(params,name,ingredients,co2value,description,tag){
+    static async addRecipe(params,name,ingredients,co2value,description){
         let userid = params.userid;
         try {
             users.updateOne(
@@ -83,7 +83,6 @@ export default class usersDAO {
                         "ingredients":ingredients,
                         "co2value":co2value,
                         "description":description,
-                        "tag":tag
                     }
                 }}
             );
@@ -93,7 +92,7 @@ export default class usersDAO {
         }
     }
 
-    static async updateRecipe(params,recipeid,name,ingredients,co2value,description,tag){
+    static async updateRecipe(params,recipeid,name,ingredients,co2value,description){
         let userid = params.userid;
         try {
             const updatedRecipe = await users.updateOne(
@@ -103,7 +102,6 @@ export default class usersDAO {
                         "recipes.$.ingredients":ingredients,
                         "recipes.$.co2value":co2value,
                         "recipes.$.description":description,
-                        "recipes.$.tag":tag
                 }}
             );
             return updatedRecipe;
@@ -134,28 +132,13 @@ export default class usersDAO {
     }
 
     static async updateUser(
-        name,
         id,
-        overall,
-        friends,
-        profile,
-        transport,
-        post,
-        values,
-        tree){
+        body){
         try {
+            
             const updatedUser = await users.updateOne(
-                {user_id: ObjectId(id)},
-                { $set: {
-                    name: name,
-                    user_id: id,
-                    overall_co2: overall,
-                    friends: friends,
-                    transportation_co2: transport,
-                    most_recent_post: post,
-                    co2values_this_month: values,
-                    tree_position: tree
-                }}
+                {user_id: id},
+                { $set: body}
             );
             return updatedUser;
         } catch (e) {
@@ -167,24 +150,19 @@ export default class usersDAO {
         name,
         id,
         recipes,
-        overall,
         friends,
         profile,
         transport,
-        post,
-        values,
-        tree){
+        post){
             try{
                 const newUser = { 
                     'name': name,
                     'user_id':id,
                     'recipes':recipes,
-                    'overall_co2':overall,
                     'friends':friends,
+                    'profile_pic':profile,
                     'transportation_co2': transport,
                     'most_recent_post': post,
-                    'co2values_this_month': values,
-                    'tree_position': tree
                 }
                 return await users.insertOne(newUser);
             } catch (e) {
@@ -200,6 +178,47 @@ export default class usersDAO {
             });
 
             return deletedUser;
+        } catch(e) {
+            return { error: e };
+        }
+    }
+
+    static async addFriend(
+        params,
+        name,
+        id,
+        profile,
+        ){
+            let userid = params.userid;
+            try {
+                users.updateOne(
+                    {user_id:userid},
+                    {$push: {
+                        friends: {
+                            "name":name,
+                            "friend_id":id,
+                            "profile_pic":profile,
+                        }
+                    }}
+                );
+            } catch (e) {
+                console.error('Unable to find specified user at id ' + userid + " " + e);
+            return { friends: []}
+        }
+    }
+    static async deleteFriend(params,friend_id){
+        const userid = params.userid;
+        try {
+            const deletedRecipe = await users.updateOne(
+                {user_id:userid},
+                {"$pull": {
+                    "friends": {
+                        "friend_id":friend_id
+                    }
+                }}
+            );
+
+            return deletedRecipe;
         } catch(e) {
             return { error: e };
         }

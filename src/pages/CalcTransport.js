@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import '../styles/styleCalcTransport.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -25,6 +25,41 @@ export default function CalculateTransport() {
     
       const [co2value,setCo2Value] = useState(0);
     
+      //const [username,setUserName] = useState('');
+      const [email,setEmail] = useState('');
+      //const [pic,setPic] = useState('');
+
+    useEffect(()=> {
+      const data = {
+        name: localStorage.getItem('current name'),
+        email: localStorage.getItem('current email'),
+        pic: localStorage.getItem('current pic')
+      }
+      //setUserName(data.username);
+      setEmail(data.email);
+      //setPic(data.pic);
+    },[]);
+
+      useEffect(()=> {
+        const data = {
+          "user_id":email,
+          "transportation_co2":co2value
+        }
+        fetch('http://localhost:5000/api/v1/users',{
+          "method": "PUT",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": JSON.stringify(data)
+        }).then((response) => {
+          if(!response.ok){
+            return 'error';
+          }
+        }).catch((error) => {
+          throw(error);
+        });
+      },[co2value,email])
+
       function handleAdd() {
         const par = [...params];
         par.push({Item:'',Quantity:''});
@@ -52,8 +87,8 @@ export default function CalculateTransport() {
       function fetchData(list,sum) {
         for(let idx = 0; idx < list.length; ++idx){
           sum.total += calculateItem(list[idx]);
-          setCo2Value(sum.total.toFixed(3));
         }
+        setCo2Value(sum.total.toFixed(3));
       }
     
       function calculateItem(entry){
@@ -63,10 +98,18 @@ export default function CalculateTransport() {
             category = 0.021;
           } else if(entry.Item === 'Bus') {
             category = 0.103;
-          } else if(entry.Item === 'Car') {
+          } else if(entry.Item === 'Car (Average)') {
             category = 0.171;
+          } else if(entry.Item === 'Car (electric)') {
+            category = 0.074;
+          } else if(entry.Item === 'Car (High gas consumption)'){
+            category = 0.224;
+          } else if(entry.Item === 'Plane (domestic)'){
+            category = 0.254;
+          } else if(entry.Item === 'Plane (long haul)'){
+            category = 0.195;
           } else {
-            category = 0.251;
+            category=0.55;
           }
           itemco2 = category*entry.Quantity;
           return itemco2;
@@ -127,10 +170,16 @@ export default function CalculateTransport() {
                             id="demo-simple-select"
 
                         >
-                        <MenuItem value={10}>Car</MenuItem>
+                        <MenuItem value={10}>Bike</MenuItem>
                         <MenuItem value={20}>Bus</MenuItem>
-                        <MenuItem value={30}>Bike</MenuItem>
-                        <MenuItem value={40}>Plane</MenuItem>
+                        <MenuItem value={30}>Car (Average)</MenuItem>
+                        <MenuItem value={40}>Car (electric)</MenuItem>
+                        <MenuItem value={50}>Car (High gas consumption)</MenuItem>
+                        <MenuItem value={60}>Plane (domestic)</MenuItem>
+                        <MenuItem value={70}>Plane (long haul)</MenuItem>
+                        <MenuItem value={80}>Train</MenuItem>
+                        
+
                         </Select>
                         </FormControl>
                     </form>

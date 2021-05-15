@@ -1,8 +1,6 @@
-import React, { Component} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import { NavbarItems } from "./NavbarItems"
 import '../styles/landingNavbar.css'
-import GoogleBtn from './GoogleBtn';
 
 
 
@@ -34,7 +32,6 @@ class LandingNavbar extends React.Component{
         })}
         
       </ul>
-      <GoogleBtn />
     </nav>
     );
   };

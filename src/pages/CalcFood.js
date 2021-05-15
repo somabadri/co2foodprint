@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import TextField from '@material-ui/core/TextField';
@@ -25,6 +25,22 @@ export default function CalculateFood() {
   const [name,setName] = useState("");
 
   const [description,setDescription] = useState("");
+
+  //const [recipes,setRecipes] = useState([{}]);
+  //const [username,setUserName] = useState('');
+  const [email,setEmail] = useState('');
+  //const [pic,setPic] = useState('');
+
+  useEffect(()=> {
+    const data = {
+      name: localStorage.getItem('current name'),
+      email: localStorage.getItem('current email'),
+      pic: localStorage.getItem('current pic')
+    }
+    //setUserName(data.username);
+    setEmail(data.email);
+    //setPic(data.pic);
+  },[]);
 
   function handleChangeName(event) {
     let newName = name;
@@ -62,9 +78,8 @@ export default function CalculateFood() {
       "ingredients":params,
       "co2value":co2value,
       "description":description,
-      "tag":"none"
     }
-    fetch('http://localhost:5000/api/v1/users/test',{
+    fetch('http://localhost:5000/api/v1/users/'+email,{
       "method": "POST",
       "headers": {
         "Content-Type": "application/json"
@@ -89,7 +104,7 @@ export default function CalculateFood() {
 
   function fetchData(list,sum) {
     for(let idx = 0; idx < list.length; ++idx){
-      fetch('https://api.edamam.com/api/nutrition-data?app_id=6ac27589&app_key=36e9480a93670970ec32aa67ce9ee33c&ingr='+list[idx].Quantity+'%20'+list[idx].Item, {
+      fetch('https://api.edamam.com/api/nutrition-data?app_id=753218d9&app_key=72c64d1e28883adcc6cb4147833a4574&ingr='+list[idx].Quantity+'%20'+list[idx].Item, {
         "method": "GET",
         "headers": {
           "Content-Type": "application/json"
@@ -115,6 +130,7 @@ export default function CalculateFood() {
 
   function calculateItem(json){
     let category = 0;
+    //switch statement rather than if/else
       if(!json.healthLabels.includes("RED_MEAT_FREE") && json.healthLabels.includes("PORK_FREE")){
         category = 60;
       } else if (!json.healthLabels.includes("NO_SUGAR_ADDED")){

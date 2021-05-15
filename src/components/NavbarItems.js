@@ -1,7 +1,7 @@
 export const NavbarItems = [
     {
         title: 'Dashboard',
-        url: '/dashboard/',
+        url: '/dashboard',
         cName: 'nav-links'
     },
     {

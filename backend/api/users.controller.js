@@ -21,7 +21,6 @@ export default class UsersController {
             const newIngredients = req.body.ingredients;
             const newCo2value = req.body.co2value;
             const newDescription = req.body.description;
-            const newTag = req.body.tag;
 
             await usersDAO.addRecipe(
                 req.params,
@@ -29,7 +28,6 @@ export default class UsersController {
                 newIngredients,
                 newCo2value,
                 newDescription,
-                newTag
             )
             res.json({ status: "success" });
         } catch (e) {
@@ -43,7 +41,6 @@ export default class UsersController {
             const newIngredients = req.body.ingredients;
             const newCo2value = req.body.co2value;
             const newDescription = req.body.description;
-            const newTag = req.body.tag;
 
             const recipeResponse = await usersDAO.updateRecipe(
                 req.params,
@@ -52,7 +49,6 @@ export default class UsersController {
                 newIngredients,
                 newCo2value,
                 newDescription,
-                newTag
             );
             const { error } = recipeResponse;
             if(error) {
@@ -81,27 +77,21 @@ export default class UsersController {
     static async post(req,res) {
         try {
             const newName = req.body.name;
-            const newid = req.body.userid;
+            const newid = req.body.user_id;
             const newRecipes = [];
-            const newOverall = 0;
             const newFriends = [];
             const newProfile = req.body.profile_pic;
             const newTransport = 0;
             const newPost = "";
-            const values = [0,0,0,0];
-            const newTree = 1;
 
             await usersDAO.addUser(
                 newName,
                 newid,
                 newRecipes,
-                newOverall,
                 newFriends,
                 newProfile,
                 newTransport,
                 newPost,
-                values,
-                newTree
             )
             res.json({ status: "success" });
         } catch (e) {
@@ -111,26 +101,9 @@ export default class UsersController {
 
     static async put(req,res) {
         try {
-            const newName = req.body.name;
-            const id = req.body.userid;
-            const newOverall = req.body.overall_co2;
-            const newFriends = req.body.friends;
-            const newProfile = req.body.profile_pic;
-            const newTransport = req.body.transportation_co2;
-            const newPost = req.body.most_recent_post;
-            const values = req.body.co2values;
-            const newTree = req.body.tree;
-
+            const id = req.body.user_id;
             const recipeResponse = await usersDAO.updateUser(
-                newName,
-                id,
-                newOverall,
-                newFriends,
-                newProfile,
-                newTransport,
-                newPost,
-                values,
-                newTree
+                id,req.body
             )
             const { error } = recipeResponse;
             if(error) {
@@ -144,9 +117,40 @@ export default class UsersController {
 
     static async remove(req,res) {
         try {
-            const userId = req.query.id;
+            const userId = req.query.user_id;
             await usersDAO.deleteUser(
             userId
+            );
+            res.json({ status: "success" });
+        } catch (e) {
+            res.status(500).json({error: e.message});
+        }
+    }
+
+    static async postFriend(req,res){
+        try {
+            const newName = req.body.name;
+            const newid = req.body.friend_id;
+            const newPic = req.body.profile_pic;
+
+            await usersDAO.addFriend(
+                req.params,
+                newName,
+                newid,
+                newPic
+            )
+            res.json({ status: "success" });
+        } catch (e) {
+            res.status(500).json({error: e.message});
+        }
+    }
+
+    static async removeFriend(req,res) {
+        try {
+            const userId = req.query.friend_id;
+            await usersDAO.deleteFriend(
+                req.params,
+                userId
             );
             res.json({ status: "success" });
         } catch (e) {

@@ -22,4 +22,8 @@ router
     .post(UserCtrl.postRecipe)
     .put(UserCtrl.editRecipe)
     .delete(UserCtrl.removeRecipe)
+router
+    .route("/:userid/friends")
+    .post(UserCtrl.postFriend)
+    .delete(UserCtrl.removeFriend)
 export default router;

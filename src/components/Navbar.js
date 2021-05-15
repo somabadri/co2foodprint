@@ -28,10 +28,10 @@ class NavbarComponent extends React.Component {
           <Nav className="mr-auto">
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
-            <NavDropdown title="More Options" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/calculate">Calculate Food</NavDropdown.Item>
-              <NavDropdown.Item href="/calculateTransport">Calculate Transportation</NavDropdown.Item>
-              <NavDropdown.Item href="/postRecipe">Post Recipe</NavDropdown.Item>
+            <NavDropdown title="Calculate" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/calculate">Food</NavDropdown.Item>
+              <NavDropdown.Item href="/calculateTransport">Transportation</NavDropdown.Item>
+              {/* <NavDropdown.Item href="/postRecipe">Post Recipe</NavDropdown.Item> */}
               {/* <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
             </NavDropdown>

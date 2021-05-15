@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import '../styles/dashboard.scss'
-import Tracker from '../components/Tracker'
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Post from '../components/Post';
+import Tracker from '../components/tracker'
+import NavbarComponent from '../components/navbar';
+import Footer from '../components/footer';
+import Post from '../components/post';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
 import About from './About.js'
 
@@ -11,8 +11,9 @@ class Dashboard extends Component {
   render() {
     return (
       <BrowserRouter>
+      <NavbarComponent />
       <div>
-        <Navbar />
+        
         <div className="dashboard">
           <div className="left-section">
               <div className="tracker">
@@ -40,9 +41,9 @@ class Dashboard extends Component {
           </div>
         </div>
         <Footer />
-        <Switch>
+        {/* <Switch>
           <Route path="/about/" component={withRouter(About)}/>
-        </Switch>
+        </Switch> */}
       </div>
     </BrowserRouter>
     );

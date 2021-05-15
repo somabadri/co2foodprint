@@ -20,10 +20,7 @@ class LandingNavbar extends React.Component{
     <nav className = "NavbarItems">
       <h1 className = "navbar-logo">CO2 Foodprint</h1>
       
-      <div className= "menu-icon" >
-            <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-            
-      </div>
+      
       <ul >
         {NavbarItems.map((item, index)=> {
           return(

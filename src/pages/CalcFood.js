@@ -3,8 +3,8 @@ import { useState } from 'react';
 import '../styles/styleCalcFood.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import TextField from '@material-ui/core/TextField';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer'
+import Navbar from '../components/navbar';
+import Footer from '../components/footer'
 
 
 let foodImg = "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/baseline-fastfood-white-48dp-1@2x.png";

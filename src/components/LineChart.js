@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CanvasJSReact from '../assets/canvasjs.react';
+import '../styles/styleLineChart.scss'
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
  
 class LineChart extends Component {
@@ -9,7 +10,7 @@ class LineChart extends Component {
 			exportEnabled: true,
 			theme: "light2", // "light1", "dark1", "dark2"
 			title:{
-				text: "Your CO2 Output"
+				text: "Your CO2 Metrics"
 			},
 			axisY: {
 				title: "Average CO2 Output (kg)",
@@ -19,7 +20,7 @@ class LineChart extends Component {
 			axisX: {
 				title: "Number of Recipes",
 				//prefix: "",
-				interval: 2
+				interval: 1
 			},
 			data: [{
 				type: "line",
@@ -35,7 +36,7 @@ class LineChart extends Component {
 					{ x: 8, y: 59 },
 					{ x: 9, y: 53 },
 					{ x: 10, y: 54 },
-					{ x: 11, y: 61 },
+					/*{ x: 11, y: 61 },
 					{ x: 12, y: 60 },
 					{ x: 13, y: 55 },
 					{ x: 14, y: 60 },
@@ -47,18 +48,20 @@ class LineChart extends Component {
 					{ x: 20, y: 54 },
 					{ x: 21, y: 59 },
 					{ x: 22, y: 64 },
-					{ x: 23, y: 59 }
+					{ x: 23, y: 59 }*/
 				]
 			}]
 		}
 		
 		return (
-		<div>
+			<div className='chart'>
+				<div>
 			{/*<h1>React Line Chart</h1>*/}
-			<CanvasJSChart options = {options} 
+				<CanvasJSChart options = {options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
+				</div>
 		</div>
 		);
 	}

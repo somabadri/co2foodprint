@@ -1,20 +1,39 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Navbar from '../components/Navbar'
 import LineChart from "../components/LineChart";
+import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
+import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 document.body.style = 'background: #CAD2C5';
 
 
 
+//https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
+//DO NOT DELETE COMMENTED OUT CODE
 function Profile() {
 
   const [recipes,setRecipes] = useState([{}]);
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [pic,setPic] = useState('');
+  const [method,setMethod] = useState(false);
+  //const [averages,setAverages] = useState([{}]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/v1/users/test', {
+    //fetch('http://localhost:5000/api/v1/users/test', {
+    const data = {
+      name: localStorage.getItem('current name'),
+      email: localStorage.getItem('current email'),
+      pic: localStorage.getItem('current pic')
+    }
+    setName(data.name);
+    setEmail(data.email);
+    setPic(data.pic);
+    fetch('http://localhost:5000/api/v1/users/'+email, {
       "method": "GET",
       "headers": {
         "Content-Type": "application/json"
@@ -25,11 +44,62 @@ function Profile() {
       }
       return response.json();
     }).then((json) => {
-      setRecipes(json.users[0].recipes);  
+      //setRecipes(json.users[0].recipes);  
+      if(json.users.find(id=>id=email)){
+        setRecipes(json.users.find(id=>id=email).recipes);
+        setMethod(true);
+      }
     }).catch((error) => {
       throw(error);
     })
-  },[])
+  //},[])
+
+  },[email])
+
+  useEffect(() => {
+    let avg = [];
+    let total = [];
+    if(recipes.length !== 0){
+      for(let i = 0;i<recipes.length;i++){
+        if(i === 0){
+          total[i] =  Number(recipes[i].co2value);
+          avg[i] = total[i];
+        } else {
+          total[i] = ((avg[i-1])+Number(recipes[i].co2value)).toFixed(3);
+          avg[i] = total[i]/(i+1);
+        }
+      }
+    }
+    //setAverages(avg);
+  },[recipes])
+
+  function showRecipe(recipes) {
+    if(!method || recipes[0] === undefined) {
+      return <div></div>
+    } else {
+      return <Accordion>{(recipes.map((element,idx) => 
+        <Card key={idx}>
+          <Accordion.Toggle as={Card.Header} eventKey={element.recipe_id}>
+            {element.name}
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey={element.recipe_id}>
+            <Card.Body>
+              <div>
+                ingredients:{element.ingredients.map(ingredient => 
+                  <div>
+                  <div key ={ingredient.Item}>{ingredient.Item}</div>
+                  <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
+                  </div>
+                )}
+              </div>
+              <div key={element.co2value}>co2value:{element.co2value}</div>
+              <div key={element.description}>description:{element.description}</div>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+        ))}</Accordion>
+    }
+  }
   
     return (
     <div>
@@ -41,7 +111,7 @@ function Profile() {
             </div>
             <div className="flex-row">
               <h1 className="title">{"Your Recipes"}</h1>
-              <div className="your-metrics">{"Your Metrics"}</div>
+              {/*<div className="your-metrics">{"Your Metrics"}</div>*/}
             </div>
           </div>
           <div className="flex-row-2">
@@ -51,7 +121,9 @@ function Profile() {
                 <div className="sobadri">{"sobadri"}</div>
               </div>
               <div className= "recipes">
-                <div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>
+                {/*<div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>
+              */}
+                {showRecipe(recipes)}
               </div>
             </div>
             <div className="flex-col-1">

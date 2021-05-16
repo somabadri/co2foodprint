@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import LineChart from "../components/LineChart";
 import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
@@ -8,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 document.body.style = 'background: #CAD2C5';
+
 
 
 //https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
@@ -22,6 +24,7 @@ function Profile() {
   //const [averages,setAverages] = useState([{}]);
 
   useEffect(() => {
+    //fetch('http://localhost:5000/api/v1/users/test', {
     const data = {
       name: localStorage.getItem('current name'),
       email: localStorage.getItem('current email'),
@@ -41,6 +44,7 @@ function Profile() {
       }
       return response.json();
     }).then((json) => {
+      //setRecipes(json.users[0].recipes);  
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
         setMethod(true);
@@ -48,6 +52,8 @@ function Profile() {
     }).catch((error) => {
       throw(error);
     })
+  //},[])
+
   },[email])
 
   useEffect(() => {
@@ -94,38 +100,41 @@ function Profile() {
         ))}</Accordion>
     }
   }
-
+  
     return (
     <div>
       <Navbar />
-      <div className="container-center-horizontal">
+      <div class="container-center-horizontal">
         <div className="profile screen">
           <div className="flex-col-2">
             <div className="overlap-group1">
             </div>
             <div className="flex-row">
               <h1 className="title">{"Your Recipes"}</h1>
-              <div className="your-metrics">{"Your Metrics"}</div>
+              {/*<div className="your-metrics">{"Your Metrics"}</div>*/}
             </div>
           </div>
           <div className="flex-row-2">
             <div className="flex-row-3">
               <div className="flex-col">
-                <img className="ellipse-9" src={pic} alt=""/>
-                <div className="sobadri">{name}</div>
+                <img className="ellipse-9" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-9@2x.png"} alt=""/>
+                <div className="sobadri">{"sobadri"}</div>
               </div>
               <div className= "recipes">
+                {/*<div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>
+              */}
                 {showRecipe(recipes)}
               </div>
             </div>
             <div className="flex-col-1">
-              <div className="overlap-group">
+              <LineChart/>
+              {/*<div className="overlap-group">
                 <img className="rectangle-21" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg"} alt=""/>
                 <img className="line-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
                 <img className="line-2" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg"} alt=""/>
                 <img className="line-3" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
                 <img className="line-4" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg"} alt=""/>
-              </div>
+          </div>*/} 
               <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">

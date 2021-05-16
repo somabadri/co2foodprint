@@ -75,11 +75,6 @@ function Dashboard() {
                     Calculate
                 </a>
             </div>
-            <div className="button">
-                <a href="/calculate"> 
-                    add Recipe
-                </a>
-              </div>
             </div>
         </div>
           <div className="right-section">

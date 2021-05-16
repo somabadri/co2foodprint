@@ -117,8 +117,8 @@ function Profile() {
           <div className="flex-row-2">
             <div className="flex-row-3">
               <div className="flex-col">
-                <img className="ellipse-9" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-9@2x.png"} alt=""/>
-                <div className="sobadri">{"sobadri"}</div>
+                <img className="ellipse-9" src={pic} alt=""/>
+                <div className="sobadri">{name}</div>
               </div>
               <div className= "recipes">
                 {/*<div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>

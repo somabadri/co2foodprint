@@ -2,7 +2,7 @@ import React from "react";
 import {/*useState,*/useEffect} from 'react'
 import '../styles/dashboard.scss'
 import Tracker from '../components/Tracker'
-import Navbar from '../components/Navbar';
+import NavbarComponent from '../components/Navbar';
 import Footer from '../components/Footer';
 import Post from '../components/Post';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
@@ -63,7 +63,7 @@ function Dashboard() {
   return (
     <BrowserRouter>
     <div>
-      <Navbar />
+      <NavbarComponent />
       <div className="dashboard">
         <div className="left-section">
             <div className="tracker">

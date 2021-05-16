@@ -1,15 +1,13 @@
 import React from 'react';
-import { NavbarItems } from "./NavbarItems";
 import '../styles/navbar.css';
 import {useState,useEffect} from 'react';
-import {useHistory} from 'react-router';
-import { GoogleLogout } from 'react-google-login';
+import { Navbar, Nav, NavDropdown} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import GoogleBtn from './GoogleBtn';
 
-
-const CLIENT_ID = '96900730353-e5m0ai716kamtj0nl3bs0j8p2iu82ubv.apps.googleusercontent.com';
-function Navbar() {
-  const history = useHistory();
+function NavbarComponent() {
   const [name,setName] = useState('');
+  const [pic,setPic] = useState('');
 
   useEffect(()=> {
     const data = {
@@ -18,56 +16,41 @@ function Navbar() {
       pic: localStorage.getItem('current pic')
     }
     setName(data.name);
+    setPic(data.pic);
   },[]);
 
-  const[clicked,setClicked] = useState(true);
-
-  const handleClick = () => {
-    setClicked(false);
-  }
-
-  const responseFailure = (response) => {
-    console.log('error');
-  }
-
-  const responseLogout = () =>{
-    localStorage.removeItem('current name');
-    localStorage.removeItem('current email');
-    localStorage.removeItem('current pic');
-    history.replace('/');
-    history.go();
-  }
-
   return (  
-
-    <nav className = "NavbarItems">
-      <h1 className= "navbar-logo">Hi {name}</h1>
-      <h2 className = "navbar-logo">CO2 Foodprint</h2>
-      
-      <div className= "menu-icon" onClick={handleClick}>
-            <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-            
-      </div>
-      <ul className = {clicked ? 'nav-menu active' : 'nav-menu'}>
-        {NavbarItems.map((item, index)=> {
-          return(
-            <li key = {index}>
-              <a className = {item.cName} href = {item.url}>
-              {item.title}
-              </a>
-            </li>
-          )
-        })}
-        <GoogleLogout
-            clientId={CLIENT_ID}
-            buttonText='logout'
-            onLogoutSuccess={responseLogout}
-            onFailure={responseFailure}
-            cookiePolicy={'single_host_origin'}
-        />
-      </ul>
-    </nav>
+    <Navbar collapseOnSelect expand="md" style={{
+      backgroundColor: "#84A98C", fontFamily: "Taviraj", height: "60px",
+    }}>
+      <Navbar.Brand href="#">CO2 Foodprint</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+          <Nav.Link href="/about">About us</Nav.Link>
+          <NavDropdown title="Calculate" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="/calculate">Food</NavDropdown.Item>
+            <NavDropdown.Item href="/calculateTransport">Transportation</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        {
+          name ?
+            <React.Fragment>
+              <Nav>
+                <Nav.Link href="/profile">Hi {name}!</Nav.Link>
+              </Nav>
+              <Navbar.Brand href="/profile">
+                <img src={pic} width="50px" height="50px" style={{marginTop: 3}} alt=''/>
+              </Navbar.Brand>
+              
+            </React.Fragment>
+            : <div></div>
+        }
+        <GoogleBtn />
+      </Navbar.Collapse>
+    </Navbar>
     );
 }
 
-export default Navbar;
+export default NavbarComponent;

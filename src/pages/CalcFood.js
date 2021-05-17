@@ -195,9 +195,9 @@ export default function CalculateFood() {
           </div>
       </div>
 
-      <div className="textbox-container">
+      <div>
         {co2value > 0 &&
-          <div className="">
+          <div className="inner-tb-container">
             <div className="nameTitle">Name</div>
             <form className="formStyle">
               <input className="nameTextbox" type="text" name="name" onChange={handleChangeName}/>

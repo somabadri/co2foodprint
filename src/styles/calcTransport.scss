@@ -1,13 +1,9 @@
-.main-container{
+.main-container2{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 40px;
 }
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
-}
 .heading{
     text-align: center;
     height: 44px;
@@ -56,6 +52,7 @@
 .field{
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-right: 50px;
     width: 70px;
     border-radius: 25px;
 }
@@ -66,8 +63,16 @@
     width: 300px;
     border-radius: 25px;
 }
+
 .quantity-box{
     background: #D5DBD1;
+    width: 140px;
+    color: black;
+}
+
+.quantity-box2{
+    background: #D5DBD1;
+    width: 300px;
 }
 .buttons-container{
     display: flex;
@@ -104,77 +109,3 @@
     color: #FFFFFF;
 }
 
-.inner-tb-container{
-    background-color: #354F52;
-    width: 600px;
-    align-content: center;
-    margin-bottom: 100px;
-    margin-left: 36%;
-    padding-left: 30px;
-    padding-top: 30px;
-}
-
-.formStyle{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-}
-
-.nameTitle{
-    width: 100px;
-    height: 44px;
-    font-family: Lato;
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 36px;
-    color: #FFFFFF;
-    margin-bottom: 24px;
-    padding-top: 20px;
-    margin-left: 20px;
-}
-
-.nameTextbox{
-    width: 300px;
-    height: 40px;
-    background: #D5DBD1;
-    border: 1px solid #2F3E46;
-    box-sizing: border-box;
-    margin-bottom: 39px;
-    margin-left: 20px;
-}
-
-.directionTitle{
-    font-family: Lato;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 36px;
-    color: #FFFFFF;
-    margin-bottom: 24px;
-    margin-left: 20px;
-}
-
-.directionTextbox{
-    width: 500px;
-    height: 246px;
-    background: #D5DBD1;
-    border: 1px solid #2F3E46;
-    box-sizing: border-box;
-    margin-bottom: 39px;
-    margin-left: 20px;
-}
-
-.submitButton{
-    width: 120px;
-    height: 50px;
-    background: #84A98C;
-    //border-radius: 25px;
-    font-family: Lato;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 36px;
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 40px;
-    margin-left: 20px;
-}

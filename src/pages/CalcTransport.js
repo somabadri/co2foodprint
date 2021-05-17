@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import '../styles/styleCalcTransport.scss';
-import ButtonBase from '@material-ui/core/ButtonBase';
+import '../styles/calcTransport.scss';
 import TextField from '@material-ui/core/TextField';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
@@ -122,73 +121,50 @@ export default function CalculateTransport() {
     return (
         <div>
           <Navbar />
-        <div class="container-center-horizontal">
-          <div className="calculate-food screen">
-            <div className="overlap-group2">
+        <h1 className="heading">{"Calculate your transportation's carbon footprint below"}</h1>
+        <div className="main-container2">
+          <div className="left-container">
+            <div className="overall-co2">
+                    {co2value} <div className="co2text">kgs of co2 emitted per year</div>
             </div>
-            <h1 className="text-1">{"Input Transportation or Choose Entry Type Below"}</h1>
-            <div className="flex-row-4">
-              <div className="overlap-group">
-                <ButtonBase><img className="baseline" onClick={handleFood} src={foodImg} alt=""/></ButtonBase>
-              </div>
-              <div className="overlap-group3">
-                <ButtonBase><img className="baseline" src={transportImg} alt=""/></ButtonBase>
-              </div>
-            </div>
-            
-            <div className="flex-row">
-              <div className="food">{"Food"}</div>
-              <div className="transportation">{"Transportation"}</div>
-            </div>
-            {<div className="overall-co2">
-                {co2value} kgs of co2 emitted per year of travel</div>}
-            <div className="flex-row-6">
-              <div className="overlap-group5">
-                <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
-              </div>
-              <div className="overlap-group6">
-                <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
-              </div>
-              
-            </div>
-            <div className="flex-row-2">
-              <div className="quantity">{"km/yr"}</div>
-              <div className="item">{"Type of Transportation"}</div>
-            </div>
-            {params.map((param,idx) => {
-            return (
-              <div key={`${param} - ${idx}`}>
-                <div className="flex-row-1">
-                  <form className="rectangle-1" noValidate autoComplete="off">
-                    <TextField id={`q${idx}`}  label="Distance" onChange={updateQuanity(idx)}/> </form>
-    
-                  <form className="rectangle-1-1" noValidate autoComplete="off">
-                        <FormControl className={"rectangle-1-1"}>
-                        <InputLabel id="demo-simple-select-label" onChange={updateItem(idx)}>Type of Transportation</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
+          </div>
+          <div className="right-container">
+              {params.map((param,idx) => {
+              return (
+                <div key={`${param} - ${idx}`}>
+                  <div className="fields-container">
+                    <form className="field" noValidate autoComplete="off">
+                      <TextField id={`q${idx}`}  className="quantity-box" label="Distance (km/year)" onChange={updateQuanity(idx)}/> </form>
+      
+                    <form className="field2" noValidate autoComplete="off">
+                          <FormControl className="quantity-box2">
+                          <InputLabel id="demo-simple-select-label" onChange={updateItem(idx)}>Type of Transportation</InputLabel>
+                          <Select
+                              labelId="demo-simple-select-label"
+                              id="demo-simple-select"
 
-                        >
-                        <MenuItem value={10}>Bike</MenuItem>
-                        <MenuItem value={20}>Bus</MenuItem>
-                        <MenuItem value={30}>Car (Average)</MenuItem>
-                        <MenuItem value={40}>Car (electric)</MenuItem>
-                        <MenuItem value={50}>Car (High gas consumption)</MenuItem>
-                        <MenuItem value={60}>Plane (domestic)</MenuItem>
-                        <MenuItem value={70}>Plane (long haul)</MenuItem>
-                        <MenuItem value={80}>Train</MenuItem>
-                        
+                          >
+                          <MenuItem value={10}>Bike</MenuItem>
+                          <MenuItem value={20}>Bus</MenuItem>
+                          <MenuItem value={30}>Car (Average)</MenuItem>
+                          <MenuItem value={40}>Car (electric)</MenuItem>
+                          <MenuItem value={50}>Car (High gas consumption)</MenuItem>
+                          <MenuItem value={60}>Plane (domestic)</MenuItem>
+                          <MenuItem value={70}>Plane (long haul)</MenuItem>
+                          <MenuItem value={80}>Train</MenuItem>
+                          
 
-                        </Select>
-                        </FormControl>
-                    </form>
+                          </Select>
+                          </FormControl>
+                      </form>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-            
-            
+              );
+              })}
+            <div className="buttons-container">
+                    <div style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</div>
+                    <div style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</div>
+            </div>
           </div>
         </div>
         <Footer />

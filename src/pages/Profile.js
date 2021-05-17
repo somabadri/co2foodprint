@@ -80,29 +80,25 @@ function Profile() {
       return <div></div>
     } else {
       return <Accordion>{(recipes.map((element,idx) => 
-        <Card key={idx}>
-          <Accordion.Toggle as={Card.Header} eventKey={element.recipe_id}>
+        <Card {... {
+          style: { backgroundColor: "#84A98C" }
+        }} key={idx}>
+          <Accordion.Toggle {...{style: { textAlign: "center" }}} as={Card.Header} eventKey={element.recipe_id}>
             {element.name}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={element.recipe_id}>
-            <Card.Body>
+            <Card.Body {... {
+                style: { backgroundColor: "#afc4b3" }
+            }}>
               <div>
-                ingredients:{element.ingredients.map((ingredient,idx) => 
+                Ingredients:{element.ingredients.map(ingredient => 
                   <div>
-                  <div key ={ingredient.Item}>{ingredient.Item}</div>
-                  <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
-                  </div>
-                )}
+                  <div>{ingredient.Quantity} {ingredient.Item}</div>
+                  </div> 
+                )}<br/>
               </div>
-              <div key={element.co2value}>co2value:{element.co2value}</div>
-              <div key={element.description}>description:{element.description}</div>
-              <button key={element.recipe_id} onClick={()=>handleRemove(element.recipe_id)}>remove</button>
-              <button key={element.recipe_id+1} onClick={edit(idx)}>edit</button>
-              <RecipePopUp
-                show={editable===idx}
-                onHide={()=>setEditable(-1)}
-                recipe={element}
-                email={email}/>
+              <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
+              <div key={element.description}>Instructions: {element.description}</div>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -137,11 +133,14 @@ function Profile() {
                 pic={pic}
               />*/}
               <div className= "recipes">
-                {showRecipe(recipes)}
+                <div className= "recipeBox">
+                  {showRecipe(recipes)}
+                </div>
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart email={email}/>
+              <LineChart/> 
+              <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">
                   <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt=""/>

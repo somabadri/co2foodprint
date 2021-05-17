@@ -78,22 +78,25 @@ function Profile() {
       return <div></div>
     } else {
       return <Accordion>{(recipes.map((element,idx) => 
-        <Card key={idx}>
-          <Accordion.Toggle as={Card.Header} eventKey={element.recipe_id}>
+        <Card {... {
+          style: { backgroundColor: "#84A98C" }
+        }} key={idx}>
+          <Accordion.Toggle {...{style: { textAlign: "center" }}} as={Card.Header} eventKey={element.recipe_id}>
             {element.name}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={element.recipe_id}>
-            <Card.Body>
+            <Card.Body {... {
+                style: { backgroundColor: "#afc4b3" }
+            }}>
               <div>
                 Ingredients:{element.ingredients.map(ingredient => 
                   <div>
-                  <div key ={ingredient.Item}>{ingredient.Item}</div>
-                  <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
-                  </div>
-                )}
+                  <div>{ingredient.Quantity} {ingredient.Item}</div>
+                  </div> 
+                )}<br/>
               </div>
-              <div key={element.co2value}>CO2value: {element.co2value}</div>
-              <div key={element.description}>Description: {element.description}</div>
+              <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
+              <div key={element.description}>Instructions: {element.description}</div>
             </Card.Body>
           </Accordion.Collapse>
         </Card>

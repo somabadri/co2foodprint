@@ -67,18 +67,15 @@ useEffect(() => {
   useEffect(() => {
 	const par = [...datapts];
 	for(let i = 0; i<averages.length; i++){
-    	par.push({x: (i+1), y:averages[i]});
+    	par.push({x: (i+1), y: averages[i]});
 		setDatapts(par);
 	}
   }, [averages])
 
-
-//class LineChart extends Component {
 	useEffect(() => {
 		setOptions( {
 			animationEnabled: true,
-			//exportEnabled: true,
-			theme: "light2", // "light1", "dark1", "dark2"
+			theme: "light2", 
 			backgroundColor: "#84A98C",
 			title:{
 				text: "Your CO2 Metrics",
@@ -106,18 +103,6 @@ useEffect(() => {
 				toolTipContent: "{x} Recipes: {y} kg",
 				indexLabelFontColor: black,
 				dataPoints: datapts
-					
-					/*{ x: 1, y: average[0] },
-					{ x: 2, y: 61 },
-					{ x: 3, y: 64 },
-					{ x: 4, y: 62 },
-					{ x: 5, y: 64 },
-					{ x: 6, y: 60 },
-					{ x: 7, y: 58 },
-					{ x: 8, y: 59 },
-					{ x: 9, y: 53 },
-					{ x: 10, y: 54 },*/
-				
 			}]
 		})
 	},[averages])

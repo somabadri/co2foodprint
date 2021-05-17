@@ -203,15 +203,16 @@
   }
   .recipes {
     margin-top: 50px;
-    margin-left: 20px;
+    margin-left: 35px;
   }
-  /*.recipeBox{
-    margin-left: 50px;
-  }*/
+  .recipeBox{
+    width: 300px;
+  }
   .title {
     letter-spacing: 0;
     font-size: 150%;
     margin-left: 0px;
+    margin-top: 30px;
     //margin-bottom: 200px;
     min-height: 37px;
     min-width: 151px;

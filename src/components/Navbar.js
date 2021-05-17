@@ -17,7 +17,7 @@ function NavbarComponent() {
     }
     setName(data.name);
     setPic(data.pic);
-  },[]);
+  },[name]);
 
   return (  
     <Navbar collapseOnSelect expand="md" style={{

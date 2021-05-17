@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
+import RecipePopUp from '../components/RecipePopUp'
 
 document.body.style = 'background: #CAD2C5';
 
@@ -15,16 +16,14 @@ document.body.style = 'background: #CAD2C5';
 //https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
 //DO NOT DELETE COMMENTED OUT CODE
 function Profile() {
-
   const [recipes,setRecipes] = useState([{}]);
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
-  //const [averages,setAverages] = useState([{}]);
+  const [editable,setEditable] = useState(-1);
 
   useEffect(() => {
-    //fetch('http://localhost:5000/api/v1/users/test', {
     const data = {
       name: localStorage.getItem('current name'),
       email: localStorage.getItem('current email'),
@@ -44,7 +43,6 @@ function Profile() {
       }
       return response.json();
     }).then((json) => {
-      //setRecipes(json.users[0].recipes);  
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
         setMethod(true);
@@ -52,26 +50,30 @@ function Profile() {
     }).catch((error) => {
       throw(error);
     })
-  //},[])
-
   },[email])
 
-  useEffect(() => {
-    let avg = [];
-    let total = [];
-    if(recipes.length !== 0){
-      for(let i = 0;i<recipes.length;i++){
-        if(i === 0){
-          total[i] =  Number(recipes[i].co2value);
-          avg[i] = total[i];
-        } else {
-          total[i] = ((avg[i-1])+Number(recipes[i].co2value)).toFixed(3);
-          avg[i] = total[i]/(i+1);
-        }
+  function handleRemove(id) {
+    fetch('http://localhost:5000/api/v1/users/'+email+"?id="+id, {
+      "method": "DELETE",
+      "headers": {
+        "Content-Type": "application/json"
       }
-    }
-    //setAverages(avg);
-  },[recipes])
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then(() =>{
+      setEmail('');
+    }).catch((error) => {
+      throw(error);
+    })
+  }
+
+  const edit = idx => event => {
+    console.log(idx);
+    setEditable(idx);
+  }
 
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
@@ -114,7 +116,6 @@ function Profile() {
             </div>
             <div className="flex-row">
               <h1 className="title">{"Your Recipes"}</h1>
-              {/*<div className="your-metrics">{"Your Metrics"}</div>*/}
             </div>
           </div>
           <div className="flex-row-2">
@@ -122,7 +123,15 @@ function Profile() {
               <div className="flex-col">
                 <img className="ellipse-9" src={pic} alt=""/>
                 <div className="sobadri">{name}</div>
+                {/*<button onClick={()=>setEditable(true)}>edit</button>*/}
               </div>
+              {/*<ProfilePopUp
+                show={editable}
+                onHide={() => setEditable(false)}
+                name={name}
+                email={email}
+                pic={pic}
+              />*/}
               <div className= "recipes">
                 <div className= "recipeBox">
                   {showRecipe(recipes)}

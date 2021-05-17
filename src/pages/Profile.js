@@ -85,15 +85,15 @@ function Profile() {
           <Accordion.Collapse eventKey={element.recipe_id}>
             <Card.Body>
               <div>
-                ingredients:{element.ingredients.map(ingredient => 
+                Ingredients:{element.ingredients.map(ingredient => 
                   <div>
                   <div key ={ingredient.Item}>{ingredient.Item}</div>
                   <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
                   </div>
                 )}
               </div>
-              <div key={element.co2value}>co2value:{element.co2value}</div>
-              <div key={element.description}>description:{element.description}</div>
+              <div key={element.co2value}>CO2value: {element.co2value}</div>
+              <div key={element.description}>Description: {element.description}</div>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -121,20 +121,13 @@ function Profile() {
                 <div className="sobadri">{name}</div>
               </div>
               <div className= "recipes">
-                {/*<div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>
-              */}
-                {showRecipe(recipes)}
+                <div className= "recipeBox">
+                  {showRecipe(recipes)}
+                </div>
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart/>
-              {/*<div className="overlap-group">
-                <img className="rectangle-21" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg"} alt=""/>
-                <img className="line-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-2" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg"} alt=""/>
-                <img className="line-3" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-4" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg"} alt=""/>
-          </div>*/} 
+              <LineChart/> 
               <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">

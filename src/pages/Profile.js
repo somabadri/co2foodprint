@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
+import RecipePopUp from '../components/RecipePopUp'
 
 document.body.style = 'background: #CAD2C5';
 
@@ -20,7 +21,7 @@ function Profile() {
   const [email,setEmail] = useState('');
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
-  const [averages,setAverages] = useState([{}]);
+  const [editable,setEditable] = useState(-1);
 
   useEffect(() => {
     const data = {
@@ -42,15 +43,6 @@ function Profile() {
       }
       return response.json();
     }).then((json) => {
-      /*
-       users: [
-         {
-           json of your specific user
-           recipes: []
-         }
-       ]
-      */
-      //setRecipes(json.users[0].recipes);  
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
         setMethod(true);
@@ -59,25 +51,29 @@ function Profile() {
       throw(error);
     })
   },[email])
-  for(let i = 0;i<2;i++){
-    
-  }
-  useEffect(() => {
-    let avg = [];
-    let total = [];
-    if(recipes.length !== 0){
-      for(let i = 0;i<recipes.length;i++){
-        if(i === 0){
-          total[i] =  Number(recipes[i].co2value);
-          avg[i] = total[i];
-        } else {
-          total[i] = ((avg[i-1])+Number(recipes[i].co2value)).toFixed(3);
-          avg[i] = total[i]/(i+1);
-        }
+
+  function handleRemove(id) {
+    fetch('http://localhost:5000/api/v1/users/'+email+"?id="+id, {
+      "method": "DELETE",
+      "headers": {
+        "Content-Type": "application/json"
       }
-    }
-    setAverages(avg);
-  },[recipes])
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then(() =>{
+      setEmail('');
+    }).catch((error) => {
+      throw(error);
+    })
+  }
+
+  const edit = idx => event => {
+    console.log(idx);
+    setEditable(idx);
+  }
 
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
@@ -91,7 +87,7 @@ function Profile() {
           <Accordion.Collapse eventKey={element.recipe_id}>
             <Card.Body>
               <div>
-                ingredients:{element.ingredients.map(ingredient => 
+                ingredients:{element.ingredients.map((ingredient,idx) => 
                   <div>
                   <div key ={ingredient.Item}>{ingredient.Item}</div>
                   <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
@@ -100,6 +96,13 @@ function Profile() {
               </div>
               <div key={element.co2value}>co2value:{element.co2value}</div>
               <div key={element.description}>description:{element.description}</div>
+              <button key={element.recipe_id} onClick={()=>handleRemove(element.recipe_id)}>remove</button>
+              <button key={element.recipe_id+1} onClick={edit(idx)}>edit</button>
+              <RecipePopUp
+                show={editable===idx}
+                onHide={()=>setEditable(-1)}
+                recipe={element}
+                email={email}/>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -117,7 +120,6 @@ function Profile() {
             </div>
             <div className="flex-row">
               <h1 className="title">{"Your Recipes"}</h1>
-              {/*<div className="your-metrics">{"Your Metrics"}</div>*/}
             </div>
           </div>
           <div className="flex-row-2">
@@ -125,23 +127,21 @@ function Profile() {
               <div className="flex-col">
                 <img className="ellipse-9" src={pic} alt=""/>
                 <div className="sobadri">{name}</div>
+                {/*<button onClick={()=>setEditable(true)}>edit</button>*/}
               </div>
+              {/*<ProfilePopUp
+                show={editable}
+                onHide={() => setEditable(false)}
+                name={name}
+                email={email}
+                pic={pic}
+              />*/}
               <div className= "recipes">
-                {/*<div className="text-1">{recipes.map( element => <div>{element.name}<br /></div>)}</div>
-              */}
                 {showRecipe(recipes)}
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart/>
-              {/*<div className="overlap-group">
-                <img className="rectangle-21" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg"} alt=""/>
-                <img className="line-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-2" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg"} alt=""/>
-                <img className="line-3" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-4" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg"} alt=""/>
-          </div>*/} 
-              <div className="friends">{"Friends"}</div>
+              <LineChart email={email}/>
               <div className="flex-row-1">
                 <div className="friendpics">
                   <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt=""/>

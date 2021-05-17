@@ -8,7 +8,7 @@ class GoogleBtn extends Component {
 
     this.state = {
       isLogined: false,
-      accessToken: ''
+      accessToken: '',
     };
 
     this.login = this.login.bind(this);
@@ -19,45 +19,44 @@ class GoogleBtn extends Component {
 
   componentDidMount() {
     let loggedIn = localStorage.getItem('isLogined');
-    let token = localStorage.getItem('email');
+    let token = localStorage.getItem('current email');
    
     if(loggedIn === "true"){
       this.setState({
         isLogined: true,
-        accessToken: token
+        accessToken: token,
       });
     }
     else{
       this.setState({
         isLogined: false,
-        accessToken: ''
+        accessToken: '',
       });
     }
   }
 
   login(response) {
-    console.log(response)
-   
     if (response.accessToken) {
       this.setState({
         isLogined: true,
-        accessToken: response.accessToken
+        accessToken: response.accessToken,
+        isSet: false
       });
       localStorage.setItem('isLogined', true);
       localStorage.setItem('current email', response.profileObj.email);
-      localStorage.setItem('current name', response.profileObj.givenName);
+      localStorage.setItem('current name',response.profileObj.givenName);
       localStorage.setItem('current pic', response.profileObj.imageUrl);
     }
-    
   }
 
   logout(response) {
     this.setState({
       isLogined: false,
-      accessToken: ''
+      accessToken: '',
+      isSet:false
     });
     localStorage.setItem('isLogined', false);
-    localStorage.removeItem('email');
+    localStorage.removeItem('current email');
     localStorage.removeItem('current name');
     localStorage.removeItem('current pic');
     window.location.pathname = "/"
@@ -74,7 +73,6 @@ class GoogleBtn extends Component {
   render() {
     if(this.state.isLogined && window.location.pathname === '/'){
       window.location.pathname = "/dashboard";
-    
     }
     return (
       <div>
@@ -99,8 +97,6 @@ class GoogleBtn extends Component {
           />
 
         }
-
-        {/* { this.state.accessToken ? <h5>Your Access Token: <br/><br/> { this.state.accessToken }</h5> : null } */}
       </div>
     )
   }

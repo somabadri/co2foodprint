@@ -94,19 +94,19 @@ export default function CalculateTransport() {
       function calculateItem(entry){
         let category = 0;
         let itemco2 = 0;
-          if(entry.Item === 'Bike'){
+          if(entry.Item === 10){
             category = 0.021;
-          } else if(entry.Item === 'Bus') {
+          } else if(entry.Item === 20) {
             category = 0.103;
-          } else if(entry.Item === 'Car (Average)') {
+          } else if(entry.Item === 30) {
             category = 0.171;
-          } else if(entry.Item === 'Car (electric)') {
+          } else if(entry.Item === 40) {
             category = 0.074;
-          } else if(entry.Item === 'Car (High gas consumption)'){
+          } else if(entry.Item === 50){
             category = 0.224;
-          } else if(entry.Item === 'Plane (domestic)'){
+          } else if(entry.Item === 60){
             category = 0.254;
-          } else if(entry.Item === 'Plane (long haul)'){
+          } else if(entry.Item === 70){
             category = 0.195;
           } else {
             category=0.55;
@@ -164,8 +164,8 @@ export default function CalculateTransport() {
     
                   <form className="rectangle-1-1" noValidate autoComplete="off">
                         <FormControl className={"rectangle-1-1"}>
-                        <InputLabel id="demo-simple-select-label" onChange={updateItem(idx)}>Type of Transportation</InputLabel>
-                        <Select
+                        <InputLabel id="demo-simple-select-label">Type of Transportation</InputLabel>
+                        <Select onChange={updateItem(idx)}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
 

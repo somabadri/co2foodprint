@@ -92,15 +92,13 @@ export default class usersDAO {
         }
     }
 
-    static async updateRecipe(params,recipeid,name,ingredients,co2value,description){
+    static async updateRecipe(params,recipeid,name,ingredients,description){
         let userid = params.userid;
         try {
             const updatedRecipe = await users.updateOne(
                 {user_id:userid,"recipes.recipe_id":ObjectId(recipeid)},
                 {$set: {
                         "recipes.$.name":name,
-                        "recipes.$.ingredients":ingredients,
-                        "recipes.$.co2value":co2value,
                         "recipes.$.description":description,
                 }}
             );
@@ -113,8 +111,6 @@ export default class usersDAO {
 
     static async deleteRecipe(params,recipeid){
         const userid = params.userid;
-        console.log(userid);
-        console.log(recipeid);
         try {
             const deletedRecipe = await users.updateOne(
                 {user_id:userid},

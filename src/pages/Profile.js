@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
-import RecipePopUp from '../components/RecipePopUp'
+import Button from 'react-bootstrap/Button';
 
 document.body.style = 'background: #CAD2C5';
 
@@ -21,7 +21,6 @@ function Profile() {
   const [email,setEmail] = useState('');
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
-  const [editable,setEditable] = useState(-1);
 
   useEffect(() => {
     const data = {
@@ -70,11 +69,6 @@ function Profile() {
     })
   }
 
-  const edit = idx => event => {
-    console.log(idx);
-    setEditable(idx);
-  }
-
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
       return <div></div>
@@ -99,6 +93,7 @@ function Profile() {
               </div>
               <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
               <div key={element.description}>Instructions: {element.description}</div>
+              <Button onClick={()=>handleRemove(element.recipe_id)}>remove</Button>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -139,7 +134,7 @@ function Profile() {
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart/> 
+              <LineChart email={email}/> 
               <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">

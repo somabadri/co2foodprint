@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import '../styles/styleCalcFood.scss';
-import ButtonBase from '@material-ui/core/ButtonBase';
+import '../styles/calcFood.scss';
 import TextField from '@material-ui/core/TextField';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'
@@ -166,70 +165,51 @@ export default function CalculateFood() {
   return (
     <div>
       <Navbar />
-    <div className="container-center-horizontal">
-      <div className="calculate-food screen">
-        <div className="overlap-group2">
-        </div>
-        <h1 className="text-1">{"Input Recipe or Choose Entry Type Below"}</h1>
-        <div className="flex-row-4">
-          <div className="overlap-group">
-            <ButtonBase><img className="baseline" src={foodImg} alt=""/></ButtonBase>
+      <div className="main-container">
+      <div>
+        <h1 className="heading">{"Calculate your recipe's carbon footprint below"}</h1>
+          <div className="container">
+          <div className="left-container">
+          <div className="overall-co2">
+                {co2value} <div className="co2text">kgs of co2 emitted with this recipe</div></div>
           </div>
-          <div className="overlap-group3">
-            <ButtonBase><img className="baseline" onClick={handleTransport} src={transportImg} alt=""/></ButtonBase>
-          </div>
-        </div>
-        
-        <div className="flex-row">
-          <div className="food">{"Food"}</div>
-          <div className="transportation">{"Transportation"}</div>
-        </div>
-        <div className="overall-co2">
-            {co2value} kgs of co2 emitted with this recipe</div>
-        <div className="flex-row-6">
-          <div className="overlap-group5">
-            <ButtonBase style={{color: 'white'}}className="submit" onClick={handleSubmit}>Submit</ButtonBase>
-          </div>
-          <div className="overlap-group6">
-            <ButtonBase style={{color: 'white'}}className="cancel" onClick={handleAdd}>Add new entry</ButtonBase>
-          </div>
-          
-        </div>
-        <div className="flex-row-2">
-          <div className="quantity lato-bold-black-30px">{"Quantity"}</div>
-          <div className="item lato-bold-black-30px">{"Item"}</div>
-        </div>
-        {params.map((param,idx) => {
-        return (
-          <div key={`${param} - ${idx}`}>
-            <div className="flex-row-1">
-              <form className="rectangle-1" noValidate autoComplete="off">
-                <TextField id={`q${idx}`}  label="Quantity" onChange={updateQuanity(idx)}/> </form>
-
-              <form className="rectangle-1-1" noValidate autoComplete="off">
-                <TextField id={`i${idx}`}  label="Item" onChange={updateItem(idx)}/> </form>
+            <div className="right-container">
+              {params.map((param,idx) => {
+              return (
+                <div key={`${param} - ${idx}`}>
+                  <div className="fields-container">
+                    <form className="field" noValidate autoComplete="off">
+                      <TextField className="quantity-box" id={`q${idx}`}  label="Quantity" onChange={updateQuanity(idx)}/> </form>
+                    <form className="field2" noValidate autoComplete="off">
+                      <TextField className="quantity-box" id={`i${idx}`}  label="Item" onChange={updateItem(idx)}/> </form>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="buttons-container">
+                  <div style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</div>
+                  <div style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</div>
             </div>
           </div>
-        );
-      })}
-        
-        
+            
+          </div>
       </div>
-    </div>
-    <div className="container-center-horizontal">
-    {co2value > 0 &&
-      <div className="formBlock">
-        <div className="nameTitle">Name</div>
-        <form className="formStyle">
-          <input className="nameTextbox" type="text" name="name" onChange={handleChangeName}/>
-        </form>
-        <div className="directionTitle">Directions</div>
-        <form className="formStyle">
-          <input className="directionTextbox" type="text" name="Directions" onChange={handleChangeDesc}/>
-          <input className="submitButton" type="submit" value="Post Recipe" onClick={handlePost}/>
-        </form>
+
+      <div>
+        {co2value > 0 &&
+          <div className="inner-tb-container">
+            <div className="nameTitle">Name</div>
+            <form className="formStyle">
+              <input className="nameTextbox" type="text" name="name" onChange={handleChangeName}/>
+            </form>
+            <div className="directionTitle">Directions</div>
+            <form className="formStyle">
+              <input className="directionTextbox" type="text" name="Directions" onChange={handleChangeDesc}/>
+              <input className="submitButton" type="submit" value="Post Recipe" onClick={handlePost}/>
+            </form>
+          </div>
+        }
       </div>
-    }
     </div>
     <Footer />
     </div>

@@ -1,0 +1,111 @@
+.main-container2{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.heading{
+    text-align: center;
+    height: 44px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.overall-co2{
+    width: 200px;
+    height: 200px;
+    background-color: #354F52;
+    font-family: Lato;
+    font-size: 55px;
+    line-height: 36px;
+    color: #FFFFFF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.co2text{
+    font-size: 20px;
+    line-height: 36px;
+    color: #FFFFFF;
+}
+
+.right-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    background-color: #354F52;
+}
+
+.fields-container{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+
+.field{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 50px;
+    width: 70px;
+    border-radius: 25px;
+}
+
+.field2{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 300px;
+    border-radius: 25px;
+}
+
+.quantity-box{
+    background: #D5DBD1;
+    width: 140px;
+    color: black;
+}
+
+.quantity-box2{
+    background: #D5DBD1;
+    width: 300px;
+}
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+}
+.submit-button{
+    width: 120px;
+    height: 50px;
+    background: #84A98C;
+    //border-radius: 25px;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+}
+.add-button{
+    margin-left: 42px;
+    width: 50px;
+    height: 35px;
+    background: #84A98C;
+    font-family: Lato;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+    color: #FFFFFF;
+}
+

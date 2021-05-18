@@ -21,6 +21,7 @@ function Profile() {
   const [email,setEmail] = useState('');
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
+  const [transport, setTransport] = useState(0);
 
   useEffect(() => {
     const data = {
@@ -44,6 +45,7 @@ function Profile() {
     }).then((json) => {
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
+        setTransport(json.users.find(id=>id=email).transportation_co2);
         setMethod(true);
       }
     }).catch((error) => {
@@ -100,10 +102,11 @@ function Profile() {
         ))}</Accordion>
     }
   }
-  
+
     return (
     <div>
       <Navbar />
+      <div>your transportation co2:{transport}</div>
       <div class="container-center-horizontal">
         <div className="profile screen">
           <div className="flex-col-2">
@@ -118,15 +121,7 @@ function Profile() {
               <div className="flex-col">
                 <img className="ellipse-9" src={pic} alt=""/>
                 <div className="sobadri">{name}</div>
-                {/*<button onClick={()=>setEditable(true)}>edit</button>*/}
               </div>
-              {/*<ProfilePopUp
-                show={editable}
-                onHide={() => setEditable(false)}
-                name={name}
-                email={email}
-                pic={pic}
-              />*/}
               <div className= "recipes">
                 <div className= "recipeBox">
                   {showRecipe(recipes)}

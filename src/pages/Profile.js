@@ -106,9 +106,9 @@ function Profile() {
     return (
     <div>
       <Navbar />
-      <div>your transportation co2:{transport}</div>
+      
       <div class="container-center-horizontal">
-        <div className="profile screen">
+        <div className="profileScreen">
           <div className="flex-col-2">
             <div className="overlap-group1">
             </div>
@@ -119,8 +119,9 @@ function Profile() {
           <div className="flex-row-2">
             <div className="flex-row-3">
               <div className="flex-col">
-                <img className="ellipse-9" src={pic} alt=""/>
-                <div className="sobadri">{name}</div>
+                <img className="profPic" src={pic} alt=""/>
+                <div className="userName">{name}</div>
+                <div>Your Transportation CO2:{transport}</div>
               </div>
               <div className= "recipes">
                 <div className= "recipeBox">

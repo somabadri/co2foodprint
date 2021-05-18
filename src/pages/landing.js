@@ -9,7 +9,7 @@ function Landing() {
   return (
     <div>
       <LandingNavbar />
-      <div className="container">
+      <div className="container-landing">
         <div className= "left-text">
           <div className= "title">
             Carbon Foodprint

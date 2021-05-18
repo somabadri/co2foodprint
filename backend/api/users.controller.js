@@ -38,16 +38,12 @@ export default class UsersController {
         try {
             const recipeId = req.body.recipe_id;
             const newName = req.body.name;
-            const newIngredients = req.body.ingredients;
-            const newCo2value = req.body.co2value;
             const newDescription = req.body.description;
 
             const recipeResponse = await usersDAO.updateRecipe(
                 req.params,
                 recipeId,
                 newName,
-                newIngredients,
-                newCo2value,
                 newDescription,
             );
             const { error } = recipeResponse;

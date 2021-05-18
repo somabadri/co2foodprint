@@ -1,25 +1,27 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import LineChart from "../components/LineChart";
 import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
+import Button from 'react-bootstrap/Button';
 
 document.body.style = 'background: #CAD2C5';
+
 
 
 //https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
 //DO NOT DELETE COMMENTED OUT CODE
 function Profile() {
-
   const [recipes,setRecipes] = useState([{}]);
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
-  //const [averages,setAverages] = useState([{}]);
+  const [transport, setTransport] = useState(0);
 
   useEffect(() => {
     const data = {
@@ -43,6 +45,7 @@ function Profile() {
     }).then((json) => {
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
+        setTransport(json.users.find(id=>id=email).transportation_co2);
         setMethod(true);
       }
     }).catch((error) => {
@@ -50,44 +53,49 @@ function Profile() {
     })
   },[email])
 
-  useEffect(() => {
-    let avg = [];
-    let total = [];
-    if(recipes.length !== 0){
-      for(let i = 0;i<recipes.length;i++){
-        if(i === 0){
-          total[i] =  Number(recipes[i].co2value);
-          avg[i] = total[i];
-        } else {
-          total[i] = ((avg[i-1])+Number(recipes[i].co2value)).toFixed(3);
-          avg[i] = total[i]/(i+1);
-        }
+  function handleRemove(id) {
+    fetch('http://localhost:5000/api/v1/users/'+email+"?id="+id, {
+      "method": "DELETE",
+      "headers": {
+        "Content-Type": "application/json"
       }
-    }
-    //setAverages(avg);
-  },[recipes])
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then(() =>{
+      setEmail('');
+    }).catch((error) => {
+      throw(error);
+    })
+  }
 
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
       return <div></div>
     } else {
       return <Accordion>{(recipes.map((element,idx) => 
-        <Card key={idx}>
-          <Accordion.Toggle as={Card.Header} eventKey={element.recipe_id}>
+        <Card {... {
+          style: { backgroundColor: "#84A98C" }
+        }} key={idx}>
+          <Accordion.Toggle {...{style: { textAlign: "center" }}} as={Card.Header} eventKey={element.recipe_id}>
             {element.name}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={element.recipe_id}>
-            <Card.Body>
+            <Card.Body {... {
+                style: { backgroundColor: "#afc4b3" }
+            }}>
               <div>
-                ingredients:{element.ingredients.map(ingredient => 
+                Ingredients:{element.ingredients.map(ingredient => 
                   <div>
-                  <div key ={ingredient.Item}>{ingredient.Item}</div>
-                  <div key ={ingredient.Quantity}>{ingredient.Quantity}</div>
-                  </div>
-                )}
+                  <div>{ingredient.Quantity} {ingredient.Item}</div>
+                  </div> 
+                )}<br/>
               </div>
-              <div key={element.co2value}>co2value:{element.co2value}</div>
-              <div key={element.description}>description:{element.description}</div>
+              <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
+              <div key={element.description}>Instructions: {element.description}</div>
+              <Button onClick={()=>handleRemove(element.recipe_id)}>remove</Button>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -98,14 +106,14 @@ function Profile() {
     return (
     <div>
       <Navbar />
-      <div className="container-center-horizontal">
+      <div>your transportation co2:{transport}</div>
+      <div class="container-center-horizontal">
         <div className="profile screen">
           <div className="flex-col-2">
             <div className="overlap-group1">
             </div>
             <div className="flex-row">
               <h1 className="title">{"Your Recipes"}</h1>
-              <div className="your-metrics">{"Your Metrics"}</div>
             </div>
           </div>
           <div className="flex-row-2">
@@ -115,17 +123,13 @@ function Profile() {
                 <div className="sobadri">{name}</div>
               </div>
               <div className= "recipes">
-                {showRecipe(recipes)}
+                <div className= "recipeBox">
+                  {showRecipe(recipes)}
+                </div>
               </div>
             </div>
             <div className="flex-col-1">
-              <div className="overlap-group">
-                <img className="rectangle-21" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/rectangle-21@2x.svg"} alt=""/>
-                <img className="line-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-2" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-2@2x.svg"} alt=""/>
-                <img className="line-3" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-1@2x.svg"} alt=""/>
-                <img className="line-4" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/line-4@2x.svg"} alt=""/>
-              </div>
+              <LineChart email={email}/> 
               <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">

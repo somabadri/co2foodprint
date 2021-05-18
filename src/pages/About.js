@@ -15,7 +15,7 @@ class About extends Component {
         let riley='I am a 4th year computer science student at UC Santa Cruz. I wanted to make this application because of the issues regarding carbon emissions that negatively impact our planet. I wanted to create an app that allows people to work to reduce their carbon emission rates and better improve the world.';
         let kelley='I am 3rd year cs & math major. I wanted to help create this app bc I am interested in eco-conservation stuff and thought it would be useful. Fun fact I like cats I am on a mission to pet every cat in my neighborhood';
         let raymond='I am a 3rd year CS major, wanted to create this app because I wanted to personally track my own carbon emissions.';
-        let destin ='I am a third year Computer Science major at UCSC. I like walking my two dogs Oreo and Charlie, and ice skating.';
+        let destin ='I am a third year Computer Science major at UCSC. I wanted to make this app because I want to help spread environmental awareness. I like walking my two dogs Oreo and Charlie, and ice skating.';
         return (
         <div>
             <Navbar />

@@ -46,7 +46,7 @@ class NavbarComponent extends React.Component {
                   <Nav.Link href="/profile">Hi {name}!</Nav.Link>
                 </Nav>
               </React.Fragment>
-              : {}
+              : <div></div>
           }
           <GoogleBtn />
           <Nav>

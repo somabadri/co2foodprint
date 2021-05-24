@@ -7,6 +7,7 @@ import PostRecipe from './pages/PostRecipe';
 import About from './pages/About';
 import Dashboard from './pages/Dashboard';
 import Landing from './pages/Landing';
+import FriendProfile from './pages/FriendProfile';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/calculateTransport/" component={withRouter(CalculateTransport)}/>
             <Route path="/postrecipe/" component={withRouter(PostRecipe)}/>
             <Route path="/profile/" component={withRouter(Profile)}/>
+            <Route path="/friendProfile/" component={withRouter(FriendProfile)}/>
       </div>
     </BrowserRouter>
   );

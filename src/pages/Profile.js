@@ -202,9 +202,12 @@ function Profile() {
                     <div> 
                       {friendsList.map((x,i)=>{return(
                       <div>
-                        <Button onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> {friendsList[i].name} </Button>
-                        <Button onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>Delete</Button>
                         <br/>
+                        <div className="friendButtons">
+                          <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> {friendsList[i].name} </Button>{' '}
+                          <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>Delete</Button>
+                        </div>
+                        
                         </div>
                         );
                         })}

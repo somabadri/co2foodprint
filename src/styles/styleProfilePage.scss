@@ -70,12 +70,26 @@
     display: flex;
     margin-left: 0px;
     margin-top: 0px;
-    min-width: 234px;
+    height: 100px;
+    width: 500px;
+    //width:500px;
+    //height: 40px;
   }
   .friendpics {
+    align-items:center;
     margin-left: 0px;
     margin-top: 0px;
+    width: 500px;
+    height: 100px;
+    //height: 10px;
   }
+  .friendButtons{
+
+  }
+  //.friendDeleteButton{
+  //  margin-left: 5px;
+  //}
+
   .flex-row-2 {
     align-items: center;
     display: flex;
@@ -89,7 +103,7 @@
     align-items: flex-start;
     display: flex;
     margin-left: 350px;
-    margin-top: 150px;
+    margin-top: 0px;
     height: 343px;
     min-width: 438px;
   }

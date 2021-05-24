@@ -47,39 +47,80 @@ function FriendProfile(){
             console.log(friendPic);
             setFriendEmail(json.users.find(id=>id=friendID).email);
             console.log(friendEmail);
-        }).then((json) =>{
-          //console.log(friendsList);
+            if(json.users.find(id=>id=friendID)){
+                setFriendRecipes(json.users.find(id=>id=friendID).recipes);
+                setFriendTransport(json.users.find(id=>id=friendID).transportation_co2);
+                setFriendMethod(true);
+              }
         }).catch((error) => {
           throw(error);
         })
       }
     //this.props.location.state.id;
 
+
+    function showRecipe(recipes) {
+        if(!friendMethod) {
+          return <div></div>
+        } else {
+          return <Accordion>{(recipes.map((element,idx) => 
+            <Card {... {
+              style: { backgroundColor: "#84A98C" }
+            }} key={idx}>
+              <Accordion.Toggle {...{style: { textAlign: "center" }}} as={Card.Header} eventKey={element.recipe_id}>
+                {element.name}
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey={element.recipe_id}>
+                <Card.Body {... {
+                    style: { backgroundColor: "#afc4b3" }
+                }}>
+                  <div>
+                    Ingredients:{element.ingredients.map(ingredient => 
+                      <div>
+                      <div>{ingredient.Quantity} {ingredient.Item}</div>
+                      </div> 
+                    )}<br/>
+                  </div>
+                  <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
+                  <div key={element.description}>Instructions: {element.description}</div>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+            ))}</Accordion>
+        }
+      }
+
+
+      function backToProfPage(){
+          window.location = '/Profile';
+      }
+
+
     //const {data} = this.props.location
         return (
             <div>
               <Navbar />
-                <div> This is your friend's profile page </div>
-                    {getFriendInfo()}
+                {getFriendInfo()}
                 <div className = "screenContainer">
+                    <div className = "back">
+                        <Button variant="light" onClick={()=>backToProfPage()}>Return to your profile</Button>
+                    </div>
                     <div className = "friendProf">
                         <div className = "col1">
                             <div className = "friendProfPic">
-                                    <div> Friend Pic </div>
-                                    {/*<img className="profPic" src={pic} alt=""/>*/}
+                                    <img className="profPic" src={friendPic} alt=""/>
                             </div>
                             <div className = "friendName">
-                                    <div> Friend Name </div>
-                                    {/*<div className="userName">{name}</div>*/}
+                                    <div className="userName">{friendName}</div>
                             </div>
                         </div>
                         <div className = "col2">
                             <div className = "friendRecipes">
                                 <div className = "friendRec">
-                                    <div> Recipes </div>
+                                    <div> {friendName}'s Recipes </div>
                                 </div>
                                 <div className = "friendRecipeBox">
-                                    <div> Friend's Recipe Box </div>
+                                    {showRecipe(friendRecipes)}
                                 </div>
                             </div>
                         </div>

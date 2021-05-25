@@ -22,14 +22,10 @@ function FriendProfile(){
     const [friendMethod,setFriendMethod] = useState(false);
     const [friendTransport, setFriendTransport] = useState(0);
 
-
-    //console.log(window.location.pathname);
     let urlElements = window.location.href.split('/');
-    //console.log(urlElements);
     let friendID = (urlElements[4]);
-    console.log(friendID);
 
-    function getFriendInfo() {
+      useEffect(() => {
         fetch('http://localhost:5000/api/v1/users/'+friendID, {
           "method": "GET",
           "headers": {
@@ -40,24 +36,19 @@ function FriendProfile(){
             return 'error';
           }
           return response.json();
-        }).then((json) =>{
+        }).then((json) => {
+          if(json.users.find(id=>id=friendID)){
             setFriendName(json.users.find(id=>id=friendID).name);
-            console.log(friendName);
             setFriendPic(json.users.find(id=>id=friendID).pic);
-            console.log(friendPic);
             setFriendEmail(json.users.find(id=>id=friendID).email);
-            console.log(friendEmail);
-            if(json.users.find(id=>id=friendID)){
-                setFriendRecipes(json.users.find(id=>id=friendID).recipes);
-                setFriendTransport(json.users.find(id=>id=friendID).transportation_co2);
-                setFriendMethod(true);
-              }
+            setFriendRecipes(json.users.find(id=>id=friendID).recipes);
+            setFriendTransport(json.users.find(id=>id=friendID).transportation_co2);
+            setFriendMethod(true);
+        }
         }).catch((error) => {
           throw(error);
         })
-      }
-    //this.props.location.state.id;
-
+      },[friendID])
 
     function showRecipe(recipes) {
         if(!friendMethod) {
@@ -90,17 +81,13 @@ function FriendProfile(){
         }
       }
 
-
       function backToProfPage(){
           window.location = '/Profile';
       }
 
-
-    //const {data} = this.props.location
         return (
             <div>
               <Navbar />
-                {getFriendInfo()}
                 <div className = "screenContainer">
                     <div className = "back">
                         <Button variant="light" onClick={()=>backToProfPage()}>Return to your profile</Button>

@@ -7,10 +7,12 @@ class Tracker extends Component {
     return (
       <div className="tracker-container">
         <div className="title">
-          Weekly Progress
+          Average CO2 emissions
         </div>
         <div className="subtitle">
-            Watch the tree grow as you hit your goals
+            Work with others to lower your carbon emissions! Follow new friends and
+            check out their recipes! Or create your own to track your co2 emissions and make a
+            difference!
         </div>
         <div>
           <img className='tree-picture' src={tree} alt='growing plant' />

@@ -25,6 +25,7 @@ function Profile() {
   const [transport, setTransport] = useState(0);
   const [friendsList, setFriendsList] = useState([{}]);
   const [hasFriends, setHasFriends] = useState(0);
+  const [metrics,setMetrics] = useState([{}]);
 
   useEffect(() => {
     const data = {
@@ -76,6 +77,19 @@ function Profile() {
     })
   }
 
+  function handleAdd(element) {
+    let met = [...metrics];
+    if(met.find(elem=>elem.name===element.name)){
+      met.find(elem=>elem.name===element.name).amount++;
+    } else {
+      met.push({
+      "name":element.name,
+      "co2value":element.co2value,
+      "amount":1
+      });
+    }
+    setMetrics(met);
+  }
 
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
@@ -102,6 +116,7 @@ function Profile() {
               <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
               <div key={element.description}>Instructions: {element.description}</div>
               <Button onClick={()=>handleRemove(element.recipe_id)}>remove</Button>
+              <Button onClick={()=>handleAdd(element)}>add to metric</Button>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -158,8 +173,8 @@ function Profile() {
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart email={email}/> 
-              <div className="friends">{"Following"}</div>
+              <LineChart recipes={metrics}/> 
+              <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">
                     {hasFriends > 0 &&

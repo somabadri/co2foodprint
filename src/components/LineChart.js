@@ -6,15 +6,28 @@ import '../styles/styleLineChart.scss'
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
  
 
-const LineChart = (({email})=> {
+const LineChart = (({recipes})=> {
 
-const [recipes,setRecipes] = useState([{}]);
-const [options, setOptions] = useState({});
-const [averages,setAverages] = useState([]);
-const [datapts, setDatapts] = useState([{}]);
+	const [options, setOptions] = useState({});
+	const [datapts, setDatapts] = useState([{}]);
+	const [total,setTotal] = useState(0);
 
+	useEffect(()=>{
+	  let pts = [];
+	  let tot = 0;
+	  for(let i = 1; i<recipes.length; ++i){
+		  tot = (tot + (recipes[i].co2value * recipes[i].amount));
+	  }
+	  for(let j = 1; j<recipes.length; ++j){
+		let y = ((recipes[j].co2value * recipes[j].amount)/tot*100).toFixed(3);
+		pts.push({y:y,label:recipes[j].name})
+	  }
+	  setDatapts(pts);
+	  setTotal(tot);
+	  // eslint-disable-next-line react-hooks/exhaustive-deps
+	},[recipes])
 
-useEffect(() => {
+/*useEffect(() => {
 	console.log(email)
     fetch('http://localhost:5000/api/v1/users/'+email, {
       "method": "GET",
@@ -56,47 +69,34 @@ useEffect(() => {
 	const par = [];
 	for(let i = 0; i<averages.length; i++){
 		let pt = Number(averages[i].toFixed(3));
-    	par.push({x: (i+1), y:pt});
+    	par.push({y: (i+1), label:pt});
 	}
 	setDatapts(par);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [averages])
-
+  */
 	useEffect(() => {
 		setOptions( {
 			animationEnabled: true,
-			//exportEnabled: true,
+			exportEnabled: true,
 			theme: "light2", // "light1", "dark1", "dark2"
 			backgroundColor: "#84A98C",
 			title:{
-				text: "Your CO2 Metrics",
+				text: "Your carbon emissions today: " + total.toFixed(3) + "kgs",
 				fontColor: black,
 				fontWeight: "normal"
 			},
-			axisY: {
-				title: "Average CO2 Output (kg)",
-				titleFontColor: black,
-				labelFontColor: black,
-				includeZero: false,
-				suffix: "kg"
-			},
-			axisX: {
-				title: "Number of Recipes",
-				titleFontColor: black,
-				labelFontColor: black,
-				interval: 1
-			},
 			data: [{
-				type: "line",
-				lineColor: black,
-				color: black,
-				toolTipContent: "average of first {x} Recipes: {y} kg",
-				indexLabelFontColor: black,
+				type: "pie",
+				startAngle: 75,
+				legendText: "{label}",
+				indexLabelFontSize: 16,
+				indexLabel: "{label} - {y}%",
+				indexLabelFontColor:"black",
 				dataPoints: datapts
-				
 			}]
 		})
-	},[averages, datapts])
+	},[datapts])
 	
 		
 		return (

@@ -113,10 +113,10 @@ function Profile() {
                   </div> 
                 )}<br/>
               </div>
-              <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
-              <div key={element.description}>Instructions: {element.description}</div>
-              <Button onClick={()=>handleRemove(element.recipe_id)}>remove</Button>
-              <Button onClick={()=>handleAdd(element)}>add to metric</Button>
+              <div key={element.co2value}>CO2 Emitted: {element.co2value}{' kg'}</div><br/>
+              <div key={element.description}>Instructions: {element.description}</div><br/>
+              <Button variant="light" size="sm" onClick={()=>handleRemove(element.recipe_id)}>Remove</Button>{' '}
+              <Button variant="light" size="sm" onClick={()=>handleAdd(element)}>Add to Metric</Button>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
@@ -164,7 +164,7 @@ function Profile() {
               <div className="flex-col">
                 <img className="profPic" src={pic} alt=""/>
                 <div className="userName">{name}</div>
-                <div>Your Transportation CO2:{transport}</div>
+                <div>Your Transportation CO2: {transport}</div>
               </div>
               <div className= "recipes">
                 <div className= "recipeBox">
@@ -185,11 +185,11 @@ function Profile() {
                         <div className="friendships-row">
                           <div className = "friendProfAndName"> 
                             <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
-                      <div>{x.name}</div>
+                            <div> {x.name}</div><br/>
                           </div>
                             <div className="friendButtons2">
                               <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
-                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>Unfollow</Button>
                             </div>
                         </div>
                         </div>

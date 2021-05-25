@@ -3,8 +3,8 @@ import { useState } from 'react';
 import '../styles/styleCalcTransport.scss';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import TextField from '@material-ui/core/TextField';
-import Navbar from '../components/navbar';
-import Footer from '../components/footer'
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
 
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';

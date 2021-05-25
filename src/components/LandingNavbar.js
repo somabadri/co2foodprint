@@ -17,8 +17,8 @@ class LandingNavbar extends React.Component {
   render() {
     return (
 
-      <nav className="NavbarItems">
-        <h1 className="navbar-logo" style={{ fontFamily: "Taviraj" }}>CO2 Foodprint</h1>
+      <nav className="NavbarItems" >
+        <h1 className="navbar-logo" style={{ fontFamily: "Taviraj", textAlign: "center"}}>CO2 Foodprint</h1>
 
 
       </nav>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import '../styles/dashboard.scss'
-import Tracker from '../components/tracker'
-import NavbarComponent from '../components/navbar';
-import Footer from '../components/footer';
-import Post from '../components/post';
+import Tracker from '../components/Tracker'
+import NavbarComponent from '../components/Navbar';
+import Footer from '../components/Footer';
+import Post from '../components/Post';
 import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
 import About from './About.js'
 

@@ -4,8 +4,7 @@ import Tracker from '../components/Tracker'
 import NavbarComponent from '../components/Navbar';
 import Footer from '../components/Footer';
 import Post from '../components/Post';
-import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom';
-import About from './About.js'
+import { BrowserRouter } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {

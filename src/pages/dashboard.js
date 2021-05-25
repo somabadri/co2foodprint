@@ -151,7 +151,7 @@ function Dashboard() {
           :
           <div>
             <Post key={idx} name={element.name} content={element.most_recent_post} pic={element.profile_pic}/>
-            <Button onClick={()=>checkFollow(element,idx)} disabled={following[idx]}>follow</Button>
+            <Button variant="light" onClick={()=>checkFollow(element,idx)} disabled={following[idx]}>follow</Button>
           </div>
         )}
       )

@@ -1,29 +1,11 @@
-/*.carbon-cutters-2021 {
-    letter-spacing: 0;
-    min-height: 27px;
-    min-width: 202px;
-    mix-blend-mode: normal;
-    width: 202px;
-  }*/
-  /*.dashboard {
-    letter-spacing: 0;
-    margin-left: 907px;
-    margin-top: 6px;
-    min-height: 19px;
-    mix-blend-mode: normal;
-    width: 111px;
-  }*/
+
   .ellipse-1 {
     height: 45px;
-    margin-left: 18px;
+    margin-left: 20px;
     mix-blend-mode: normal;
     width: 45px;
   }
-  /*.ellipse-10 {
-    height: 45px;
-    mix-blend-mode: normal;
-    width: 45px;
-  }*/
+
   .profPic {
     height: 200px;
     margin-top: 50px;
@@ -80,17 +62,27 @@
     margin-left: 0px;
     margin-top: 0px;
     width: 500px;
-    height: 360px;
+    height: 100px;
     overflow: scroll;
     //height: 10px;
   }
-  .friendButtons{
-    
+  .friendButtons2{
+    margin-left: 80px;
+    margin-top: -130px;
+    //gap: 15px;
   }
-  //.friendDeleteButton{
-  //  margin-left: 5px;
-  //}
-
+  .friendships-row{
+    width: 500px;
+  }
+  .friendProfAndName{
+    align-items: center;
+    height:135px;
+    margin-top:5px;
+  }
+  .friendName{
+    font-size: small;
+    margin-left: -20px;
+  }
   .flex-row-2 {
     align-items: center;
     display: flex;
@@ -170,13 +162,6 @@
     min-width: 1152px;
     padding: 18px 446px;
   }
-  /*.pngtreenordic-p-plant3799519-2 {
-    align-self: flex-end;
-    height: 45px;
-    mix-blend-mode: normal;
-    object-fit: cover;
-    width: 45px;
-  }*/
   .profileScreen {
     align-items: center;
     background-color: var(--celeste);
@@ -234,14 +219,7 @@
     mix-blend-mode: normal;
     width: 151px;
   }
-  /*.your-metrics {
-    letter-spacing: 0;
-    font-size: 150%;
-    margin-left: 110px;
-    min-height: 37px;
-    mix-blend-mode: normal;
-    width: 151px;
-  }*/
+
   
   @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
   @import url("https://fonts.googleapis.com/css?family=Taviraj:400,700|Lato:400,300,700");

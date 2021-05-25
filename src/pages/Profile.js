@@ -182,13 +182,16 @@ function Profile() {
                       {friendsList.map((x,i)=>{return(
                       <div>
                         <br/>
-                        <div className="friendButtons">
-                          <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
-                          <div>{x.name}</div>
-                          <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
-                          <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                        <div className="friendships-row">
+                          <div className = "friendProfAndName"> 
+                            <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
+                      <div>{x.name}</div>
+                          </div>
+                            <div className="friendButtons2">
+                              <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
+                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                            </div>
                         </div>
-                        
                         </div>
                         );
                         })}

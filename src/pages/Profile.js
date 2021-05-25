@@ -159,7 +159,7 @@ function Profile() {
             </div>
             <div className="flex-col-1">
               <LineChart email={email}/> 
-              <div className="friends">{"Friends"}</div>
+              <div className="friends">{"Following"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">
                     {hasFriends > 0 &&
@@ -167,13 +167,16 @@ function Profile() {
                       {friendsList.map((x,i)=>{return(
                       <div>
                         <br/>
-                        <div className="friendButtons">
-                          <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
-                          <div>{x.name}</div>
-                          <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
-                          <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                        <div className="friendships-row">
+                          <div className = "friendProfAndName"> 
+                            <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
+                      <div>{x.name}</div>
+                          </div>
+                            <div className="friendButtons2">
+                              <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
+                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                            </div>
                         </div>
-                        
                         </div>
                         );
                         })}

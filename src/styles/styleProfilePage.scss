@@ -1,7 +1,7 @@
 
   .ellipse-1 {
     height: 45px;
-    margin-left: 18px;
+    margin-left: 20px;
     mix-blend-mode: normal;
     width: 45px;
   }
@@ -62,14 +62,27 @@
     margin-left: 0px;
     margin-top: 0px;
     width: 500px;
-    height: 360px;
+    height: 100px;
     overflow: scroll;
     //height: 10px;
   }
-  .friendButtons{
-    
+  .friendButtons2{
+    margin-left: 80px;
+    margin-top: -130px;
+    //gap: 15px;
   }
-
+  .friendships-row{
+    width: 500px;
+  }
+  .friendProfAndName{
+    align-items: center;
+    height:135px;
+    margin-top:5px;
+  }
+  .friendName{
+    font-size: small;
+    margin-left: -20px;
+  }
   .flex-row-2 {
     align-items: center;
     display: flex;

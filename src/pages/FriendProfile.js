@@ -39,7 +39,7 @@ function FriendProfile(){
         }).then((json) => {
           if(json.users.find(id=>id=friendID)){
             setFriendName(json.users.find(id=>id=friendID).name);
-            setFriendPic(json.users.find(id=>id=friendID).pic);
+            setFriendPic(json.users.find(id=>id=friendID).profile_pic);
             setFriendEmail(json.users.find(id=>id=friendID).email);
             setFriendRecipes(json.users.find(id=>id=friendID).recipes);
             setFriendTransport(json.users.find(id=>id=friendID).transportation_co2);

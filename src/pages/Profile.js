@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import LineChart from "../components/LineChart";
+import FriendProfile from "./FriendProfile";
+import { BrowserRouter, Link, Route, withRouter  } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
@@ -12,7 +14,6 @@ import Button from 'react-bootstrap/Button';
 document.body.style = 'background: #CAD2C5';
 
 
-
 //https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
 //DO NOT DELETE COMMENTED OUT CODE
 function Profile() {
@@ -22,6 +23,8 @@ function Profile() {
   const [pic,setPic] = useState('');
   const [method,setMethod] = useState(false);
   const [transport, setTransport] = useState(0);
+  const [friendsList, setFriendsList] = useState([{}]);
+  const [hasFriends, setHasFriends] = useState(0);
 
   useEffect(() => {
     const data = {
@@ -46,6 +49,8 @@ function Profile() {
       if(json.users.find(id=>id=email)){
         setRecipes(json.users.find(id=>id=email).recipes);
         setTransport(json.users.find(id=>id=email).transportation_co2);
+        setFriendsList(json.users.find(id=>id=email).friends);
+        setHasFriends(1);
         setMethod(true);
       }
     }).catch((error) => {
@@ -70,6 +75,7 @@ function Profile() {
       throw(error);
     })
   }
+
 
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
@@ -103,10 +109,32 @@ function Profile() {
     }
   }
 
+  function moveToFriendPage(friend_id) {
+    console.log(friend_id);
+    window.location = `/friendProfile/${friend_id}`;
+  }
+
+  function handleFriendRemove(id) {
+    fetch('http://localhost:5000/api/v1/users/'+email+"/friends?friend_id="+id, {
+      "method": "DELETE",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then(() =>{
+      setEmail('');
+    }).catch((error) => {
+      throw(error);
+    })
+  }
+
     return (
     <div>
       <Navbar />
-      
       <div class="container-center-horizontal">
         <div className="profileScreen">
           <div className="flex-col-2">
@@ -134,10 +162,23 @@ function Profile() {
               <div className="friends">{"Friends"}</div>
               <div className="flex-row-1">
                 <div className="friendpics">
-                  <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt=""/>
-                  <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt=""/>
-                  <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt=""/>
-                  <img className="ellipse-1" src={"https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/ellipse-10@2x.png"} alt="" />
+                    {hasFriends > 0 &&
+                    <div> 
+                      {friendsList.map((x,i)=>{return(
+                      <div>
+                        <br/>
+                        <div className="friendButtons">
+                          <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
+                          <div>{x.name}</div>
+                          <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
+                          <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                        </div>
+                        
+                        </div>
+                        );
+                        })}
+                    </div>
+                  }
                 </div>
               </div>
             </div>

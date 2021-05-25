@@ -162,8 +162,8 @@ export default function CalculateTransport() {
               );
               })}
             <div className="buttons-container">
-                    <div style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</div>
-                    <div style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</div>
+                    <button style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</button>
+                    <button style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</button>
             </div>
           </div>
         </div>

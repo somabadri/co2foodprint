@@ -90,11 +90,38 @@ export default function CalculateFood() {
       }
       return response.json();
     }).then((json) => {
+      updatePost(data);
+    }).catch((error) => {
+      throw(error);
+    });
+  }
+
+  function updatePost(data){
+    const date = new Date();
+    const month = date.getMonth()+1;
+    const post = month + "/" + date.getDate() + " just posted my new recipe: " + data.name + " check it out!";
+    const newPost = {
+      "user_id":email,
+      "most_recent_post": post
+    }
+    fetch('http://localhost:5000/api/v1/users',{
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": JSON.stringify(newPost)
+    }).then((response) => {
+      if(!response.ok){
+        return 'error';
+      }
+      return response.json();
+    }).then((json) => {
       console.log(json);
     }).catch((error) => {
       throw(error);
     });
   }
+
   function handleSubmit() {
     let list = [...params];
     let sum = {total:0};
@@ -158,10 +185,6 @@ export default function CalculateFood() {
       return itemco2;
   }
 
-  function handleTransport(){
-    window.location = '/calculateTransport/'
-  }
-
   return (
     <div>
       <Navbar />
@@ -187,8 +210,8 @@ export default function CalculateFood() {
               );
             })}
             <div className="buttons-container">
-                  <div style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</div>
-                  <div style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</div>
+                  <button style={{color: 'white'}}className="add-button" onClick={handleAdd}>+</button>
+                  <button style={{color: 'white'}}className="submit-button" onClick={handleSubmit}>Submit</button>
             </div>
           </div>
             

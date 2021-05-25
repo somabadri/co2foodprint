@@ -72,13 +72,16 @@ export default class UsersController {
 
     static async post(req,res) {
         try {
+            const date = new Date();
+            const month = date.getMonth()+1;
+            const post = month + "/" + date.getDate() + " I just signed up come say hi!";
             const newName = req.body.name;
             const newid = req.body.user_id;
             const newRecipes = [];
             const newFriends = [];
             const newProfile = req.body.profile_pic;
             const newTransport = 0;
-            const newPost = "";
+            const newPost = post
 
             await usersDAO.addUser(
                 newName,

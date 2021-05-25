@@ -156,7 +156,7 @@ function Profile() {
             <div className="overlap-group1">
             </div>
             <div className="flex-row">
-              <h1 className="title">{"Your Recipes"}</h1>
+              <h1 className="titleRec">{"Your Recipes"}</h1>
             </div>
           </div>
           <div className="flex-row-2">
@@ -184,10 +184,10 @@ function Profile() {
                         <br/>
                         <div className="friendships-row">
                           <div className = "friendProfAndName"> 
-                            <img className="ellipse-1" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
+                            <img className="friendProfPic" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
                             <div> {x.name}</div><br/>
                           </div>
-                            <div className="friendButtons2">
+                            <div className="friendButtons">
                               <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
                               <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>Unfollow</Button>
                             </div>

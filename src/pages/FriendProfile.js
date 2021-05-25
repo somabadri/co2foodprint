@@ -21,12 +21,12 @@ function FriendProfile(){
     const [friendPic,setFriendPic] = useState('');
     const [friendMethod,setFriendMethod] = useState(false);
     const [friendTransport, setFriendTransport] = useState(0);
-
+    const [urlElements,setUrlElements] = useState(window.location.href.split('/'));
+    const [friendID,setFriendID] = useState(urlElements[4]);
 
     //console.log(window.location.pathname);
-    let urlElements = window.location.href.split('/');
     //console.log(urlElements);
-    let friendID = (urlElements[4]);
+    //let friendID = (urlElements[4]);
     console.log(friendID);
 
     function getFriendInfo() {
@@ -56,9 +56,6 @@ function FriendProfile(){
           throw(error);
         })
       }
-    //this.props.location.state.id;
-
-
     function showRecipe(recipes) {
         if(!friendMethod) {
           return <div></div>
@@ -95,8 +92,6 @@ function FriendProfile(){
           window.location = '/Profile';
       }
 
-
-    //const {data} = this.props.location
         return (
             <div>
               <Navbar />

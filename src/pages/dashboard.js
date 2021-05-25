@@ -74,8 +74,6 @@ function Dashboard() {
         return 'error';
       }
       return response.json();
-    }).then((json) => {
-      console.log(json);
     }).catch((error) => {
       throw(error);
     });
@@ -88,8 +86,6 @@ function Dashboard() {
       if(firstRender){
         setFirstRender(false);
       } else {
-        console.log(elem);
-        console.log(following);
         const email = localStorage.getItem('current email');
         const data = {
           "name":elem.name,
@@ -172,11 +168,7 @@ function Dashboard() {
               <Tracker />
             </div>
             <div className="buttons">
-              <div className="button">
-                <a href="/calculate"> 
-                    Calculate
-                </a>
-            </div>
+              
             </div>
         </div>
           <div className="right-section">

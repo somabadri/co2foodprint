@@ -71,7 +71,7 @@ function Landing() {
           />
         </div>
         <div className= "right-text">
-          <img src={monstera} alt='monstera plant'/>
+          <img className= "monstera-plant"src={monstera} alt='monstera plant'/>
         </div>
       </div>
       <Footer />

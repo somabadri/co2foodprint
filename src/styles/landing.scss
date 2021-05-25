@@ -4,8 +4,8 @@
     justify-content: space-evenly;
     height: 100vh;
     .left-text{
-        padding-left: 82px;
-        padding-top: 102px;
+        margin-left: 82px;
+        margin-top: 102px;
         height: 400px;
         .title{
             width: 661px;
@@ -39,5 +39,110 @@
     .right-text{
         height: 400px;
         width: 533.33px;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .container{
+        background-color: #CAD2C5;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .monstera-plant{
+        width: 300px;
+    }
+    .title{
+        width: 400px;
+        height: 30px;
+        font-size: 35px;
+    }
+    .subtitle{
+        width: 400px;
+        height: 30px;
+        font-size: 15px;
+
+    }
+    .description{
+        width: 414px;
+        height: 47px;
+        font-size: 13px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 1040px) {
+    .monstera-plant{
+        width: 250px;
+    }
+    .title{
+        width: 300px;
+        height: 20px;
+        font-size: 30px;
+    }
+    .subtitle{
+        width: 300px;
+        height: 20px;
+        font-size: 14px;
+
+    }
+    .description{
+        width: 300px;
+        height: 40px;
+        font-size: 12px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .monstera-plant{
+        visibility: hidden;
+    }
+    .title{
+        width: 300px;
+        height: 20px;
+        font-size: 30px;
+    }
+    .subtitle{
+        width: 300px;
+        height: 20px;
+        font-size: 14px;
+
+    }
+    .description{
+        width: 300px;
+        height: 40px;
+        font-size: 12px;
+        margin-bottom: 50px;
+    }
+
+    .right-text{
+        margin-bottom: 30px;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .monstera-plant{
+        visibility: hidden;
+    }
+    .title{
+        width: 100%;
+        font-size: 30px;
+    }
+    .subtitle{
+        width: 100%;
+        font-size: 14px;
+
+    }
+    .description{
+        width: 100%;
+        font-size: 12px;
+        margin-bottom: 50px;
+    }
+
+    .right-text{
+        margin-bottom: 30px;
+        visibility: hidden;
     }
 }

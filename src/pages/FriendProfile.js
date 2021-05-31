@@ -21,7 +21,6 @@ function FriendProfile(){
     const [friendPic,setFriendPic] = useState('');
     const [friendMethod,setFriendMethod] = useState(false);
     const [friendTransport, setFriendTransport] = useState(0);
-
     let urlElements = window.location.href.split('/');
     let friendID = (urlElements[4]);
 
@@ -50,6 +49,32 @@ function FriendProfile(){
         })
       },[friendID])
 
+    function handleAdd(element){
+      const data = {
+        "name":element.name,
+        "ingredients":element.ingredients,
+        "co2value":element.co2value,
+        "description":element.description,
+      }
+      const email = localStorage.getItem('current email');
+      fetch('http://localhost:5000/api/v1/users/'+email,{
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": JSON.stringify(data)
+      }).then((response) => {
+        if(!response.ok){
+          return 'error';
+        }
+        return response.json();
+      }).then(()=>{
+        window.location.reload();
+      }).catch((error) => {
+        throw(error);
+      });
+    }
+
     function showRecipe(recipes) {
         if(!friendMethod) {
           return <div></div>
@@ -74,6 +99,7 @@ function FriendProfile(){
                   </div>
                   <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
                   <div key={element.description}>Instructions: {element.description}</div>
+                  <Button onClick={()=>handleAdd(element)}>add to your own</Button>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>

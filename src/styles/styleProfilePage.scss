@@ -1,243 +1,240 @@
+.ellipse-1 {
+  height: 45px;
+  margin-left: 0px;
+  mix-blend-mode: normal;
+  width: 45px;
+}
 
-  .ellipse-1 {
-    height: 45px;
-    margin-left: 20px;
-    mix-blend-mode: normal;
-    width: 45px;
-  }
+.profPic {
+  height: 200px;
+  margin-top: 50px;
+  margin-left: 0px;
+  mix-blend-mode: normal;
+  width: 200px;
+}
+.flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  margin-left: -325px;
+  min-height: 248px;
+  width: 185px;
+}
+.flex-col-1 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: -200px;
+  //min-height: 343px;
+  //min-width: 500px;
+  margin-top: 100px;
+  width: 351px;
+}
+.flex-col-2 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 166px;
+  width: 1152px;
+}
+.flex-row {
+  align-items: flex-start;
+  display: flex;
+  height: 37px;
+  margin-left: 50px;
+  margin-top: -10px;
+  min-width: 412px;
+}
+.flex-row-1 {
+  align-items: flex-start;
+  display: flex;
+  margin-left: 0px;
+  margin-top: 0px;
+  height: 100px;
+  width: 500px;
+  //width:500px;
+  //height: 40px;
+}
+.friendpics {
+  align-items:center;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 500px;
+  height: 360px;
+  overflow: scroll;
+  //height: 10px;
+}
+.friendButtons2{
+  margin-left: 60px;
+  margin-top: -130px;
+  height: 50px;
+  //gap: 15px;
+}
+.friendships-row{
+  width: 500px;
+}
+.friendProfAndName{
+  align-items: center;
+  height:135px;
+  margin-top:5px;
 
-  .profPic {
-    height: 200px;
-    margin-top: 50px;
-    margin-left: 0px;
-    mix-blend-mode: normal;
-    width: 200px;
-  }
-  .flex-col {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 6px;
-    margin-left: -325px;
-    min-height: 248px;
-    width: 185px;
-  }
-  .flex-col-1 {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    margin-left: -200px;
-    //min-height: 343px;
-    //min-width: 500px;
-    margin-top: 100px;
-    width: 351px;
-  }
-  .flex-col-2 {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 166px;
-    width: 1152px;
-  }
-  .flex-row {
-    align-items: flex-start;
-    display: flex;
-    height: 37px;
-    margin-left: 50px;
-    margin-top: -10px;
-    min-width: 412px;
-  }
-  .flex-row-1 {
-    align-items: flex-start;
-    display: flex;
-    margin-left: 0px;
-    margin-top: 0px;
-    height: 100px;
-    width: 500px;
-    //width:500px;
-    //height: 40px;
-  }
-  .friendpics {
-    align-items:center;
-    margin-left: 0px;
-    margin-top: 0px;
-    width: 500px;
-    height: 100px;
-    overflow: scroll;
-    //height: 10px;
-  }
-  .friendButtons2{
-    margin-left: 80px;
-    margin-top: -130px;
-    //gap: 15px;
-  }
-  .friendships-row{
-    width: 500px;
-  }
-  .friendProfAndName{
-    align-items: center;
-    height:135px;
-    margin-top:5px;
-  }
-  .friendName{
-    font-size: small;
-    margin-left: -20px;
-  }
-  .flex-row-2 {
-    align-items: center;
-    display: flex;
-    margin-left: -100px;
-    margin-top: 50px;
-    margin-right: 0px;
-    margin-top: -225px;
-    min-width: 899px;
-  }
-  .flex-row-3 {
-    align-items: flex-start;
-    display: flex;
-    margin-left: 350px;
-    margin-top: 0px;
-    height: 343px;
-    min-width: 438px;
-  }
-  .friends {
-    letter-spacing: 0;
-    font-size: 125%;
-    margin-left: 0px;
-    margin-top: 175px;
-    min-height: 37px;
-    mix-blend-mode: normal;
-    width: 88px;
-  }
-  .line-1 {
-    height: 77px;
-    left: 0;
-    position: absolute;
-    top: 99px;
-    width: 87px;
-  }
-  .line-2 {
-    height: 19px;
-    left: 86px;
-    position: absolute;
-    top: 98px;
-    width: 86px;
-  }
-  .line-3 {
-    height: 77px;
-    left: 169px;
-    position: absolute;
-    top: 41px;
-    width: 87px;
-  }
-  .line-4 {
-    height: 32px;
-    left: 255px;
-    position: absolute;
-    top: 41px;
-    width: 96px;
-  }
-  .overlap-group {
-    height: 176px;
-    margin-left: -200px;
-    position: relative;
-    width: 351px;
-  }
-  .overlap-group1 {
-    align-items: flex-start;
-    background-color: var(--bay-leaf);
-    display: flex;
-    height: 66px;
-    justify-content: flex-end;
-    min-width: 1152px;
-    padding: 10px 28px;
-  }
-  .overlap-group2 {
-    align-items: flex-end;
-    background-color: var(--bay-leaf);
-    display: flex;
-    height: 66px;
-    justify-content: flex-end;
-    margin-top: 116px;
-    min-width: 1152px;
-    padding: 18px 446px;
-  }
-  .profileScreen {
-    align-items: center;
-    background-color: var(--celeste);
-    display: flex;
-    flex-direction: column;
-    height: 700px;
-    mix-blend-mode: normal;
-    width: 1152px;
-  }
-  .rectangle-21 {
-    height: 175px;
-    left: 1px;
-    mix-blend-mode: normal;
-    position: absolute;
-    top: 0;
-    width: 350px;
-  }
-  .userName {
-    color: var(--black);
-    font-family: var(--font-family-lato);
-    font-size: var(--font-size-xxl);
-    letter-spacing: 0;
-    margin-left: 40px;
-    margin-top: 26px;
-    min-height: 37px;
-    min-width: 88px;
-    mix-blend-mode: normal;
-    width: 88px;
-  }
-  .text-1 {
-    letter-spacing: 0;
-    //align-items: center;
-    //font-size: 75%;
-    margin-left: 500px;
-    margin-top: 200px;
-    min-height: 343px;
-    mix-blend-mode: normal;
-    width: 151px;
-  }
-  .recipes {
-    margin-top: 50px;
-    margin-left: 35px;
-  }
-  .recipeBox{
-    width: 300px;
-  }
-  .title {
-    letter-spacing: 0;
-    font-size: 150%;
-    margin-left: 0px;
-    margin-top: 50px;
-    //margin-bottom: 200px;
-    min-height: 37px;
-    min-width: 151px;
-    mix-blend-mode: normal;
-    width: 151px;
-  }
+}
 
-  
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-  @import url("https://fonts.googleapis.com/css?family=Taviraj:400,700|Lato:400,300,700");
-  * {
-    box-sizing: border-box;
-  }
-  .container-center-horizontal {
-    pointer-events: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  .container-center-horizontal > * {
-    pointer-events: auto;
-    flex-shrink: 0;
-  }
-  .screen a {
-    text-decoration: none;
-    display: contents;
-  }
+.flex-row-2 {
+  align-items: center;
+  display: flex;
+  margin-left: -100px;
+  margin-top: 50px;
+  margin-right: 0px;
+  margin-top: -225px;
+  min-width: 899px;
+}
+.flex-row-3 {
+  align-items: flex-start;
+  display: flex;
+  margin-left: 350px;
+  margin-top: 0px;
+  height: 343px;
+  min-width: 438px;
+}
+.friends {
+  letter-spacing: 0;
+  font-size: 125%;
+  margin-left: 0px;
+  margin-top: 175px;
+  min-height: 37px;
+  mix-blend-mode: normal;
+  width: 88px;
+}
+.line-1 {
+  height: 77px;
+  left: 0;
+  position: absolute;
+  top: 99px;
+  width: 87px;
+}
+.line-2 {
+  height: 19px;
+  left: 86px;
+  position: absolute;
+  top: 98px;
+  width: 86px;
+}
+.line-3 {
+  height: 77px;
+  left: 169px;
+  position: absolute;
+  top: 41px;
+  width: 87px;
+}
+.line-4 {
+  height: 32px;
+  left: 255px;
+  position: absolute;
+  top: 41px;
+  width: 96px;
+}
+.overlap-group {
+  height: 176px;
+  margin-left: -200px;
+  position: relative;
+  width: 351px;
+}
+.overlap-group1 {
+  align-items: flex-start;
+  background-color: var(--bay-leaf);
+  display: flex;
+  height: 66px;
+  justify-content: flex-end;
+  min-width: 1152px;
+  padding: 10px 28px;
+}
+.overlap-group2 {
+  align-items: flex-end;
+  background-color: var(--bay-leaf);
+  display: flex;
+  height: 66px;
+  justify-content: flex-end;
+  margin-top: 116px;
+  min-width: 1152px;
+  padding: 18px 446px;
+}
+.profileScreen {
+  align-items: center;
+  background-color: var(--celeste);
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  mix-blend-mode: normal;
+  width: 1152px;
+}
+.rectangle-21 {
+  height: 175px;
+  left: 1px;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 0;
+  width: 350px;
+}
+.userName {
+  color: var(--black);
+  font-size: larger;
+  letter-spacing: 0;
+  margin-left: 40px;
+  margin-top: 26px;
+  min-height: 37px;
+  min-width: 88px;
+  mix-blend-mode: normal;
+  width: 88px;
+}
+.text-1 {
+  letter-spacing: 0;
+  //align-items: center;
+  //font-size: 75%;
+  margin-left: 500px;
+  margin-top: 200px;
+  min-height: 343px;
+  mix-blend-mode: normal;
+  width: 151px;
+}
+.recipes {
+  margin-top: 50px;
+  margin-left: 35px;
+}
+.recipeBox{
+  width: 300px;
+}
+.title {
+  letter-spacing: 0;
+  font-size: 150%;
+  margin-left: 0px;
+  margin-top: 50px;
+  //margin-bottom: 200px;
+  min-height: 37px;
+  min-width: 151px;
+  mix-blend-mode: normal;
+  width: 151px;
+}
+
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Taviraj:400,700|Lato:400,300,700");
+* {
+  box-sizing: border-box;
+}
+.container-center-horizontal {
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.container-center-horizontal > * {
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+.screen a {
+  text-decoration: none;
+  display: contents;
+}

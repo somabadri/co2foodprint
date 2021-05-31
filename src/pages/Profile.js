@@ -174,7 +174,7 @@ function Profile() {
             </div>
             <div className="flex-col-1">
               <LineChart recipes={metrics}/> 
-              <div className="friends">{"Friends"}</div>
+              <div className="friends">Following</div>
               <div className="flex-row-1">
                 <div className="friendpics">
                     {hasFriends > 0 &&

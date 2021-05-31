@@ -115,8 +115,8 @@ export default function CalculateFood() {
         return 'error';
       }
       return response.json();
-    }).then((json) => {
-      console.log(json);
+    }).then(()=>{
+      console.log(post);
     }).catch((error) => {
       throw(error);
     });
@@ -227,7 +227,14 @@ export default function CalculateFood() {
             </form>
             <div className="directionTitle">Directions</div>
             <form className="formStyle">
-              <input className="directionTextbox" type="text" name="Directions" onChange={handleChangeDesc}/>
+              <TextField 
+                className="directionTextbox"
+                multiline
+                rows={11}
+                defaultValue=""
+                variant="outlined"
+                onChange={handleChangeDesc}
+              />
               <input className="submitButton" type="submit" value="Post Recipe" onClick={handlePost}/>
             </form>
           </div>

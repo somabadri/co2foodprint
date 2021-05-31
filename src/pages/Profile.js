@@ -10,6 +10,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 document.body.style = 'background: #CAD2C5';
 
@@ -125,7 +128,6 @@ function Profile() {
   }
 
   function moveToFriendPage(friend_id) {
-    console.log(friend_id);
     window.location = `/friendProfile/${friend_id}`;
   }
 
@@ -174,7 +176,7 @@ function Profile() {
             </div>
             <div className="flex-col-1">
               <LineChart recipes={metrics}/> 
-              <div className="friends">{"Friends"}</div>
+              <div className="friends">Following</div>
               <div className="flex-row-1">
                 <div className="friendpics">
                     {hasFriends > 0 &&
@@ -187,9 +189,14 @@ function Profile() {
                             <img className="friendProfPic" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
                             <div> {x.name}</div><br/>
                           </div>
-                            <div className="friendButtons">
-                              <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
-                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>Unfollow</Button>
+                            <div className="friendButtons2">
+                              
+                              <Link to ={{pathname: "/friendProfile/"+friendsList[i].name, state: { email: friendsList[i].friend_id } }} >
+                                <Button variant="light"> View Profile </Button>
+                              </Link>
+                              
+                              {' '}
+                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
                             </div>
                         </div>
                         </div>

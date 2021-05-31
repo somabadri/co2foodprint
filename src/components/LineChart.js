@@ -20,7 +20,7 @@ const LineChart = (({recipes})=> {
 	  }
 	  for(let j = 1; j<recipes.length; ++j){
 		let y = ((recipes[j].co2value * recipes[j].amount)/tot*100).toFixed(3);
-		pts.push({y:y,label:recipes[j].name})
+		pts.push({y:y,label:recipes[j].name,amount:recipes[j].amount})
 	  }
 	  setDatapts(pts);
 	  setTotal(tot);
@@ -90,6 +90,7 @@ const LineChart = (({recipes})=> {
 				type: "pie",
 				startAngle: 75,
 				legendText: "{label}",
+				toolTipContent: "amount of {label}: {amount}",
 				indexLabelFontSize: 16,
 				indexLabel: "{label} - {y}%",
 				indexLabelFontColor:"black",

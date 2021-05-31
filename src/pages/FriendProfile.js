@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLocation } from 'react';
 import { useState } from 'react';
 import LineChart from "../components/LineChart";
 import Navbar from '../components/Navbar'
@@ -14,15 +14,14 @@ import '../styles/friendProfStyle.scss';
 
 document.body.style = 'background: #CAD2C5';
 
-function FriendProfile(){
+function FriendProfile(props){
     const [friendRecipes,setFriendRecipes] = useState([{}]);
     const [friendName,setFriendName] = useState('');
     const [friendEmail,setFriendEmail] = useState('');
     const [friendPic,setFriendPic] = useState('');
     const [friendMethod,setFriendMethod] = useState(false);
     const [friendTransport, setFriendTransport] = useState(0);
-    let urlElements = window.location.href.split('/');
-    let friendID = (urlElements[4]);
+    let friendID = props.location.state.email;
 
       useEffect(() => {
         fetch('http://localhost:5000/api/v1/users/'+friendID, {

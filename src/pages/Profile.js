@@ -10,6 +10,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 document.body.style = 'background: #CAD2C5';
 
@@ -125,7 +128,6 @@ function Profile() {
   }
 
   function moveToFriendPage(friend_id) {
-    console.log(friend_id);
     window.location = `/friendProfile/${friend_id}`;
   }
 
@@ -188,7 +190,12 @@ function Profile() {
                       <div>{x.name}</div>
                           </div>
                             <div className="friendButtons2">
-                              <Button variant="light" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}> View Profile </Button>{' '}
+                              
+                              <Link to ={{pathname: "/friendProfile/"+friendsList[i].name, state: { email: friendsList[i].friend_id } }} >
+                                <Button variant="light"> View Profile </Button>
+                              </Link>
+                              
+                              {' '}
                               <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
                             </div>
                         </div>

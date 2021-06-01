@@ -8,6 +8,8 @@ Firstly, you will need to have sass, bootstrap, and node installed on your local
 
 Then:
 
+Clone the repository into your terminal
+
 In the project directory -> cd to the backend folder and run:
 
 ### 'nodemon server'

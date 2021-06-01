@@ -18,6 +18,15 @@ This will connect you to our mongodb database and edamam api
 
 In another terminal, open the project directory and run:
 
+### `npm install`
+
+This will install all the dependencies needed to run this project
+After that is complete, if any vulnerabilities are found run:
+
+### `npm audit fix`
+
+To fix them. After that start the app by running:
+
 ### `npm start`
 
 Runs the app in the development mode.\

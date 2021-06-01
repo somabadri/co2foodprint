@@ -1,6 +1,7 @@
 import usersDAO from "../dao/usersDAO.js";
 
 export default class UsersController {
+    /*gets all users within the server */
     static async get(req,res) {
         const { usersList } = await usersDAO.getUsers(req.params);
         let response = {
@@ -8,6 +9,7 @@ export default class UsersController {
         }
         res.json(response);
     }
+    /*gets a specific recipe by its specified unique id */
     static async getRecipeById(req,res) {
         const { recipe } = await usersDAO.getRecipe(req.params);
         let response = {
@@ -15,6 +17,7 @@ export default class UsersController {
         }
         res.json(response);
     }
+    /*adds a recipe to the specified user's recipe list */
     static async postRecipe(req,res) {
         try {
             const newName = req.body.name;
@@ -34,6 +37,7 @@ export default class UsersController {
             res.status(500).json({error: e.message});
         }
     }
+    /*modifies a recipe in a specified user's recipe list */
     static async editRecipe(req,res) {
         try {
             const recipeId = req.body.recipe_id;
@@ -56,7 +60,7 @@ export default class UsersController {
         }
     }
     
-    
+    /*removes a recipe from the specified user's recipe list */
     static async removeRecipe (req,res) {
         try {
             const recipeId = req.query.id;
@@ -70,6 +74,7 @@ export default class UsersController {
         }
     }
 
+    /*creates a new user and adds them to the server */
     static async post(req,res) {
         try {
             const date = new Date();
@@ -98,6 +103,7 @@ export default class UsersController {
         }
     }
 
+    /*modifies the contents of a specified user */
     static async put(req,res) {
         try {
             const id = req.body.user_id;
@@ -114,6 +120,7 @@ export default class UsersController {
         }
     }
 
+    /*removes a user from the server */
     static async remove(req,res) {
         try {
             const userId = req.query.user_id;
@@ -126,6 +133,7 @@ export default class UsersController {
         }
     }
 
+    /*adds a following to the specified user's following list */
     static async postFriend(req,res){
         try {
             const newName = req.body.name;
@@ -144,6 +152,7 @@ export default class UsersController {
         }
     }
 
+    /*unfollows someone and removes them from a specified user's following list */
     static async removeFriend(req,res) {
         try {
             const userId = req.query.friend_id;

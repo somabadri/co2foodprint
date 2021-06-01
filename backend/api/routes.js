@@ -2,7 +2,7 @@ import express from 'express';
 import UserCtrl from "./users.controller.js";
 
 const router = express.Router();
-
+/*sets up the specific urls to make HTTP requests */
 router
     .route("/")
     .post(UserCtrl.post)

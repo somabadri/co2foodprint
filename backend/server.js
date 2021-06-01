@@ -4,6 +4,7 @@ import routes from "./api/routes.js"
 
 const app = express()
 
+/*sets everything up with the routes to talk with the server*/
 app.use(cors());
 app.use(express.json());
 

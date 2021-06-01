@@ -1,9 +1,10 @@
 import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
-import recipesDAO from "./dao/recipesDAO.js"
 import usersDAO from "./dao/usersDAO.js"
 dotenv.config();
+/*sets up the server and notifies the user that everything is connected
+can only hold 50 people*/
 const MongoClient = mongodb.MongoClient;
 
 const port = process.env.PORT || 8000;

@@ -4,6 +4,7 @@ let users;
 const ObjectId = mongodb.ObjectID;
 
 export default class usersDAO {
+    /*allows the server to be communicated with */
     static async injectDB(conn) {
         if (users) {
             return;
@@ -17,7 +18,7 @@ export default class usersDAO {
             }
         }
     }
-
+    /*gets a user by finding their specified id if they have one */
     static async getUsers(params) {
         let cursor;
         let id = params.userid;
@@ -44,7 +45,7 @@ export default class usersDAO {
             console.error('Unable to create recipesList for some reason ' + e);
         }
     }
-
+    /*gets a recipe by first finding the user then finding that specified recipe */
     static async getRecipe(params) {
         let cursor;
         let userid = params.userid;
@@ -70,7 +71,7 @@ export default class usersDAO {
             console.error('Unable to create recipesList for some reason ' + e);
         }
     }
-
+    /*first finds the user then adds a recipe to their recipe list */
     static async addRecipe(params,name,ingredients,co2value,description){
         let userid = params.userid;
         try {
@@ -91,7 +92,7 @@ export default class usersDAO {
             return { recipe: []}
         }
     }
-
+    /*first finds a user then modifies a recipe in their recipe list */
     static async updateRecipe(params,recipeid,name,ingredients,description){
         let userid = params.userid;
         try {
@@ -108,7 +109,7 @@ export default class usersDAO {
             return { recipe: []}
         }
     }
-
+    /*first finds a user then deletes their specified recipe */
     static async deleteRecipe(params,recipeid){
         const userid = params.userid;
         try {
@@ -126,7 +127,7 @@ export default class usersDAO {
             return { error: e };
         }
     }
-
+    /*modifies a user by setting the request body to be the new user info */
     static async updateUser(
         id,
         body){
@@ -141,7 +142,7 @@ export default class usersDAO {
             return { error: e };
         }
     }
-
+    /*adds a user with the request body to the server */
     static async addUser(
         name,
         id,
@@ -166,7 +167,7 @@ export default class usersDAO {
                 return { error: e };
             }
     }
-
+    /*finds the specified user at their id and deletes them */
     static async deleteUser(id){
         try {
             const deletedUser = await users.deleteOne({
@@ -178,7 +179,7 @@ export default class usersDAO {
             return { error: e };
         }
     }
-
+    /*first finds a user and adds a following to their following list */
     static async addFriend(
         params,
         name,
@@ -202,6 +203,7 @@ export default class usersDAO {
             return { friends: []}
         }
     }
+    /*first finds a user and deletes a following from their list */
     static async deleteFriend(params,friend_id){
         const userid = params.userid;
         try {

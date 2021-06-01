@@ -22,7 +22,7 @@ class NavbarComponent extends React.Component {
       <Navbar collapseOnSelect expand="lg" style={{
         backgroundColor: "#84A98C", fontFamily: "Taviraj", fontSize: 16
       }}>
-        <Navbar.Brand href="#" style={{ fontSize: 24 }}>CO2 Foodprint</Navbar.Brand>
+        <Navbar.Brand style={{ fontSize: 24 }}>CO2 Foodprint</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

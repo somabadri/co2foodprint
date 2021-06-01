@@ -15,7 +15,6 @@ class NavbarComponent extends React.Component {
   render() {
     let name = localStorage.getItem('current name');
     let profileImg = localStorage.getItem('current pic');
-    console.log(profileImg);
     return (
 
       <Navbar collapseOnSelect expand="lg" style={{

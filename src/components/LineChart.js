@@ -27,58 +27,9 @@ const LineChart = (({recipes})=> {
 	  // eslint-disable-next-line react-hooks/exhaustive-deps
 	},[recipes])
 
-/*useEffect(() => {
-	console.log(email)
-    fetch('http://localhost:5000/api/v1/users/'+email, {
-      "method": "GET",
-      "headers": {
-        "Content-Type": "application/json"
-      }
-    }).then((response) => {
-      if(!response.ok){
-        return 'error';
-      }
-      return response.json();
-    }).then((json) => {
-      if(json.users.find(id=>id=email)){
-		setRecipes(json.users.find(id=>id=email).recipes);
-      }
-    }).catch((error) => {
-      throw(error);
-    })
-  },[email])
-
-  useEffect(() => {
-    let avg = [];
-    let total = [];
-    if(recipes.length !== 0){
-      for(let i = 0;i<recipes.length;i++){
-        if(i === 0){
-          total[i] =  Number(recipes[i].co2value);
-          avg[i] = total[i];
-        } else {
-          total[i] = (Number(total[i-1])+Number(recipes[i].co2value));
-          avg[i] = total[i]/(i+1);
-        }
-      }
-    }
-    setAverages(avg);
-  },[recipes])
-
-  useEffect(() => {
-	const par = [];
-	for(let i = 0; i<averages.length; i++){
-		let pt = Number(averages[i].toFixed(3));
-    	par.push({y: (i+1), label:pt});
-	}
-	setDatapts(par);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [averages])
-  */
 	useEffect(() => {
 		setOptions( {
 			animationEnabled: true,
-			//exportEnabled: true,
 			theme: "light2", // "light1", "dark1", "dark2"
 			backgroundColor: "#84A98C",
 			title:{
@@ -97,6 +48,7 @@ const LineChart = (({recipes})=> {
 				dataPoints: datapts
 			}]
 		})
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[datapts])
 	
 		

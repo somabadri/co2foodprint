@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import LineChart from "../components/LineChart";
-import FriendProfile from "./FriendProfile";
-import { BrowserRouter, Link, Route, withRouter  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar'
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
@@ -10,9 +9,6 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
-import {
-  BrowserRouter as Router,
-} from "react-router-dom";
 
 document.body.style = 'background: #CAD2C5';
 
@@ -125,10 +121,6 @@ function Profile() {
         </Card>
         ))}</Accordion>
     }
-  }
-
-  function moveToFriendPage(friend_id) {
-    window.location = `/friendProfile/${friend_id}`;
   }
 
   function handleFriendRemove(id) {

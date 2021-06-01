@@ -186,7 +186,7 @@ function Profile() {
                         <br/>
                         <div className="friendships-row">
                           <div className = "friendProfAndName"> 
-                            <img className="friendProfPic" src={x.profile_pic} alt="" onClick={()=>moveToFriendPage(friendsList[i].friend_id)}/>
+                            <img className="friendProfPic" src={x.profile_pic} alt=""/>
                             <div> {x.name}</div><br/>
                           </div>
                             <div className="friendButtons2">

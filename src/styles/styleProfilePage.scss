@@ -69,7 +69,7 @@
     margin-left: 0px;
     margin-top: 0px;
     width: 500px;
-    height: 200px;
+    height: 361px;
     overflow: scroll;
     //height: 10px;
   }
@@ -224,131 +224,6 @@
     mix-blend-mode: normal;
     width: 151px;
   }
-
-.flex-row-2 {
-  align-items: center;
-  display: flex;
-  margin-left: -100px;
-  margin-top: 50px;
-  margin-right: 0px;
-  margin-top: -225px;
-  min-width: 899px;
-}
-.flex-row-3 {
-  align-items: flex-start;
-  display: flex;
-  margin-left: 350px;
-  margin-top: 0px;
-  height: 343px;
-  min-width: 438px;
-}
-.friends {
-  letter-spacing: 0;
-  font-size: 125%;
-  margin-left: 0px;
-  margin-top: 175px;
-  min-height: 37px;
-  mix-blend-mode: normal;
-  width: 88px;
-}
-.line-1 {
-  height: 77px;
-  left: 0;
-  position: absolute;
-  top: 99px;
-  width: 87px;
-}
-.line-2 {
-  height: 19px;
-  left: 86px;
-  position: absolute;
-  top: 98px;
-  width: 86px;
-}
-.line-3 {
-  height: 77px;
-  left: 169px;
-  position: absolute;
-  top: 41px;
-  width: 87px;
-}
-.line-4 {
-  height: 32px;
-  left: 255px;
-  position: absolute;
-  top: 41px;
-  width: 96px;
-}
-.overlap-group {
-  height: 176px;
-  margin-left: -200px;
-  position: relative;
-  width: 351px;
-}
-.overlap-group1 {
-  align-items: flex-start;
-  background-color: var(--bay-leaf);
-  display: flex;
-  height: 66px;
-  justify-content: flex-end;
-  min-width: 1152px;
-  padding: 10px 28px;
-}
-.overlap-group2 {
-  align-items: flex-end;
-  background-color: var(--bay-leaf);
-  display: flex;
-  height: 66px;
-  justify-content: flex-end;
-  margin-top: 116px;
-  min-width: 1152px;
-  padding: 18px 446px;
-}
-.profileScreen {
-  align-items: center;
-  background-color: var(--celeste);
-  display: flex;
-  flex-direction: column;
-  height: 700px;
-  mix-blend-mode: normal;
-  width: 1152px;
-}
-.rectangle-21 {
-  height: 175px;
-  left: 1px;
-  mix-blend-mode: normal;
-  position: absolute;
-  top: 0;
-  width: 350px;
-}
-.userName {
-  color: var(--black);
-  font-size: larger;
-  letter-spacing: 0;
-  margin-left: 40px;
-  margin-top: 26px;
-  min-height: 37px;
-  min-width: 88px;
-  mix-blend-mode: normal;
-  width: 88px;
-}
-.text-1 {
-  letter-spacing: 0;
-  //align-items: center;
-  //font-size: 75%;
-  margin-left: 500px;
-  margin-top: 200px;
-  min-height: 343px;
-  mix-blend-mode: normal;
-  width: 151px;
-}
-.recipes {
-  margin-top: 50px;
-  margin-left: 35px;
-}
-.recipeBox{
-  width: 300px;
-}
 .title {
   letter-spacing: 0;
   font-size: 150%;

@@ -98,7 +98,7 @@ function FriendProfile(props){
                   </div>
                   <div key={element.co2value}>Kg CO2 Emitted: {element.co2value}</div><br/>
                   <div key={element.description}>Instructions: {element.description}</div>
-                  <Button onClick={()=>handleAdd(element)}>add to your own</Button>
+                  <Button variant="light" onClick={()=>handleAdd(element)}>Add to your recipes</Button>
                 </Card.Body>
               </Accordion.Collapse>
             </Card>
@@ -117,17 +117,19 @@ function FriendProfile(props){
                     <div className = "back">
                         <Button variant="light" onClick={()=>backToProfPage()}>Return to your profile</Button>
                     </div>
-                    <div className = "friendProf">
-                        <div className = "col1">
-                            <div className = "friendProfPic">
+                    <div className= "row">
+                      <div className = "col">
+                        <div className = "friendProfCol">
+                            <div className = "friendProfPic1">
                                     <img className="profPic" src={friendPic} alt=""/>
                             </div>
-                            <div className = "friendName">
-                                    <div className="userName">{friendName}</div>
+                            <div className = "friendName1">
+                                    <div className="userName1">{friendName}</div>
                             </div>
                         </div>
-                        <div className = "col2">
-                            <div className = "friendRecipes">
+                      </div>
+                      <div className = "col">
+                            <div className = "friendRecipesCol">
                                 <div className = "friendRec">
                                     <div> {friendName}'s Recipes </div>
                                 </div>
@@ -135,7 +137,7 @@ function FriendProfile(props){
                                     {showRecipe(friendRecipes)}
                                 </div>
                             </div>
-                        </div>
+                      </div>
                     </div>
                 </div>
               <Footer />

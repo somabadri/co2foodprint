@@ -74,7 +74,7 @@ export default class UsersController {
         try {
             const date = new Date();
             const month = date.getMonth()+1;
-            const post = month + "/" + date.getDate() + " I just signed up come say hi!";
+            const post = month + "/" + date.getDate() + " I just signed up! Give me a follow to see my future recipes!";
             const newName = req.body.name;
             const newid = req.body.user_id;
             const newRecipes = [];

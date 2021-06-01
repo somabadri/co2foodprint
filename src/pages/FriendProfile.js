@@ -1,8 +1,6 @@
-import React, { useEffect, useLocation } from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import LineChart from "../components/LineChart";
 import Navbar from '../components/Navbar'
-import Profile from "./Profile";
 import '../styles/styleProfilePage.scss';
 import Footer from '../components/Footer';
 import Accordion from 'react-bootstrap/Accordion';
@@ -10,17 +8,14 @@ import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
 import '../styles/friendProfStyle.scss';
-//import { render } from 'node-sass';
 
 document.body.style = 'background: #CAD2C5';
 
 function FriendProfile(props){
     const [friendRecipes,setFriendRecipes] = useState([{}]);
     const [friendName,setFriendName] = useState('');
-    const [friendEmail,setFriendEmail] = useState('');
     const [friendPic,setFriendPic] = useState('');
     const [friendMethod,setFriendMethod] = useState(false);
-    const [friendTransport, setFriendTransport] = useState(0);
     let friendID = props.location.state.email;
 
       useEffect(() => {
@@ -38,9 +33,7 @@ function FriendProfile(props){
           if(json.users.find(id=>id=friendID)){
             setFriendName(json.users.find(id=>id=friendID).name);
             setFriendPic(json.users.find(id=>id=friendID).profile_pic);
-            setFriendEmail(json.users.find(id=>id=friendID).email);
             setFriendRecipes(json.users.find(id=>id=friendID).recipes);
-            setFriendTransport(json.users.find(id=>id=friendID).transportation_co2);
             setFriendMethod(true);
         }
         }).catch((error) => {

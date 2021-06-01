@@ -10,10 +10,6 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
-let foodImg = "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/baseline-fastfood-white-48dp-1@2x.png";
-
-let transportImg = "https://anima-uploads.s3.amazonaws.com/projects/608b4ca9ee3fce15866ca79a/releases/608b51b1f68e88411d270394/img/baseline-directions-car-white-48dp-1@2x.png";
-
 document.body.style = 'background: #CAD2C5';
 
 export default function CalculateTransport() {
@@ -112,10 +108,6 @@ export default function CalculateTransport() {
           }
           itemco2 = category*entry.Quantity;
           return itemco2;
-      }
-
-      function handleFood(){
-        window.location = '/calculate/'
       }
     
     return (

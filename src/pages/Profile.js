@@ -107,9 +107,9 @@ function Profile() {
             }}>
               <div>
                 Ingredients:{element.ingredients.map(ingredient => 
-                  <div>
-                  <div>{ingredient.Quantity} {ingredient.Item}</div>
-                  </div> 
+                  <div key = {ingredient.Quantity + ingredient.Item}>
+                    <div> {ingredient.Quantity} {ingredient.Item}</div>
+                  </div>
                 )}<br/>
               </div>
               <div key={element.co2value}>CO2 Emitted: {element.co2value}{' kg'}</div><br/>
@@ -144,7 +144,7 @@ function Profile() {
     return (
     <div>
       <Navbar />
-      <div class="container-center-horizontal">
+      <div className="container-center-horizontal">
         <div className="profileScreen">
           <div className="flex-col-2">
             <div className="overlap-group1">
@@ -174,7 +174,7 @@ function Profile() {
                     {hasFriends > 0 &&
                     <div> 
                       {friendsList.map((x,i)=>{return(
-                      <div>
+                      <div key = {friendsList[i].name + i}>
                         <br/>
                         <div className="friendships-row">
                           <div className = "friendProfAndName"> 

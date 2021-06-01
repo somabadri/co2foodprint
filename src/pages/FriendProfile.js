@@ -84,7 +84,7 @@ function FriendProfile(props){
                 }}>
                   <div>
                     Ingredients:{element.ingredients.map(ingredient => 
-                      <div>
+                      <div key = {ingredient.Quantity + ingredient.Item}>
                       <div>{ingredient.Quantity} {ingredient.Item}</div>
                       </div> 
                     )}<br/>

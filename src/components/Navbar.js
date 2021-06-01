@@ -13,8 +13,6 @@ class NavbarComponent extends React.Component {
   }
 
   render() {
-    let name = localStorage.getItem('current name');
-    let profileImg = localStorage.getItem('current pic');
     return (
 
       <Navbar collapseOnSelect expand="lg" style={{
@@ -32,18 +30,6 @@ class NavbarComponent extends React.Component {
               <NavDropdown.Item href="/calculateTransport">Transportation</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {
-            name ?
-              <React.Fragment>
-                <Navbar.Brand href="/profile">
-                  <img src={profileImg} width="50px" height="50px" alt="profilepic"/>
-                </Navbar.Brand>
-                <Nav>
-                  <Nav.Link href="/profile" style={{ fontWeight: "bold" }}>Hi {name}!</Nav.Link>
-                </Nav>
-              </React.Fragment>
-              : <div></div>
-          }
           <GoogleBtn />
           
         </Navbar.Collapse>

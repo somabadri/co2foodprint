@@ -69,8 +69,9 @@
     margin-left: 0px;
     margin-top: 0px;
     width: 500px;
-    height: 361px;
-    overflow: scroll;
+    height: 300px;
+    overflow-y:scroll;
+    overflow-x:hidden;
     //height: 10px;
   }
   .friendButtons{

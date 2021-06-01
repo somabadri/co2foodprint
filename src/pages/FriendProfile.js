@@ -11,6 +11,7 @@ import '../styles/friendProfStyle.scss';
 
 document.body.style = 'background: #CAD2C5';
 
+//this function updates the page for which user you are viewing
 function FriendProfile(props){
     const [friendRecipes,setFriendRecipes] = useState([{}]);
     const [friendName,setFriendName] = useState('');
@@ -41,6 +42,7 @@ function FriendProfile(props){
         })
       },[friendID])
 
+    //this function adds their recipe to your recipe book
     function handleAdd(element){
       const data = {
         "name":element.name,
@@ -67,6 +69,7 @@ function FriendProfile(props){
       });
     }
 
+    //this function gives the recipes of the user you're viewing in an accordion list
     function showRecipe(recipes) {
         if(!friendMethod) {
           return <div></div>
@@ -99,6 +102,7 @@ function FriendProfile(props){
         }
       }
 
+      //this sends you back to your page
       function backToProfPage(){
           window.location = '/Profile';
       }

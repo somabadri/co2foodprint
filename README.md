@@ -16,7 +16,7 @@ In the project directory -> cd to the backend folder and run:
 
 This will connect you to our mongodb database and edamam api
 
-In the project directory, you should run:
+In another terminal, open the project directory and run:
 
 ### `npm start`
 

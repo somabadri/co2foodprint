@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .heading{
@@ -28,6 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-right: 20px;
 }
 .co2text{
     font-size: 20px;

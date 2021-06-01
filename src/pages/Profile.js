@@ -26,6 +26,7 @@ function Profile() {
   const [hasFriends, setHasFriends] = useState(0);
   const [metrics,setMetrics] = useState([{}]);
 
+  //this gets the information for your user profile (name, recipes, picture, etc)
   useEffect(() => {
     const data = {
       name: localStorage.getItem('current name'),
@@ -58,6 +59,7 @@ function Profile() {
     })
   },[email])
 
+  //this deletes a recipe
   function handleRemove(id) {
     fetch('http://localhost:5000/api/v1/users/'+email+"?id="+id, {
       "method": "DELETE",
@@ -76,6 +78,7 @@ function Profile() {
     })
   }
 
+  //this adds recipes to your pie chart
   function handleAdd(element) {
     let met = [...metrics];
     if(met.find(elem=>elem.name===element.name)){
@@ -90,6 +93,7 @@ function Profile() {
     setMetrics(met);
   }
 
+  //this returns your recipes in an accordion list
   function showRecipe(recipes) {
     if(!method || recipes[0] === undefined) {
       return <div></div>
@@ -123,6 +127,7 @@ function Profile() {
     }
   }
 
+  //this unfollows a user you're following
   function handleFriendRemove(id) {
     fetch('http://localhost:5000/api/v1/users/'+email+"/friends?friend_id="+id, {
       "method": "DELETE",

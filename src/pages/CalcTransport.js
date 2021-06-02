@@ -134,7 +134,7 @@ export default function CalculateTransport() {
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value=""
+                        //value=""
                       >
                         <MenuItem value={10}>Bike</MenuItem>
                         <MenuItem value={20}>Bus</MenuItem>

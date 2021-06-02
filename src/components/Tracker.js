@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import '../styles/tracker.scss'
 import tree from '../assets/tree.png';
 
-// Soma - implemented the component.
+// Left portion of the dashboard. 
 class Tracker extends Component {
   render() {
     return (

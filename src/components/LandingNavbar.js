@@ -1,9 +1,5 @@
 import React from 'react';
 import '../styles/landingNavbar.css'
-
-
-
-
 class LandingNavbar extends React.Component {
   state = { clicked: false }
 
@@ -13,11 +9,8 @@ class LandingNavbar extends React.Component {
 
   render() {
     return (
-
       <nav className="NavbarItems">
         <h1 className="navbar-logo" style={{ fontFamily: "Taviraj" }}>CO2 Foodprint</h1>
-
-
       </nav>
     );
   };

@@ -1,9 +1,7 @@
 import React from 'react';
-
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import GoogleBtn from './GoogleBtn';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 class NavbarComponent extends React.Component {
   state = { clicked: false }
@@ -14,7 +12,6 @@ class NavbarComponent extends React.Component {
 
   render() {
     return (
-
       <Navbar collapseOnSelect expand="lg" style={{
         backgroundColor: "#84A98C", fontFamily: "Taviraj", fontSize: 16
       }}>
@@ -31,14 +28,9 @@ class NavbarComponent extends React.Component {
             </NavDropdown>
           </Nav>
           <GoogleBtn />
-          
         </Navbar.Collapse>
-
       </Navbar>
     );
-
-
   };
 }
-
 export default NavbarComponent;

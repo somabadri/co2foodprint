@@ -20,14 +20,14 @@ class GoogleBtn extends Component {
   componentDidMount() {
     let loggedIn = localStorage.getItem('isLogined');
     let token = localStorage.getItem('current email');
-   
-    if(loggedIn === "true"){
+
+    if (loggedIn === "true") {
       this.setState({
         isLogined: true,
         accessToken: token,
       });
     }
-    else{
+    else {
       this.setState({
         isLogined: false,
         accessToken: '',
@@ -44,7 +44,7 @@ class GoogleBtn extends Component {
       });
       localStorage.setItem('isLogined', true);
       localStorage.setItem('current email', response.profileObj.email);
-      localStorage.setItem('current name',response.profileObj.givenName);
+      localStorage.setItem('current name', response.profileObj.givenName);
       localStorage.setItem('current pic', response.profileObj.imageUrl);
     }
   }
@@ -53,7 +53,7 @@ class GoogleBtn extends Component {
     this.setState({
       isLogined: false,
       accessToken: '',
-      isSet:false
+      isSet: false
     });
     localStorage.setItem('isLogined', false);
     localStorage.removeItem('current email');
@@ -71,7 +71,7 @@ class GoogleBtn extends Component {
   }
 
   render() {
-    if(this.state.isLogined && window.location.pathname === '/'){
+    if (this.state.isLogined && window.location.pathname === '/') {
       window.location.pathname = "/dashboard";
     }
     return (

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../styles/post.scss';
 
+// Post component for dashboard
 class Post extends Component {
   constructor(props) {
     super(props);

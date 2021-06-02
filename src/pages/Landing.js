@@ -5,26 +5,27 @@ import monstera from '../assets/monstera.png';
 import Footer from '../components/Footer'
 import GoogleBtn from '../components/GoogleBtn';
 
+// Intially landing page for new users and users before logging in.
 function Landing() {
   return (
     <div>
       <LandingNavbar />
       <div className="container-landing">
-        <div className= "left-text">
-          <div className= "title">
+        <div className="left-text">
+          <div className="title">
             Carbon Foodprint
           </div>
-          <div className="subtitle"> 
-            A tool that helps you lead the sustainable life of your choice. 
-          </div> 
+          <div className="subtitle">
+            A tool that helps you lead the sustainable life of your choice.
+          </div>
           <div className="description">
-            Keep track of your carbon emissions, set weekly goals, share your enviroment friendly recipes, 
+            Keep track of your carbon emissions, set weekly goals, share your enviroment friendly recipes,
             and watch yourself and your friends hit their goals.
           </div>
-          <GoogleBtn/>
+          <GoogleBtn />
         </div>
-        <div className= "right-text">
-          <img src={monstera} alt='monstera plant'/>
+        <div className="right-text">
+          <img src={monstera} alt='monstera plant' />
         </div>
       </div>
       <Footer />

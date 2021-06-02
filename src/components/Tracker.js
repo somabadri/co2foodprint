@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../styles/tracker.scss'
 import tree from '../assets/tree.png';
 
+// Soma - implemented the component.
 class Tracker extends Component {
   render() {
     return (

@@ -9,6 +9,7 @@ import kelleypic from '../assets/kelley.jpg';
 import raymondpic from '../assets/raymond.jpg';
 import rileypic from '../assets/riley.jpg';
 
+// This page holds information about the creators of the app.
 class About extends Component {
     render() {
         let soma= 'I am a graduating Computer Science student at UC Santa Cruz. I am interested in sustainable living, specifically limiting my carbon footprint. This app was an opportunity to create a tool to aid that goal. ';

@@ -16,15 +16,15 @@ document.body.style = 'background: #CAD2C5';
 //https://www.w3schools.com/jsref/jsref_encodeuri.asp for security of urls
 //DO NOT DELETE COMMENTED OUT CODE
 function Profile() {
-  const [recipes,setRecipes] = useState([{}]);
-  const [name,setName] = useState('');
-  const [email,setEmail] = useState('');
-  const [pic,setPic] = useState('');
-  const [method,setMethod] = useState(false);
+  const [recipes, setRecipes] = useState([{}]);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pic, setPic] = useState('');
+  const [method, setMethod] = useState(false);
   const [transport, setTransport] = useState(0);
   const [friendsList, setFriendsList] = useState([{}]);
   const [hasFriends, setHasFriends] = useState(0);
-  const [metrics,setMetrics] = useState([{}]);
+  const [metrics, setMetrics] = useState([{}]);
 
   //this gets the information for your user profile (name, recipes, picture, etc)
   useEffect(() => {
@@ -36,58 +36,58 @@ function Profile() {
     setName(data.name);
     setEmail(data.email);
     setPic(data.pic);
-    fetch('http://localhost:5000/api/v1/users/'+email, {
+    fetch('http://localhost:5000/api/v1/users/' + email, {
       "method": "GET",
       "headers": {
         "Content-Type": "application/json"
       }
     }).then((response) => {
-      if(!response.ok){
+      if (!response.ok) {
         return 'error';
       }
       return response.json();
     }).then((json) => {
-      if(json.users.find(id=>id=email)){
-        setRecipes(json.users.find(id=>id=email).recipes);
-        setTransport(json.users.find(id=>id=email).transportation_co2);
-        setFriendsList(json.users.find(id=>id=email).friends);
+      if (json.users.find(id => id = email)) {
+        setRecipes(json.users.find(id => id = email).recipes);
+        setTransport(json.users.find(id => id = email).transportation_co2);
+        setFriendsList(json.users.find(id => id = email).friends);
         setHasFriends(1);
         setMethod(true);
       }
     }).catch((error) => {
-      throw(error);
+      throw (error);
     })
-  },[email])
+  }, [email])
 
   //this deletes a recipe
   function handleRemove(id) {
-    fetch('http://localhost:5000/api/v1/users/'+email+"?id="+id, {
+    fetch('http://localhost:5000/api/v1/users/' + email + "?id=" + id, {
       "method": "DELETE",
       "headers": {
         "Content-Type": "application/json"
       }
     }).then((response) => {
-      if(!response.ok){
+      if (!response.ok) {
         return 'error';
       }
       return response.json();
-    }).then(() =>{
+    }).then(() => {
       setEmail('');
     }).catch((error) => {
-      throw(error);
+      throw (error);
     })
   }
 
   //this adds recipes to your pie chart
   function handleAdd(element) {
     let met = [...metrics];
-    if(met.find(elem=>elem.name===element.name)){
-      met.find(elem=>elem.name===element.name).amount++;
+    if (met.find(elem => elem.name === element.name)) {
+      met.find(elem => elem.name === element.name).amount++;
     } else {
       met.push({
-      "name":element.name,
-      "co2value":element.co2value,
-      "amount":1
+        "name": element.name,
+        "co2value": element.co2value,
+        "amount": 1
       });
     }
     setMetrics(met);
@@ -95,58 +95,58 @@ function Profile() {
 
   //this returns your recipes in an accordion list
   function showRecipe(recipes) {
-    if(!method || recipes[0] === undefined) {
+    if (!method || recipes[0] === undefined) {
       return <div></div>
     } else {
-      return <Accordion>{(recipes.map((element,idx) => 
+      return <Accordion>{(recipes.map((element, idx) =>
         <Card {... {
           style: { backgroundColor: "#84A98C" }
         }} key={idx}>
-          <Accordion.Toggle {...{style: { textAlign: "center" }}} as={Card.Header} eventKey={element.recipe_id}>
+          <Accordion.Toggle {...{ style: { textAlign: "center" } }} as={Card.Header} eventKey={element.recipe_id}>
             {element.name}
           </Accordion.Toggle>
           <Accordion.Collapse eventKey={element.recipe_id}>
             <Card.Body {... {
-                style: { backgroundColor: "#afc4b3" }
+              style: { backgroundColor: "#afc4b3" }
             }}>
               <div>
-                Ingredients:{element.ingredients.map(ingredient => 
-                  <div key = {ingredient.Quantity + ingredient.Item}>
-                    <div> {ingredient.Quantity} {ingredient.Item}</div>
-                  </div>
-                )}<br/>
+                Ingredients:{element.ingredients.map(ingredient =>
+                <div key={ingredient.Quantity + ingredient.Item}>
+                  <div> {ingredient.Quantity} {ingredient.Item}</div>
+                </div>
+              )}<br />
               </div>
-              <div key={element.co2value}>CO2 Emitted: {element.co2value}{' kg'}</div><br/>
-              <div key={element.description}>Instructions: {element.description}</div><br/>
-              <Button variant="light" size="sm" onClick={()=>handleRemove(element.recipe_id)}>Remove</Button>{' '}
-              <Button variant="light" size="sm" onClick={()=>handleAdd(element)}>Add to Metric</Button>
+              <div key={element.co2value}>CO2 Emitted: {element.co2value}{' kg'}</div><br />
+              <div key={element.description}>Instructions: {element.description}</div><br />
+              <Button variant="light" size="sm" onClick={() => handleRemove(element.recipe_id)}>Remove</Button>{' '}
+              <Button variant="light" size="sm" onClick={() => handleAdd(element)}>Add to Metric</Button>
             </Card.Body>
           </Accordion.Collapse>
         </Card>
-        ))}</Accordion>
+      ))}</Accordion>
     }
   }
 
   //this unfollows a user you're following
   function handleFriendRemove(id) {
-    fetch('http://localhost:5000/api/v1/users/'+email+"/friends?friend_id="+id, {
+    fetch('http://localhost:5000/api/v1/users/' + email + "/friends?friend_id=" + id, {
       "method": "DELETE",
       "headers": {
         "Content-Type": "application/json"
       }
     }).then((response) => {
-      if(!response.ok){
+      if (!response.ok) {
         return 'error';
       }
       return response.json();
-    }).then(() =>{
+    }).then(() => {
       setEmail('');
     }).catch((error) => {
-      throw(error);
+      throw (error);
     })
   }
 
-    return (
+  return (
     <div>
       <Navbar />
       <div className="container-center-horizontal">
@@ -161,44 +161,45 @@ function Profile() {
           <div className="flex-row-2">
             <div className="flex-row-3">
               <div className="flex-col">
-                <img className="profPic" src={pic} alt=""/>
+                <img className="profPic" src={pic} alt="" />
                 <div className="userName">{name}</div>
                 <div>Your Transportation CO2: {transport}</div>
               </div>
-              <div className= "recipes">
-                <div className= "recipeBox">
+              <div className="recipes">
+                <div className="recipeBox">
                   {showRecipe(recipes)}
                 </div>
               </div>
             </div>
             <div className="flex-col-1">
-              <LineChart recipes={metrics}/> 
+              <LineChart recipes={metrics} />
               <div className="friends">Following</div>
               <div className="flex-row-1">
                 <div className="friendpics">
-                    {hasFriends > 0 &&
-                    <div> 
-                      {friendsList.map((x,i)=>{return(
-                      <div key = {friendsList[i].name + i}>
-                        <br/>
-                        <div className="friendships-row">
-                          <div className = "friendProfAndName"> 
-                            <img className="friendProfPic" src={x.profile_pic} alt=""/>
-                            <div> {x.name}</div><br/>
-                          </div>
-                            <div className="friendButtons2">
-                              
-                              <Link to ={{pathname: "/friendProfile/"+friendsList[i].name, state: { email: friendsList[i].friend_id } }} >
-                                <Button variant="light"> View Profile </Button>
-                              </Link>
-                              
-                              {' '}
-                              <Button variant="light" size="sm" onClick={()=>handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                  {hasFriends > 0 &&
+                    <div>
+                      {friendsList.map((x, i) => {
+                        return (
+                          <div key={friendsList[i].name + i}>
+                            <br />
+                            <div className="friendships-row">
+                              <div className="friendProfAndName">
+                                <img className="friendProfPic" src={x.profile_pic} alt="" />
+                                <div> {x.name}</div><br />
+                              </div>
+                              <div className="friendButtons2">
+
+                                <Link to={{ pathname: "/friendProfile/" + friendsList[i].name, state: { email: friendsList[i].friend_id } }} >
+                                  <Button variant="light"> View Profile </Button>
+                                </Link>
+
+                                {' '}
+                                <Button variant="light" size="sm" onClick={() => handleFriendRemove(friendsList[i].friend_id)}>unfollow</Button>
+                              </div>
                             </div>
-                        </div>
-                        </div>
+                          </div>
                         );
-                        })}
+                      })}
                     </div>
                   }
                 </div>
@@ -209,7 +210,7 @@ function Profile() {
       </div>
       <Footer />
     </div>
-    );
-  }
-  
-  export default Profile;
+  );
+}
+
+export default Profile;

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
+//requires users to be logged in to be able to use features
+//once a user is logged in, as long as the browser window is open, if they close the tab and reopen it, they will still be logged in
 const CLIENT_ID = '96900730353-e5m0ai716kamtj0nl3bs0j8p2iu82ubv.apps.googleusercontent.com';
 class GoogleBtn extends Component {
   constructor(props) {
@@ -35,6 +37,7 @@ class GoogleBtn extends Component {
     }
   }
 
+  //handles login
   login(response) {
     if (response.accessToken) {
       this.setState({
@@ -49,6 +52,7 @@ class GoogleBtn extends Component {
     }
   }
 
+  //handles logout
   logout(response) {
     this.setState({
       isLogined: false,
@@ -70,6 +74,8 @@ class GoogleBtn extends Component {
     alert('Failed to log out')
   }
 
+  //if logged in, stay on dashboard
+  //if logged out, stay on landing page
   render() {
     if (this.state.isLogined && window.location.pathname === '/') {
       window.location.pathname = "/dashboard";

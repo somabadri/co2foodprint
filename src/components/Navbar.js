@@ -3,6 +3,8 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import GoogleBtn from './GoogleBtn';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+//Navbar shows up on every page except for the landing page
 class NavbarComponent extends React.Component {
   state = { clicked: false }
 

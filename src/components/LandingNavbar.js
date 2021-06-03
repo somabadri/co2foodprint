@@ -1,13 +1,8 @@
 import React from 'react';
 import '../styles/landingNavbar.css'
+//LandingNavbar is exclusive to the landing page so users need to login before accessing features
 class LandingNavbar extends React.Component {
-  state = { clicked: false }
-
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked })
-  }
-
-  render() {
+   render() {
     return (
       <nav className="NavbarItems">
         <h1 className="navbar-logo" style={{ fontFamily: "Taviraj" }}>CO2 Foodprint</h1>
